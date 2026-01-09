@@ -38,7 +38,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .icon-box:hover { border-color: #000; }
 
 /* Icon Simple (Cart, User) */
-.icon-simple { font-size: 20px; color: #222; }
+.icon-simple { font-size: 15px; color: #222; }
 .icon-simple:hover { color: #000; }
 
 /* Button Consult */
