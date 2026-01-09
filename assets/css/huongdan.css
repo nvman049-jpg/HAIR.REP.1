@@ -1,0 +1,43 @@
+ /* CSS cho trang này */
+        .guide-header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+        .guide-header h1 { font-size: 32px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: #111; }
+        .guide-header p { color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding-bottom: 60px;
+        }
+        
+        /* Chuyển thẻ a thành block để bao quanh nội dung */
+        a.guide-card {
+            display: flex; /* Quan trọng để giữ layout */
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            background: #fff;
+            text-decoration: none; /* Bỏ gạch chân mặc định của thẻ a */
+            color: inherit;
+        }
+        
+        .guide-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .guide-thumb { height: 220px; overflow: hidden; position: relative; }
+        .guide-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .guide-card:hover .guide-thumb img { transform: scale(1.08); }
+        .guide-date { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.9); color: #000; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .guide-content { padding: 20px; display: flex; flex-direction: column; height: 100%; }
+        .guide-tag { font-size: 11px; font-weight: 800; text-transform: uppercase; color: #d63031; margin-bottom: 8px; display: block; letter-spacing: 1px; }
+        .guide-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; color: #111; }
+        .guide-excerpt { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .read-more { font-size: 13px; font-weight: 700; color: #000; text-decoration: underline; margin-top: auto; }
+        
+        .vtg-tabs { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; margin-top: 20px; }
+        .vtg-tab-btn { padding: 10px 25px; border: 1px solid #ddd; border-radius: 30px; background: #fff; color: #333; font-weight: 600; text-transform: uppercase; transition: all 0.3s; text-decoration: none; }
+        .vtg-tab-btn:hover { border-color: #000; }
+        .vtg-tab-btn.active { background: #000; color: #fff; border-color: #000; }

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR REP 1-1</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/trangchu/Logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+    <section class="main-banner">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="assets/images/trangchu/video-bg-hero-lg.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="container banner-inner">
+                <div class="banner-text">
+                    <img src="assets/images/trangchu/Logo.jpg" alt="Logo HAIR REP 1-1 " class="banner-mini-logo">
+                    <h1 class="banner-heading">CHUỖI CỬA HÀNG TÓC DỆT THỦ CÔNG <br> LỚN NHẤT VIỆT NAM</h1>
+                    <p class="banner-subtext">Được thành lập từ 2026, chúng tôi nghiêm túc, chỉn chu cho từng sản phẩm vì nụ cười hạnh phúc của khách hàng</p>
+               
+                <div style="margin-top: 25px;"> <button class="ai-banner-btn" onclick="openAiDirectly()">
+                      ✨ AI TƯ VẤN KIỂU TÓC
+                        </button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="min-height: 1000px; height: auto; background-color: #f8f8f8; padding: 50px; text-align: center;">
+         <section class="quick-booking">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <h3 class="booking-title">ĐẶT LỊCH GIỮ CHỖ HAIR REP 1-1 SẼ LIÊN LẠC NGAY VỚI BẠN!</h3>
+                    
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-booking-submit">Đặt Lịch Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="main-container">
+            
+            <div class="section-header">
+                <h2>Danh mục sản phẩm và dịch vụ</h2>
+                <p>Cùng bạn khẳng định sự tự tin với mái tóc đẹp mỗi ngày.</p>
+            </div>
+
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'toc-nam')">
+                    <img src="assets/images/trangchu/Ảnh tóc giả nam/1.webp" alt=""> <span>Tóc giả nam</span>
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'toc-nu')">
+                    <img src="assets/images/trangchu/Ảnh tóc giả nữ/toc-gia-nu-dep-vuatocgia-nk01-1-1.jpeg" alt=""> <span>Tóc giả nữ</span>
+                     <span class="badge-new">New</span>
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'phu-kien')">
+                    <img src="assets/images/trangchu/Ảnh phụ kiện tóc giả/3 (1).webp" alt=""> <span>Phụ kiện tóc giả</span>
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'cham-soc')">
+                    <img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/4.webp" alt=""> <span>Sản phẩm chăm sóc tóc</span>
+                </button>
+            </div>
+
+            <div class="slider-viewport">
+                
+                <div id="toc-nam" class="tab-content active">
+                    <div class="product-track">
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 10</span><img src="assets/images/trangchu/Ảnh tóc giả nam/Tyler-30-of-43.webp" alt=""></div><h3>Tóc giả nam Two Block</h3><div class="price">1.800.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><a href="pages/Sản phẩm và dịch vụ/Tóc giả nam/Chi tiết tóc nam/chi_tiet_toc_nam.html" class="btn-light">Mua Ngay</a></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 12</span><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-Tus-19-of-38.webp" alt=""></div><h3>Tóc giả nam Basic</h3><div class="price">1.800.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 3</span><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-Tus-25-of-38.webp" alt=""></div><h3>Tóc giả nam Xoăn</h3><div class="price">1.800.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sale">20%</span><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-Tus-32-of-38.webp" alt=""></div><h3>Tóc giả nam Layer 7/3</h3><div class="price">1.800.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-tus-7-of-38-min.webp" alt=""></div><h3>Tóc giả nam Undercut</h3><div class="price">2.000.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/Tyler-2-of-43.webp" alt=""></div><h3>Tóc giả nam Mohican</h3><div class="price">2.100.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/Tyler-30-of-43.webp" alt=""></div><h3>Tóc giả nam Side Part</h3><div class="price">1.900.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/Tyler-37-of-43.webp" alt=""></div><h3>Tóc giả nam Mái Ngố</h3><div class="price">1.850.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-Tus-6-of-6-1-scaled.webp" alt=""></div><h3>Tóc giả nam Mullet</h3><div class="price">2.200.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/anh-tus-7-of-38-min.webp" alt=""></div><h3>Tóc giả nam Sport</h3><div class="price">1.950.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/c250.webp" alt=""></div><h3>Tóc giả nam Dài Lãng Tử</h3><div class="price">2.500.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nam/e450.webp" alt=""></div><h3>Tóc giả nam Trung Niên</h3><div class="price">1.700.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                    </div>
+                </div>
+
+                <div id="toc-nu" class="tab-content">
+                    <div class="product-track">
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 1</span><img src="assets/images/trangchu/Ảnh tóc giả nữ/2.webp" alt=""></div><h3>Tóc Nữ Mái Kẹp</h3><div class="price">3.500.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><a href="pages/Sản phẩm và dịch vụ/Tóc giả nữ/chi tiết tóc nữ/chi_tiet_toc_nu.html" class="btn-light">Mua Ngay</a></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 1</span><img src="assets/images/trangchu/Ảnh tóc giả nữ/1.webp" alt=""></div><h3>Tóc Nữ Nối Đuôi</h3><div class="price">6.500.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nữ/5.webp" alt=""></div><h3>Tóc Nữ Xoăn Sóng</h3><div class="price">5.200.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nữ/6.webp" alt=""></div><h3>Tóc Nữ Bob Ngắn</h3><div class="price">4.100.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nữ/7.webp" alt=""></div><h3>Tóc Nữ Layer Dài</h3><div class="price">5.500.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh tóc giả nữ/8.webp" alt=""></div><h3>Tóc Nữ Layer Dài</h3><div class="price">5.500.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                    </div>
+                </div>
+
+                <div id="phu-kien" class="tab-content">
+                    <div class="product-track">
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 21</span><img src="assets/images/trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-4.webp" alt=""></div><h3>Băng Dính Dán Tóc Giả Nam VTG KD06</h3><div class="price">250.000 ₫</div><div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><a href="pages/Sản phẩm và dịch vụ" class="btn-light">Mua Ngay</a></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sale">20%</span><img src="assets/images/trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-vtg-kd05-5.webp" alt=""></div><h3>Băng dính Lace Front</h3><div class="price">280.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><a href="Sản phẩm và dịch vụ/Phụ kiện tóc giả/danh_muc_phu_kien.html" class="btn-light">Mua Ngay</a></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sale">20%</span><img src="assets/images/trangchu/Ảnh phụ kiện tóc giả/keo-dan-toc-gia-great-white-walker-tape-vtg-kd01-4.webp" alt=""></div><h3>Băng keo Ultra Hold</h3><div class="price">280.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><a href="Sản phẩm và dịch vụ/Phụ kiện tóc giả/danh_muc_phu_kien.html" class="btn-light">Mua Ngay</a></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 9</span><img src="assets/images/trangchu/Ảnh phụ kiện tóc giả/keo-dan-toc-gia-vua-toc-gia-kd03-3.webp" alt=""></div><h3>Keo dán Ultra Hold</h3><div class="price">350.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><a href="Sản phẩm và dịch vụ/Phụ kiện tóc giả/danh_muc_phu_kien.html" class="btn-light">Mua Ngay</a></div></div></div>
+                    </div>
+                </div>
+
+                <div id="cham-soc" class="tab-content">
+                    <div class="product-track">
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 6</span><img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/bond-shampoo-no2.webp" alt=""></div><h3>Tinh dầu dưỡng tóc</h3><div class="price">402.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 6</span><img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/may-say-toc-vg-v9800-1.webp" alt=""></div><h3>Máy xấy tóc </h3><div class="price">402.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 1</span><img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/may-say-vg-pro-5000-1.webp" alt=""></div><h3>Máy xấy tóc pro 500</h3><div class="price">402.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 0</span><img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/tong-do-cham-vien-kemei-km-1949-1.webp" alt=""></div><h3>Tổng hợp thiết bị hớt tóc</h3><div class="price">402.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                        <div class="product-card"><div class="card-inner"><div class="img-wrapper"><img src="assets/images/trangchu/Ảnh sản phẩm chăm sóc tóc/xit-duong-hercome-150ml-1.webp" alt=""></div><h3>Xịt dưỡng tóc</h3><div class="price">180.000 ₫</div><div class="btn-row"><button class="btn-dark">Thêm giỏ</button><button class="btn-light" onclick="goToPage()">Mua Ngay</button></div></div></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slider-controls">
+                <button class="control-btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="dots">. . . . . .</span>
+                <button class="control-btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div style="text-align:center; margin-top: 30px;">
+             <button class="btn-view-all" onclick="window.location.href='pages/Sản phẩm và dịch vụ/Tóc giả nam/tocgia.html'">Xem tất cả</button>
+            </div>
+
+        </section>
+   
+    
+   <section class="features-section">
+            <div class="container">
+                <h1 class="main-title">Thương hiệu tóc giả nam HAIR REP 1-1 </h1>
+                <p class="main-subtitle"> HAIR REP 1-1 là giải pháp dành cho bạn!</p>
+
+                <div class="features-grid-container">
+                    <div class="feature-box box-left">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <h3>Cá nhân hoá</h3>
+                            <p>Mỗi sản phẩm mang dấu ấn riêng, phù hợp và định hình phong cách cho từng khách hàng.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box box-right">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <h3>Xu hướng</h3>
+                            <p>Cập nhật xu hướng với những thiết kế thời thượng, đáp ứng nhu cầu khách hàng.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box box-left">
+                        <div class="icon-wrapper">
+                            <i class="fa-regular fa-gem"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <h3>Duy mỹ</h3>
+                            <p>Chỉn chu và hoàn hảo tới từng chi tiết, mang đến sản phẩm chất lượng nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box box-right">
+                        <div class="icon-wrapper">
+                            <i class="fa-regular fa-snowflake"></i>
+                        </div>
+                        <div class="text-wrapper">
+                            <h3>Sự thoải mái</h3>
+                            <p>Thiết kế nhẹ, thoáng khí mang lại sự dễ chịu, thoải mái khi sử dụng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-details-section">
+            <div class="container product-layout">
+                <div class="product-image-col">
+                    <img src="assets/images/trangchu/unnamed.jpg" alt="Người mẫu HAIR REP 1-1  ">
+                </div>
+
+                <div class="product-text-col">
+                    <h2>Sản phẩm tóc giả nam <br> HAIR REP 1-1  </h2>
+                    <p class="intro-text">
+                        Mong muốn mang lại cho hàng triệu khách hàng trên toàn cầu mỗi năm những nụ cười hạnh phúc khi được ngắm nhìn trở lại mái tóc bồng bềnh của mình, thông qua việc thúc đẩy các hoạt động kinh doanh liên quan đến cung cấp giải pháp làm đẹp và sức khỏe mái tóc.
+                    </p>
+
+                    <div class="benefit-point">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="benefit-content">
+                            <h3>Chất lượng</h3>
+                            <p>Mong muốn mang lại cho hàng triệu khách hàng trên toàn cầu mỗi năm những nụ cười hạnh phúc khi được ngắm nhìn trở lại mái tóc bồng bềnh của mình, thông qua việc thúc đẩy các hoạt động kinh doanh liên quan đến cung cấp giải pháp làm đẹp và sức khỏe mái tóc.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-point">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="benefit-content">
+                            <h3>An toàn</h3>
+                            <p>Ưu tiên hàng đầu về sự an toàn cho khách hàng. Thân thiện với da đầu, không gây kích ứng, ảnh hưởng xấu đến sức khỏe.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-point">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div class="benefit-content">
+                            <h3>Thời thượng</h3>
+                            <p>Thiết kế hiện đại, dễ dàng biến hóa phong cách, để bạn tự tin thể hiện đẳng cấp riêng biệt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</section>
+
+    </div> <section class="process-section">
+        <div class="process-header">
+            <h1>QUY TRÌNH TRẢI NGHIỆM</h1>
+            <p>4 bước đơn giản để có được giải pháp tóc giả hoàn hảo</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-circle">01</div>
+                <h3 class="step-title">Tư Vấn Miễn Phí</h3>
+                <p class="step-desc">Chuyên gia tư vấn giải pháp tóc giả phù hợp nhất</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">02</div>
+                <h3 class="step-title">Thử Mẫu Trực Tiếp</h3>
+                <p class="step-desc">Trải nghiệm sản phẩm tại salon trước khi quyết định</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">03</div>
+                <h3 class="step-title">Sản Xuất & Giao Hàng</h3>
+                <p class="step-desc">Gia công chuyên nghiệp và giao hàng tận nơi</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">04</div>
+                <h3 class="step-title">Bảo Hành & Hỗ Trợ</h3>
+                <p class="step-desc">Chăm sóc khách hàng 24/7, bảo hành dài hạn</p>
+            </div>
+        </div>
+
+        <button id="openBtn" class="main-btn" onclick="openModal()">
+            Đặt lịch tư vấn ngay <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </section>
+
+ 
+    <section class="testimonials-section">
+        <h2 class="section-title">KHÁCH HÀNG NÓI GÌ VỀ CHÚNG TÔI</h2>
+
+        <div class="cards-container">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Tóc giả chất lượng tuyệt vời! Tự nhiên, bền đẹp. Dịch vụ tư vấn rất chuyên nghiệp."</p>
+                <div class="author-info">
+                    <p class="author-name">Anh Minh Tuấn</p>
+                    <p class="author-title">Doanh nhân, Hà Nội</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"HAIR REP đã giúp tôi lấy lại sự tự tin. Sản phẩm vượt mong đợi, giá cả hợp lý."</p>
+                <div class="author-info">
+                    <p class="author-name">Chị Thu Hương</p>
+                    <p class="author-title">Giáo viên, TP.HCM</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Đội ngũ chuyên nghiệp, tận tâm. Tóc giả rất tự nhiên, không ai nhận ra được."</p>
+                <div class="author-info">
+                    <p class="author-name">Anh Đức Anh</p>
+                    <p class="author-title">Kỹ sư, Đà Nẵng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="vtg-section-wrapper">
+    <div class="vtg-container">
+        <h2 class="vtg-heading">Thông tin từ HAIR REP 1-1 </h2>
+        
+        <div class="vtg-tabs">
+            <button class="vtg-tab-btn active" onclick="window.openVtgTab(event, 'tab-tintuc')">TIN TỨC</button>
+            <button class="vtg-tab-btn" onclick="window.openVtgTab(event, 'tab-uudai')">ƯU ĐÃI</button>
+            <button class="vtg-tab-btn" onclick="window.openVtgTab(event, 'tab-huongdan')">HƯỚNG DẪN</button>
+        </div>
+
+        <div id="tab-tintuc" class="vtg-tab-content active-content">
+            <div class="vtg-content-grid">
+                <a href="assets/images/trangchu/chi_tiet_bai_viet_tin_tuc/index.htm" class="vtg-card-large">
+                    <div class="vtg-img-wrapper">
+                        <img src="assets/images/trangchu/Ảnh tin tức/ngay-tot-cat-toc-thang12-2025.webp" alt="Lịch cắt tóc">
+                    </div>
+                    <h3 class="vtg-title-large">Lịch ngày tốt cắt tóc tháng 12/2025: Thu hút tài vận, may mắn, tránh xui rủi</h3>
+                    <p class="vtg-desc">Tháng 12 luôn là thời điểm mọi người muốn làm mới diện mạo và chuẩn bị tinh thần thật tốt để bước sang năm mới...</p>
+                    <div class="vtg-meta">
+                        <span>11/2025</span> • <span>27825 view</span>
+                    </div>
+                </a>
+
+                <div class="vtg-list-right">
+                    <a href="link-tin-tuc-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh tin tức/gia-nhuom-toc-nam.webp" alt="Bảng giá">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">Giá Nhuộm Tóc Nam Bao Nhiêu?</h4>
+                            <p class="vtg-desc-small">Nhuộm tóc nam bao nhiêu tiền là câu hỏi mà nhiều người thắc mắc...</p>
+                            <div class="vtg-meta">11/2025 • 4577 view</div>
+                        </div>
+                    </a>
+                    <a href="link-tin-tuc-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh tin tức/kieu-toc-nam-choi-tet-2025-12.webp" alt="Tóc Tết">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">17 Kiểu Tóc Nam Chơi Tết 2026 Cực Đẹp</h4>
+                            <p class="vtg-desc-small">Tết luôn là dịp để các chàng trai làm mới bản thân với những kiểu tóc...</p>
+                            <div class="vtg-meta">11/2025 • 26244 view</div>
+                        </div>
+                    </a>
+                    <a href="link-tin-tuc-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh tin tức/ngay-tot-cat-toc-thang12-2025.webp" alt="Ngày tốt">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">Lịch Ngày Tốt Cắt Tóc Tháng 10/2025</h4>
+                            <p class="vtg-desc-small">Trong văn hóa Á Đông, cắt tóc không chỉ đơn giản là làm đẹp...</p>
+                            <div class="vtg-meta">09/2025 • 27724 view</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-uudai" class="vtg-tab-content">
+            <div class="vtg-content-grid">
+                <a href="assets/images/trangchu/chi_tiet_bai_viet_uu_dai/index.htm" class="vtg-card-large">
+                    <div class="vtg-img-wrapper">
+                        <img src="assets/images/trangchu/Ảnh ưu đãi/489908500_626369097064520_1755260062615599961_n.webp" alt="Chiến dịch">
+                    </div>
+                    <h3 class="vtg-title-large">Chiến Dịch Thử 1 Lần Đi, Dễ Hơn Đội Mũ</h3>
+                    <p class="vtg-desc">Đàn ông không ngại ngoại hình, họ chỉ ngại thay đổi – bởi định kiến do chính mình tạo ra...</p>
+                    <div class="vtg-meta">04/2025 • 26626 view</div>
+                </a>
+                <div class="vtg-list-right">
+                    <a href="link-uu-dai-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh ưu đãi/Poster_Chot.webp" alt="Sinh nhật">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">Tưng Bừng Ưu Đãi Mừng Sinh Nhật HAIR REP 1-1 </h4>
+                            <p class="vtg-desc-small">Hair REP 1-1 hân hoan thông báo chương trình khuyến mãi đặc biệt...</p>
+                            <div class="vtg-meta">10/2024 • 24251 view</div>
+                        </div>
+                    </a>
+                    <a href="link-uu-dai-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh ưu đãi/z5650816899647_224ea95bed8c4ac59847692a4d1f04e9-1.webp" alt="Salon Hà Đông">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">SALON HAIR REP 1-1  HÀ ĐÔNG THAY ĐỔI DIỆN MẠO</h4>
+                            <p class="vtg-desc-small">Các anh em ở Hà Nội đã 5-7 năm quý khách cũng đã quen...</p>
+                            <div class="vtg-meta">07/2024 • 22683 view</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-huongdan" class="vtg-tab-content">
+            <div class="vtg-content-grid">
+                <a href="assets/images/trangchu/chi_tiet_bai_viet/index.html" class="vtg-card-large">
+                    <div class="vtg-img-wrapper">
+                        <img src="assets/images/trangchu/Ảnh hướng dẫn/doi-toc-gia-co-de-rot-khong-thumb.webp" alt="Đội tóc giả">
+                    </div>
+                    <h3 class="vtg-title-large">Đội Tóc Giả Có Dễ Rớt Không? Cách Đội Chắc Chắn</h3>
+                    <p class="vtg-desc">Nhiều người vẫn còn lo lắng về vấn đề đội tóc giả có dễ rớt không? Làm thế nào để tóc giả không bị bay...</p>
+                    <div class="vtg-meta">08/2025 • 21312 view</div>
+                </a>
+                <div class="vtg-list-right">
+                    <a href="link-huong-dan-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh hướng dẫn/cach-vuot-toc-mohican-3.webp" alt="Vuốt Mohican">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">Cách Vuốt Tóc Mohican Đẹp Đơn Giản</h4>
+                            <p class="vtg-desc-small">Kiểu tóc Mohican đang trở thành xu hướng được nhiều chàng trai yêu thích...</p>
+                            <div class="vtg-meta">03/2025 • 26575 view</div>
+                        </div>
+                    </a>
+                    <a href="link-huong-dan-chi-tiet.html" class="vtg-card-small">
+                        <div class="vtg-img-small">
+                            <img src="assets/images/trangchu/Ảnh hướng dẫn/huong-dan-tao-kieu-toc-nam-voi-sap-vuot-1.webp" alt="Sáp vuốt tóc">
+                        </div>
+                        <div class="vtg-text-small">
+                            <h4 class="vtg-title-small">Nên Vuốt Sáp Khi Tóc Khô Hay Ướt?</h4>
+                            <p class="vtg-desc-small">Khi tạo kiểu tóc, một câu hỏi thường gặp là nên vuốt sáp khi nào...</p>
+                            <div class="vtg-meta">03/2025 • 26568 view</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="vtg-footer-link">
+    
+        </div>
+    </div>
+</div>
+
+
+<div id="footer-placeholder"></div>
+
+
+<div class="ais-modal-overlay" id="aisSearchModal">
+    <div class="ais-modal-content">
+        
+        <div class="ais-modal-header">
+            <div class="ais-tabs">
+                <div class="ais-tab-item active" id="aisTabText" onclick="aisSwitchTab('text')">Nhập từ khóa</div>
+                <div class="ais-tab-item" id="aisTabAI" onclick="aisSwitchTab('ai')">✨ AI Scanner</div>
+            </div>
+            <span class="ais-close-btn" onclick="aisCloseModal()">×</span>
+        </div>
+
+        <div class="ais-modal-body">
+            
+            <div id="ais-text-view">
+                <div class="ais-input-group">
+                    <input type="text" class="ais-search-input" placeholder="Ví dụ: Tóc giả nguyên đầu...">
+                    <button class="ais-btn-search">Tìm</button>
+                </div>
+            </div>
+
+            <div id="ais-ai-view">
+                <div class="ais-camera-box">
+                    <span class="ais-camera-text">Khu vực Camera</span>
+                    <video id="aisVideo" autoplay playsinline style="display:none;"></video>
+                    <div class="ais-scan-line" id="aisScanLine"></div>
+                </div>
+
+                <button class="ais-btn-full" id="aisBtnAction" onclick="aisHandleAction()">📷 Bật Camera</button>
+
+                <div class="ais-result-container" id="aisResultBox">
+                    <div class="ais-result-header">
+                        <h3 class="ais-result-title" id="aisFaceName">...</h3>
+                        <div class="ais-result-sub">Gợi ý phù hợp nhất:</div>
+                    </div>
+
+                    <div class="ais-hair-list" id="aisHairList">
+                        </div>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+</div>
+
+<!--Code cho chat bot -->
+<div id="chatbot-toggle-btn" onclick="toggleChat()">
+    💬 Hỗ trợ
+</div>
+ 
+<div id="chatbot-container">
+    <div class="chat-header">
+        <span>CSKH HAIR REP 1-1</span>
+        <span class="close-chat" onclick="toggleChat()">×</span>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+        </div>
+
+    <div class="chat-footer">
+        <span style="font-size: 12px; color: #888;">Chọn câu hỏi ở trên để được hỗ trợ</span>
+    </div>
+</div>
+
+<script src="assets/js/face-api.min.js"></script>
+<script src="assets/js/Ai.js"></script>
+<script src="assets/js/Chatbox.js"></script>
+<script src="assets/js/globle.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/load-components.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang chủ: Đi thẳng vào folder components
+        loadComponent("#header-placeholder", "components/header.html");
+        loadComponent("#footer-placeholder", "components/footer.html");
+    });
+</script>
+
+</body>
+</html>

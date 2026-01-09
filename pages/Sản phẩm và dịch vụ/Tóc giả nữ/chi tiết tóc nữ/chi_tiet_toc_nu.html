@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết tóc nữ</title>
+    <link rel="icon" type="image/x-icon" href="../../../../assets/images/trangchu/Logo.jpg">
+
+
+    <!-- CSS chung của nhóm -->
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+
+    <!-- CSS RIÊNG của bạn -->
+    <link rel="stylesheet" href="../chi tiết tóc nữ/chi_tiet_toc_nu.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+   <div id="header-placeholder"></div>
+
+    <div style="height: auto; background-color: #ffffff; padding: 50px; text-align: center;">
+         <section class="quick-booking">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <h3 class="booking-title">ĐẶT LỊCH TƯ VẤN HAIR REP 1:1 SẼ LIÊN LẠC NGAY VỚI BẠN!</h3>
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+                        </div>
+                        <button type="submit" class="btn-booking-submit">Gửi Tư Vấn Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<main class="page-chi-tiet-toc-nam">
+    <div class="page-content">
+        <div class="breadcrumb">
+            <a href="#">Trang chủ</a> 
+            <span class="divider"><i class="fa-solid fa-chevron-right"></i></span> 
+            <a href="#">Sản phẩm</a> 
+            <span class="divider"><i class="fa-solid fa-chevron-right"></i></span> 
+            <span class="breadcrumcurrent">Chi tiết sản phẩm</span>
+        </div>
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="thumbnail-column">
+                    <button class="thumb-nav thumb-prev"><i class="fas fa-chevron-up"></i></button>
+                    <div class="thumbnail-list"> 
+                        <div class="thumb-item active">
+                            <img src="../../../../assets/images/chitiettocnu/toc-gia-nu.png" alt="Ảnh phụ 1" onclick="switchImage(this.src)">
+                        </div>
+                        <div class="thumb-item">
+                            <img src="../../../../assets/images/chitiettocnu/toc-gia-nu-1.png" alt="Ảnh phụ 2" onclick="switchImage(this.src)">
+                        </div>
+                    </div>
+                    <button class="thumb-nav thumb-next"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="main-image">
+                    <img id="mainDisplay" src="../../../../assets/images/chitiettocnu/toc-gia-nu.png" alt="Ảnh chính">
+                </div>      
+            </div>
+        
+            <div class="product-details">
+                <p class="product-rating">
+                    <span class="new-label">New</span>
+                    <span class="stars">
+                        <span class="rating-score">5.0</span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span class="separator">|</span>
+                    <span class="sold">ĐÃ BÁN 5</span>
+                    <span class="separator">|</span>
+                    <span class="reviews">3 ĐÁNH GIÁ</span>
+                </p>
+
+                <h1 id="pro-name"> Tóc Giả Nữ Mái Kẹp Bằng Tóc Thật</h1>
+                <p class="product-code">MÃ SẢN PHẨM: TN11</p>
+                <p class="product-price"><strong id="pro-price-text">3.500.000 đ</strong></p>
+
+                <div class="product-options">
+                    <div class="reset-option-row">
+                        <button class="btn-reset-options" onclick="resetOptions()">
+                            <i class="fas fa-redo-alt"></i> Chọn lại
+                        </button>
+                    </div>
+
+                    <div class="option-row">
+                        <label>Size tóc:</label>
+                        <div class="option-content">
+                            <span class="size-option">15 cm</span>
+                            <span class="size-option">25 cm</span>
+                        </div>
+                    </div>
+
+                    <div class="option-row">
+                        <label>Màu sắc:</label>
+                        <div class="option-content">
+                            <span class="color-swatch" style="background-color: #000;"></span>
+                            <span class="color-swatch" style="background-color: #3c2f2f;"></span>
+                            <span class="color-swatch" style="background-color: #6b4c3b;"></span>
+                        </div>
+                    </div>
+
+                    <div class="option-row">
+                        <label>Số lượng:</label>
+                        <div class="option-content">
+                            <div class="quantity-box">
+                                <button class="quantity-button" onclick="decreaseQty()">−</button>
+                                <input type="number" id="quantity" value="1" min="1">
+                                <button class="quantity-button" onclick="increaseQty()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+               <div class="action-buttons">
+        <button class="buy-now" onclick="muaNgay()">Đặt mua ngay</button>
+        <button class="consult-button" onclick="themVaoGioHang()">
+            <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
+        </button>
+    </div>
+            </div>  
+        </div>
+<script>
+    // 1. TĂNG GIẢM SỐ LƯỢNG
+    function increaseQty() {
+        var q = document.getElementById('quantity');
+        q.value = parseInt(q.value) + 1;
+    }
+    function decreaseQty() {
+        var q = document.getElementById('quantity');
+        if (q.value > 1) q.value = parseInt(q.value) - 1;
+    }
+
+    // 2. HÀM LẤY DỮ LIỆU SẢN PHẨM
+    function layThongTin() {
+        // Tìm ảnh có ID là mainDisplay (nằm ở cột bên trái)
+        var imgElement = document.getElementById('mainDisplay');
+        var nameElement = document.getElementById('pro-name');
+        var priceElement = document.getElementById('pro-price-text');
+        var qtyElement = document.getElementById('quantity');
+
+        // Nếu thiếu ID nào thì báo lỗi để sửa
+        if (!nameElement || !priceElement || !qtyElement) {
+            alert("Lỗi: Thiếu ID trong HTML. Kiểm tra lại code.");
+            return null;
+        }
+
+        // Nếu không tìm thấy ảnh (do copy thiếu), dùng ảnh tạm để không bị lỗi code
+        var imgSrc = imgElement ? imgElement.src : "https://via.placeholder.com/150";
+
+        // Xử lý giá tiền (bỏ dấu chấm, chữ đ) để máy tính hiểu
+        var priceRaw = priceElement.innerText.replace(/\./g, '').replace(/,/g, '').replace(/[^\d]/g, '');
+        
+        return {
+            image: imgSrc,
+            name: nameElement.innerText,
+            price: parseInt(priceRaw),
+            quantity: parseInt(qtyElement.value),
+            details: ["Tiêu chuẩn"]
+        };
+    }
+
+    // 3. NÚT THÊM VÀO GIỎ HÀNG -> CHUYỂN TỚI TRANG GIỎ HÀNG
+    function themVaoGioHang() {
+        var item = layThongTin();
+        if (!item) return;
+
+        var cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        var found = false;
+
+        // Cộng dồn số lượng nếu trùng món
+        for(let i=0; i<cart.length; i++) {
+            if(cart[i].name === item.name) {
+                cart[i].quantity += item.quantity;
+                found = true;
+                break;
+            }
+        }
+        if(!found) cart.push(item);
+
+        localStorage.setItem('myCart', JSON.stringify(cart));
+        
+        // --- CHUYỂN HƯỚNG SANG GIỎ HÀNG ---
+        // Sửa đường dẫn tại đây nếu cần (thêm/bớt dấu ../)
+     window.location.href = '../../../Giỏ hàng/index.html';
+    }
+
+    // 4. NÚT MUA NGAY -> CHUYỂN TỚI TRANG THANH TOÁN
+    function muaNgay() {
+        var item = layThongTin();
+        if (!item) return;
+
+        var cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        var found = false;
+        for(let i=0; i<cart.length; i++) {
+            if(cart[i].name === item.name) {
+                cart[i].quantity += item.quantity;
+                found = true;
+                break;
+            }
+        }
+        if(!found) cart.push(item);
+        
+        localStorage.setItem('myCart', JSON.stringify(cart));
+
+        // --- CHUYỂN HƯỚNG SANG THANH TOÁN ---
+        // Sửa đường dẫn tại đây nếu cần (thêm/bớt dấu ../)
+      window.location.href = '../../../Thanh toán/index.html';
+    }
+</script>
+
+        <div class="service-banner">
+            <div class="service-item">
+                <i class="fas fa-truck-moving"></i>
+                <span>Ship COD toàn Quốc, Quốc tế</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-credit-card"></i>
+                <span>Chính sách thanh toán linh hoạt</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-retweet"></i>
+                <span>Bảo hành đổi trả trong 60 ngày</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-headset"></i>
+                <span>Chăm sóc khách hàng 24/7</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB MÔ TẢ -->
+    <section class="product-tabs">
+
+    <!-- TAB MENU -->
+    <div class="tabs-menu">
+        <button class="tab-item active" data-tab="tab-info">
+            THÔNG TIN SẢN PHẨM
+        </button>
+        <button class="tab-item" data-tab="tab-guide">
+            HƯỚNG DẪN SỬ DỤNG
+        </button>
+        <button class="tab-item" data-tab="tab-review">
+            PHẢN HỒI KHÁCH HÀNG
+        </button>
+    </div>
+
+    <!-- TAB CONTENT -->
+    <div class="tabs-content">
+
+        <!-- THÔNG TIN -->
+        <div class="tab-pane active" id="tab-info">
+            <h2 class="tab-content-title">Tóc Giả Nữ Mái Kẹp Bằng Tóc Thật</h2>
+            <ul class="product-meta">
+                <li><b>Mã sản phẩm:</b> TN11</li>
+                <li><b>Xuất xứ:</b> Việt Nam</li>
+                <li><b>Thương hiệu:</b> Hair Rep 1:1</li>
+                <li><b>Đặc điểm nổi bật:</b> Mái giả dạng kẹp, dễ tháo lắp, phù hợp nhiều kiểu tóc</li>
+                <li><b>Loại tóc:</b> 100% tóc thật</li> 
+                <li><b>Chất liệu đế tóc:</b> Dạng kẹp</li>
+                <li><b>Chiều dài:</b> 15cm - 25cm</li>
+                <li><b>Màu sắc tùy chọn:</b> Đen, Nâu đen, Nâu</li>
+                <li><b>Ưu điểm nổi bật:</b> Gắn vào tóc nhanh chóng, dễ tháo lắp</li>
+                <li><b>Đối tượng:</b> Người muốn có mái nhưng không cắt tóc</li>
+            </ul>
+
+            <h3>Tóc giả nữ mái kẹp là gì?</h3>
+            <p>
+                Tóc giả nữ mái kẹp bằng tóc thật là loại tóc giả được làm từ tóc thật 100%, có gắn kẹp giúp cố định chắc chắn trên đầu. Nhờ sử dụng tóc thật, kiểu tóc này có độ mềm mượt, tự nhiên và dễ dàng tạo kiểu giống như tóc thật của người dùng.
+            </p>
+        </div>
+
+        <!-- HƯỚNG DẪN -->
+<div class="tab-pane" id="tab-guide">
+
+    <h3>HƯỚNG DẪN SỬ DỤNG TÓC GIẢ NỮ MÁI KẸP</h3>
+
+    <h4>1. Hướng dẫn cách đội tóc giả nữ mái kẹp bằng tóc thật</h4>
+
+    <p><b>Bước 1:</b> Chuẩn bị tóc thật</p>
+    <p>Trước khi đội tóc giả nữ mái kẹp, hãy chải tóc thật của bạn thật gọn gàng để tạo bề mặt phẳng và giúp tóc giả cố định tốt hơn. Nếu tóc dài, bạn có thể dùng kẹp ghim để giữ tóc chắc chắn, tránh tình trạng tóc bị lộ ra ngoài.</p>
+
+    <p><b>Bước 2:</b> Căn chỉnh tóc giả nữ mái kẹp</p>
+    <p>Đặt tóc giả nữ mái kẹp lên vùng mái, căn chỉnh sao cho phần tóc giả che phủ hoàn toàn khu vực mà bạn muốn để mái. Đảm bảo tóc giả nữ mái kẹp ôm sát vào da đầu, không bị lệch hoặc xoắn để đạt hiệu ứng tự nhiên nhất. Hãy sử dụng gương để kiểm tra và điều chỉnh lại vị trí nếu cần.</p>
+
+    <p><b>Bước 3:</b> Cố định tóc giả nữ mái kẹp</p>
+    <p>Sử dụng kẹp bấm hoặc băng dính chuyên dụng để cố định tóc giả chắc chắn. Nếu tóc giả có dây đeo hoặc băng thun, hãy điều chỉnh độ căng phù hợp để tạo cảm giác thoải mái nhưng vẫn đảm bảo tóc không bị xê dịch trong quá trình sử dụng.</p>
+
+    <p><b>Bước 4:</b> Kiểm tra và điều chỉnh, tạo kiểu cho tóc giả nữ mái kẹp</p>
+    <p>Sau khi cố định tóc giả nữ mái kẹp trên đầu, hãy kiểm tra lại tổng thể một lần nữa để chắc chắn tóc giả đã được đặt đúng vị trí. Bạn có thể dùng lược mềm để chải nhẹ, giúp tóc giả hòa quyện tự nhiên với tóc thật, tạo cảm giác bồng bềnh và sống động hơn.</p>
+    
+    <h4>2. Hướng dẫn cách tháo tóc giả nữ mái kẹp bằng tóc thật</h4>
+
+    <p><b>Bước 1:</b> Xác định vị trí của kẹp tóc giả</p>
+    <p>Trước khi tháo tóc giả nữ mái kẹp, hãy xác định vị trí các kẹp hoặc băng dính đang giữ tóc giả cố định. Dùng tay nhẹ nhàng bấm mở kẹp để tránh gây đau da đầu hoặc làm hư tóc giả.</p>
+
+    <p><b>Bước 2:</b> Tháo tóc giả nữ mái kẹp đúng cách</p>
+    <p>Bắt đầu tháo tóc giả nữ mái kẹp từ phía sau ra trước, thực hiện chậm rãi và cẩn thận để tránh làm rách phần đế lưới hoặc kéo căng tóc giả quá mức. Tuyệt đối không giật mạnh vì có thể ảnh hưởng đến cả tóc thật và tóc giả.</p>
+
+    <p><b>Bước 3:</b> Bảo quản tóc giả nữ mái kẹp</p>
+    <p>Sau khi tháo tóc giả nữ mái kẹp ra, hãy chải tóc giả nhẹ nhàng bằng lược răng thưa để gỡ rối và giữ nếp tóc. Đặt tóc giả lên giá đỡ hoặc bảo quản trong hộp chuyên dụng để giữ dáng tóc và kéo dài tuổi thọ sản phẩm. Nếu tóc giả nữ mái kẹp bị bẩn, bạn có thể giặt nhẹ nhàng bằng dầu gội chuyên dụng trước khi cất đi.</p>
+
+    <h4>3. Cách bảo quản tóc giả nữ mái kẹp</h4>
+    <ul>
+        <li>Hãy đặt tóc giả ở nơi thoáng mát, khô ráo, tránh tiếp xúc trực tiếp với ánh nắng mặt trời hoặc môi trường ẩm thấp.</li>
+        <li>Khi không sử dụng, bạn có thể đặt tóc giả lên giá đỡ hoặc cất vào hộp chuyên dụng để giữ form dáng và ngăn ngừa tình trạng rối tóc.</li>
+    </ul>
+
+    <h4>4. Cách vệ sinh tóc giả nữ mái kẹp</h4>
+    <ul>
+        <li>Ngâm tóc giả trong nước ấm có pha dầu gội dịu nhẹ từ 10-15 phút, sau đó xả sạch bằng nước mát. </li>
+        <li>Khi làm khô, hãy đặt tóc giả lên khăn mềm và để khô tự nhiên.</li>
+        <li>Tránh sử dụng máy sấy hoặc các thiết bị nhiệt cao, vì có thể làm tổn hại đến kết cấu tóc và giảm tuổi thọ của sản phẩm.</li>
+    </ul>
+
+    <h4>5.Một số lưu ý quan trọng</h4>
+    <ul>
+        <li><b>Cố định tóc mái kẹp chắc chắn nhưng không quá chặt:</b> Kẹp tóc phải đủ chắc để không bị xê dịch nhưng không nên quá chặt để tránh đau da đầu hoặc làm tổn thương tóc thật.</li>
+        <li><b>Không đội tóc mái kẹp khi tóc còn ướt:</b> Đảm bảo tóc thật khô ráo trước khi sử dụng để tránh bết dính và giúp tóc mái bám chắc hơn.</li>
+        <li><b>Chỉnh sửa để tóc mái trông tự nhiên:</b> Sau khi kẹp, chải nhẹ để tóc mái hòa quyện với tóc thật. Nếu cần, dùng máy uốn hoặc máy duỗi để điều chỉnh kiểu tóc.</li>
+        <li><b>Hạn chế sử dụng nhiệt độ cao:</b> Nếu là tóc thật, có thể tạo kiểu bằng nhiệt nhưng nên xịt dưỡng bảo vệ trước. Nếu là sợi tổng hợp, kiểm tra xem có chịu nhiệt không để tránh làm hư hỏng tóc.</li>
+        <li><b>Kiểm tra vị trí tóc mái thường xuyên:</b> Trong quá trình sử dụng, tóc giả có thể bị xê dịch. Hãy kiểm tra định kỳ để đảm bảo tóc mái luôn đúng vị trí.</li>
+        <li><b>Vệ sinh tóc mái định kỳ:</b> Giặt tóc bằng dầu gội dịu nhẹ, không chứa sulfate. Để khô tự nhiên thay vì dùng máy sấy để tránh khô xơ.</li>
+        <li><b>Không lạm dụng tóc giả quá thường xuyên:</b> Đội tóc giả liên tục có thể khiến da đầu bị bí, bết dầu hoặc làm yếu chân tóc thật. Hãy để tóc thật có thời gian nghỉ ngơi.</li>
+        <li><b>Tránh tiếp xúc với hóa chất mạnh:</b> Không sử dụng keo xịt giữ nếp hoặc dầu dưỡng quá nhiều để tránh làm tóc mái bị bết và mất tự nhiên.</li>
+        <li><b>Kiểm tra kẹp tóc định kỳ:</b> Kẹp bấm có thể bị lỏng sau thời gian dài sử dụng. Kiểm tra và thay thế khi cần để tóc mái luôn bám chắc và an toàn khi sử dụng.</li>
+    </ul>
+</div>
+        <!-- PHẢN HỒI -->
+<div class="tab-pane" id="tab-review">
+    <section class="feedback-section">
+        <div class="feedback-left">
+            <h2 class="feedback-title">FEEDBACK KHÁCH HÀNG</h2>
+            <p class="feedback-subtitle">Đánh giá trực tiếp từ khách hàng khi trải nghiệm dịch vụ tại Hair Rep 1:1.</p>
+        </div>
+        <div class="feedback-list">
+            <div class="feedback-item">
+                <div class="feedback-content"> 
+                    <h3 class="name">Nguyễn Thu Trang</h3>
+                    <p class="meta"> 
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span> 3 tuần trước
+                    </p>
+                    <p class="text">Nhận hàng bất ngờ luôn vì tóc mềm mượt y như tóc thật, không bị bóng lộn rẻ tiền đâu ạ. Màu nâu này tôn da cực, đội lên nhìn tự nhiên lắm, bạn bè mình gặp không ai phát hiện ra là đang đội tóc giả luôn. Rất đáng tiền, mọi người nên mua nhé!</p>
+                </div>           
+            </div>
+
+            <div class="feedback-item">
+                <div class="feedback-content"> 
+                    <h3 class="name">Vân Anh</h3>
+                    <p class="meta"> 
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span> 2 tháng trước
+                    </p>
+                    <p class="text">Mình tóc mỏng nên tìm mãi mới được bộ này. Điểm cộng lớn nhất là phần kẹp phím bên trong (như hình shop chụp) cực kỳ chắc chắn, mình đội đi làm cả ngày, chạy xe máy cũng không sợ bị xô lệch hay tuột. Cảm giác nhẹ đầu chứ không bí bách. 10 điểm cho chất lượng!</p>
+                </div>           
+            </div>
+
+            <div class="feedback-item">
+                <div class="feedback-content"> 
+                    <h3 class="name">Gia Tuệ</h3>
+                    <p class="meta"> 
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span> 1 tháng trước
+                    </p>
+                    <p class="text">Giao hàng siêu tốc. Thích nhất là form tóc tỉa layer sẵn rồi, phần mái thưa cũng có độ phồng nhẹ rất xinh, về chỉ việc kẹp lên là xong không cần cắt sửa gì thêm. Nhìn hack tuổi dã man, chị em nào muốn thay đổi phong cách nhanh gọn thì chốt đơn ngay nhé.</p>
+                </div>           
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="related">
+    <h2>Có thể bạn sẽ thích</h2>
+
+    <div class="products-grid">
+        <!-- Card 1 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/trangchu/Ảnh tóc giả nữ/1.webp" alt="Tóc giả nam Xoăn">
+                <div class="sold-badge">ĐÃ BÁN 1</div>
+            </div>
+            <h3>Tóc Giả Nữ Nguyên Đầu Đế Ren Bằng Tóc Thật</h3>
+            <p class="product-item-price">6.500.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Thêm vào giỏ hàng</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/trangchu/Ảnh tóc giả nữ/2.webp" alt="Tóc giả nam Xoăn">
+                <div class="sold-badge">ĐÃ BÁN 4</div>
+            </div>
+            <h3>Tóc Giả Nữ Nguyên Đầu Đế HD Trong Suốt Bằng Tóc Thật</h3>
+            <p class="product-item-price">6.500.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Thêm vào giỏ hàng</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/trangchu/Ảnh tóc giả nữ/3.webp" alt="Tóc giả nam Xoăn">
+                <div class="sold-badge">ĐÃ BÁN 5</div>
+            </div>
+            <h3>Tóc Giả Nữ Nguyên Đầu Đế Lụa Bằng Tóc Thật</h3>
+            <p class="product-item-price">3.800.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Thêm vào giỏ hàng</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/trangchu/Ảnh tóc giả nữ/4.webp" alt="Tóc giả nam Xoăn">
+                <div class="sold-badge">ĐÃ BÁN 2</div>
+            </div>
+            <h3>Tóc Giả Nữ Che Hói Đỉnh Đầu Đế Lưới Bằng Tóc Thật</h3>
+            <p class="product-item-price">4.500.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Thêm vào giỏ hàng</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+ 
+    <section class="process-section">
+        <div class="process-header">
+            <h1>QUY TRÌNH TRẢI NGHIỆM</h1>
+            <p>4 bước đơn giản để có được giải pháp tóc giả hoàn hảo</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-circle">01</div>
+                <h3 class="step-title">Tư Vấn Miễn Phí</h3>
+                <p class="step-desc">Chuyên gia tư vấn giải pháp tóc giả phù hợp nhất</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">02</div>
+                <h3 class="step-title">Thử Mẫu Trực Tiếp</h3>
+                <p class="step-desc">Trải nghiệm sản phẩm tại salon trước khi quyết định</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">03</div>
+                <h3 class="step-title">Sản Xuất & Giao Hàng</h3>
+                <p class="step-desc">Gia công chuyên nghiệp và giao hàng tận nơi</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">04</div>
+                <h3 class="step-title">Bảo Hành & Hỗ Trợ</h3>
+                <p class="step-desc">Chăm sóc khách hàng 24/7, bảo hành dài hạn</p>
+            </div>
+        </div>
+        <button id="openBtn" class="main-btn" onclick="moModal()">
+            Đặt lịch tư vấn ngay <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </section>
+</div>
+<div id="footer-placeholder"></div>
+
+    <script src="../script.js"></script>
+    <script>
+    // 1. Tính tổng số lượng hàng đang có
+    let myCart = JSON.parse(localStorage.getItem('myCart')) || [];
+    let totalQty = 0;
+    myCart.forEach(item => {
+        totalQty += parseInt(item.quantity);
+    });
+
+    // 2. Tìm tất cả các thẻ có class "cart-count-badge" và điền số vào
+    const badges = document.querySelectorAll('.cart-count-badge');
+    
+    badges.forEach(badge => {
+        badge.innerText = totalQty; // Điền số lượng (ví dụ: 1)
+        
+        // Hiện thị badge nếu có hàng
+        if (totalQty > 0) {
+            badge.style.opacity = '1';
+            badge.style.visibility = 'visible';
+        } else {
+            badge.style.opacity = '0';
+        }
+    });
+
+    console.log("Đã cập nhật số lượng icon thành: " + totalQty);
+
+</script>
+    <script src="../../../../assets/js/iconcuoitrang.js"></script>
+    <script src="../../../../assets/js/chi_tiet_toc_nu.js"></script>
+    <script src="../../../../assets/js/load-components.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../../../components/header.html");
+        loadComponent("#footer-placeholder", "../../../../components/footer.html");
+    });
+</script>
+<script src="../../../../assets/js/globle.js"></script>
+</body>
+</html>

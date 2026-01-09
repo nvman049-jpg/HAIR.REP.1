@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR REP 1-1 - Tóc Giả Nữ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/tocgianu.css">
+    <link rel="stylesheet" href="../../../assets/css/header.css">
+    <link rel="icon" type="image/x-icon" href="../../../assets/images/trangchu/Logo.jpg">
+
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+    
+    
+    <section class="custom-banner">
+    <div class="container-banner">
+        <div class="banner-image">
+            <img src="../../../assets/images/chitiettocnu/anhchinh.png" alt="Vua Tóc Giả" onerror="this.src='https://via.placeholder.com/1200x400?text=Banner+Toc+Nu'">
+        </div>
+        
+        <div class="banner-text">
+            <h1>TÓC GIẢ NỮ<br>TỎA SÁNG TỰ TIN CÙNG VUA TÓC GIẢ</h1>
+            <p>Chúng tôi nghiêm túc, chỉn chu cho từng sản phẩm vì nụ cười hạnh phúc của khách hàng.</p>
+        </div>
+    </div>
+    </section>
+
+
+    <div class="content-wrapper">
+    <aside class="sidebar">
+        <h3>BỘ LỌC</h3>
+
+        <!-- 1. Kiểu tóc: Thêm app_toggleFilter và value -->
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-style', this)">Kiểu tóc <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-style" class="filter-options">
+                <label><input type="checkbox" name="style" value="basic"> Basic</label>
+                <label><input type="checkbox" name="style" value="basic-classic"> Basic Classic</label>
+                <label><input type="checkbox" name="style" value="layer"> Layer</label>
+                <label><input type="checkbox" name="style" value="layer-khoi"> Layer Khói</label>
+                <label><input type="checkbox" name="style" value="layer-xoan"> Layer xoăn</label>
+                <label><input type="checkbox" name="style" value="mohican"> Mohican</label>
+                <label><input type="checkbox" name="style" value="mohican-xoan"> Mohican xoăn</label>
+                <label><input type="checkbox" name="style" value="side-part"> Side Part</label>
+                <label><input type="checkbox" name="style" value="side-part-layer"> Side Part Layer</label>
+                <label><input type="checkbox" name="style" value="undercut"> Undercut</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 2. Khoảng giá: Thêm app_toggleFilter và value -->
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-price', this)">Khoảng giá <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-price" class="filter-options">
+                <label><input type="radio" name="price" value="all" checked> Tất cả</label>
+                <label><input type="radio" name="price" value="0-1000000"> Dưới 1.000.000đ</label>
+                <label><input type="radio" name="price" value="1000000-3000000"> Từ 1.000.000đ - 3.000.000đ</label>
+                <label><input type="radio" name="price" value="3000000-5000000"> Từ 3.000.000đ - 5.000.000đ</label>
+                <label><input type="radio" name="price" value="5000000-99999999"> Trên 5.000.000đ</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 3. Màu sắc: Thêm Input checkbox để lọc được -->
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-color', this)">Màu sắc <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-color" class="filter-options">
+                <label class="filter-color-item"><input type="checkbox" name="color" value="black"> <span class="color-dot black"></span> Đen</label>
+                <label class="filter-color-item"><input type="checkbox" name="color" value="brown"> <span class="color-dot brown"></span> Nâu</label>
+                <label class="filter-color-item"><input type="checkbox" name="color" value="dark-brown"> <span class="color-dot dark-brown"></span> Nâu đen</label>
+                <label class="filter-color-item"><input type="checkbox" name="color" value="light-brown"> <span class="color-dot light-brown"></span> Nâu sáng</label>
+                <label class="filter-color-item"><input type="checkbox" name="color" value="gray"> <span class="color-dot gray"></span> Khói</label>
+                <label class="filter-color-item"><input type="checkbox" name="color" value="mix"> <span class="color-dot mix"></span> Hoa râm</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 4. Đánh giá: Thêm app_toggleFilter -->
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-rating', this)">Đánh giá <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-rating" class="filter-options">
+                <label class="filter-item"><input type="checkbox" name="rating" value="5"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="4"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="3"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="2"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="1"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+            </div>
+        </div>
+    </aside>
+    
+ 
+    <main class="main-products">
+        <div class="product-header">
+            <h2>TÓC GIẢ NỮ</h2>
+            <div class="sort-meta">
+                <span id="product-count">9 sản phẩm</span>
+                <select>
+                    <option>Sắp xếp theo</option>
+                </select>
+            </div>
+        </div>
+  
+      <div class="main-container">
+          <div class="product-grid" id="productContainer">
+              <!-- SẢN PHẨM: Đã thêm data-style, data-price, data-rating để lọc -->
+              
+              <div class="product-card" data-style="basic" data-price="3500000" data-rating="5" data-color="black">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 5</span><img src="../../../assets/images/chitiettocnu/toc-gia-nu.png" alt="" onerror="this.src=''"></div>
+                      <h3>Tóc Giả Nữ Mái Kẹp Bằng Tóc Thật</h3>
+                      <div class="price">3.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><a href="../Tóc giả nữ/chi tiết tóc nữ/chi_tiet_toc_nu.html" class="btn-light">Mua Ngay</a></div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-style="layer" data-price="3500000" data-rating="4" data-color="brown">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 4</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/2.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP2'"></div>
+                      <h3>Tóc Giả Nữ Nguyên Đầu Đế HD Trong Suốt</h3>
+                      <div class="price">3.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div> 
+              
+              <div class="product-card" data-style="basic-classic" data-price="3800000" data-rating="5" data-color="dark-brown">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 5</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/3.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP3'"></div>
+                      <h3>Tóc Giả Nữ Nguyên Đầu Đế Lụa Bằng Tóc Thật</h3>
+                      <div class="price">3.800.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div> 
+              
+              <div class="product-card" data-style="layer-khoi" data-price="4500000" data-rating="5" data-color="gray">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 2</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/4.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP4'"></div>
+                      <h3>Tóc Giả Nữ Che Hói Đỉnh Đầu Đế Lưới</h3>
+                      <div class="price">4.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-style="layer-xoan" data-price="5200000" data-rating="5" data-color="light-brown">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 4</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/5.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP5'"></div>
+                      <h3>Tóc Giả Nữ Che Hói Đỉnh Đầu Đế Lụa</h3>
+                      <div class="price">5.200.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-style="mohican" data-price="4100000" data-rating="4" data-color="brown">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 3</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/6.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP6'"></div>
+                      <h3>Tóc Giả Nữ Kẹp Bằng Tóc Thật</h3>
+                      <div class="price">4.100.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div> 
+              
+              <div class="product-card" data-style="mohican-xoan" data-price="5500000" data-rating="5" data-color="mix">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 3</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/7.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP7'"></div>
+                      <h3>Tóc Giả Nữ Y Tế Đế Silicon Mềm</h3>
+                      <div class="price">5.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div> 
+              
+              <div class="product-card" data-style="side-part" data-price="5500000" data-rating="5" data-color="black">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 1</span><img src="../../../assets/images/trangchu/Ảnh tóc giả nữ/8.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP8'"></div>
+                      <h3>Tóc Giả Nữ Nối Nguyên Mảng</h3>
+                      <div class="price">5.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div>
+
+              <div class="product-card" data-style="basic" data-price="3500000" data-rating="5" data-color="brown">
+                  <div class="card-inner">
+                      <div class="img-wrapper"><span class="tag-sold">ĐÃ BÁN 5</span><img src="../../../assets/images/chitiettocnu/9.webp" alt="" onerror="this.src='https://via.placeholder.com/300?text=SP9'"></div>
+                      <h3>Tóc Giả Nữ Mái Kẹp (Nâu)</h3>
+                      <div class="price">3.500.000 ₫</div>
+                      <div class="btn-row"><button class="btn-dark" onclick="openModal()">Đặt Lịch</button><button class="btn-light">Mua Ngay</button></div>
+                  </div>
+              </div> 
+
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- PHẦN BÀI VIẾT: Đã gộp vào wig-article để dùng chung logic xem thêm -->
+    <article class="content-section">
+        <div class="wig-article" id="wigArticle"> 
+            <section>
+                <h2>Tóc giả nữ là gì</h2>
+                <p>Tóc giả nữ là sản phẩm tóc giả làm từ tóc thật hoặc tơ nhân tạo, giúp phụ nữ có thể thay đổi kiểu tóc nhanh chóng mà không cần tác động hoặc xâm lấn đến tóc thật.</p>
+            </section>
+            
+            <section>
+                <h2>Lợi ích khi sử dụng tóc giả nữ</h2>
+                <p>Sử dụng tóc giả nữ mang đến nhiều lợi ích như giúp cải thiện vẻ ngoài, nâng cao sự tự tin, mang đến phong cách đa dạng và phù hợp với cá tính của mỗi người.</p>
+
+                <h3>Giải pháp thay thế tóc thật khi tóc rụng, hói, thưa</h3>
+                <p>Tóc giả nữ giúp che phủ những khuyết điểm về tóc, mang đến vẻ ngoài tự nhiên cho mái tóc của bạn. Bạn sẽ không còn lo lắng về việc tóc mỏng, thưa hay hói đỉnh đầu, mà thay vào đó, tóc giả nữ mang đến sự tự tin với một mái tóc dày dặn và cuốn hút.</p>
+
+                <h3>Cải thiện sự tự tin, vẻ ngoài của bạn</h3>
+                <p>Một mái tóc đẹp là yếu tố quan trọng giúp bạn tự tin hơn trong công việc và giao tiếp. Tóc giả không chỉ che khuyết điểm của tóc,mà còn giúp bạn trở nên quyến rũ, nổi bật hơn trong mắt người đối diện</p>
+                
+                <h3>Tăng độ phồng và dày của tóc</h3>
+                <p>Sử dụng tóc giả nữ là cách hoàn hảo để làm cho tóc dày, bồng bềnh, đầy sức sống. Cải thiện độ thưa mỏng của mái tóc một cách tự nhiên nhất.</p>
+            </section>
+
+            <section>
+                <h2>Các loại tóc giả nữ phổ biến nhất hiện nay</h2>
+                <h3>Tóc giả nữ nguyên đầu</h3>
+                <p>Tóc giả nữ nguyên đầu là loại tóc giả bao phủ toàn bộ đầu, giúp thay đổi diện mạo nhanh chóng với vẻ ngoài tự nhiên nhất. Loại này thích hợp cho những ai bị rụng tóc nhiều hoặc muốn thử nghiệm phong cách mới mà không tác động đến tóc thật.</p>
+                
+                <h3>Tóc giả nữ mái hói</h3>
+                <p>Dành cho những người bị hói vùng trán hoặc phần tóc mái thưa mỏng. Tóc giả nữ mái che hói giúp che phủ hiệu quả, tạo cảm giác mái tóc đầy đặn và cân đối hơn.</p>
+                
+                <h3>Tóc giả nữ che hói đỉnh đầu</h3>
+                <p>Loại tóc giả nữ này thiết kế đặc biệt để che khuyết điểm tại vùng đỉnh đầu, phù hợp cho những ai gặp tình trạng rụng tóc ở khu vực trung tâm đỉnh đầu.</p>
+                
+                <h3>Tóc giả nữ kẹp phím</h3>
+                <p>Dạng tóc giả nữ được gắn bằng kẹp phím giúp cố định chắc chắn vào tóc thật. Dễ dàng tháo lắp, giúp bạn thay đổi diện mạo nhanh chóng mà không gây hại đến da đầu.</p>
+            </section>
+
+            <section>
+                <h2>Tóc giả nữ làm bằng chất liệu gì?</h2>
+                <h3>Tóc giả nữ bằng tóc thật</h3>
+                <p>Được làm từ tóc thật 100%, loại tóc giả này mang lại vẻ ngoài tự nhiên, mềm mại và có thể tạo kiểu như tóc thật (uốn, duỗi, nhuộm).</p>
+                
+                <h3>Tóc giả nữ bằng tơ nhân tạo</h3>
+                <p>Loại tóc giả này được làm từ sợi tổng hợp mô phỏng tóc thật, có độ bóng và mềm mại nhưng không thể tạo kiểu bằng nhiệt như tóc thật.</p>
+            </section>
+
+            <section>
+                <h2>Bảng giá tóc giả nữ tại VTG Hair</h2>
+                <p>Tại VTG Hair, tóc giả nữ có mức giá dao động từ 3.500.000 VNĐ đến 6.500.000 VNĐ, tùy thuộc vào chất liệu, kiểu dáng và độ dài.</p>
+            </section>
+        </div>
+        
+        <div class="gradient-overlay"></div>
+        <div class="read-more-container">
+            <button id="read-more-btn" onclick="app_toggleReadMore()">Xem thêm</button>
+        </div>
+    </article>
+
+
+    <section class="booking-section">
+        <div class="booking-container">
+            <div class="booking-img">
+                <img src="../../../assets/images/chitiettocnu/ảnh tư vấn.webp" alt="Salon" onerror="this.src='https://via.placeholder.com/400x300?text=Tu+Van'">
+            </div>
+            <div class="booking-form">
+                <h2>Đặt lịch tư vấn</h2>
+                <form onsubmit="app_guiThongTin(event)">
+                    <input type="text" placeholder="Họ và tên" required>
+                    <input type="tel" placeholder="Số điện thoại" required>
+                    <button type="submit" class="btn-submit">Gửi tư vấn ngay</button>
+                </form>
+                <p class="hotline"><i class="fa fa-phone"></i> Hotline: 087 616 5555</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="footer-placeholder"></div>
+
+<script src="assets/js/globle.js"></script>
+<script src="../../../assets/js/tocgianu.js"></script>
+<script src="../../../assets/js/load-components.js"></script>
+<script src="../../../assets/js/iconcuoitrang.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(typeof loadComponent === "function") {
+            loadComponent("#header-placeholder", "../../../components/header.html");
+            loadComponent("#footer-placeholder", "../../../components/footer.html");
+        }
+    });
+</script>
+<script src="../../../assets/js/globle.js"></script>
+</body>
+</html>

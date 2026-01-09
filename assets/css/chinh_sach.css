@@ -1,0 +1,11 @@
+.policy-page ul {
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    padding-left: 40px !important; /* Tăng padding để dấu chấm có chỗ hiển thị */
+    margin: 12px 0 18px;
+}
+
+.policy-page li {
+    display: list-item !important;
+    margin-bottom: 8px;
+}

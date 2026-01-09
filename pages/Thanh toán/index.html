@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR REP 1-1</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/images/trangchu/Logo.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+
+    <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - Hair Rep 1:1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" style="padding-top: 20px;">
+        <div class="breadcrumb-text">
+            <a href="index.html">Trang chủ</a> <span>></span> Thanh toán
+        </div>
+    </div>
+
+    <div class="container checkout-container">
+        <div class="checkout-layout">
+            
+            <div class="col-left">
+                <h2 class="checkout-title">Thông tin thanh toán</h2>
+                
+                <div class="form-row">
+                    <input type="text" id="cus-name" placeholder="Họ và tên (*)" class="input-field">
+                    <input type="text" id="cus-phone" placeholder="Số điện thoại (*)" class="input-field">
+                </div>
+                <input type="text" id="cus-address" placeholder="Địa chỉ nhận hàng (*)" class="input-field">
+                <input type="email" id="cus-email" placeholder="Email (Không bắt buộc)" class="input-field">
+                <textarea id="cus-note" placeholder="Ghi chú đơn hàng..." class="input-field" rows="3"></textarea>
+
+                <h2 class="checkout-title" style="margin-top: 30px;">Phương thức thanh toán</h2>
+                <div class="payment-group">
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="bank" onclick="toggleQR(true)">
+                        <span>Chuyển khoản ngân hàng</span>
+                    </label>
+
+                    <div id="qr-box" class="bank-info-box">
+                        <p>Quét mã VietQR:</p>
+                        <div class="qr-wrap">
+                            <img src="https://api.vietqr.io/image/970407-98559999-231025.jpg?accountName=HAIR%20REP%20SYSTEM&amount=0" alt="QR" style="width:100%; display:block;">
+                        </div>
+                        <p class="qr-note">Nội dung: <strong>HỌ TÊN + SĐT</strong></p>
+                    </div>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="cod" checked onclick="toggleQR(false)">
+                        <span>Thanh toán khi nhận hàng (COD)</span>
+                    </label>
+                </div>
+
+                <div class="bottom-nav">
+                    <a href="../Giỏ hàng/index.html" class="back-link"><i class="fa-solid fa-chevron-left"></i> Quay lại giỏ hàng</a>
+                </div>
+                <p class="privacy-text">Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng, tăng trải nghiệm sử dụng website và cho các mục đích cụ thể khác đã được mô tả trong chính sách quyền riêng tư của chúng tôi.</p>
+            </div>
+
+            <div class="col-right">
+                <h2 class="checkout-title">Thông tin đơn hàng</h2>
+                <div id="checkout-items-container"></div> 
+
+                <div class="discount-box">
+                    <input type="text" placeholder="Mã giảm giá" class="input-field" style="margin-bottom:0">
+                    <button>Sử dụng</button>
+                </div>
+
+                <div class="summary-row"><span>Tạm tính:</span><span id="checkout-subtotal">0 ₫</span></div>
+                <div class="summary-row"><span>Phí vận chuyển:</span><span>Miễn phí vận chuyển</span></div>
+                <div class="summary-row total"><span>Tổng cộng:</span><span id="checkout-total">0 ₫</span></div>
+                <button class="btn-confirm-checkout" onclick="finishOrder()">THANH TOÁN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleQR(show) {
+            document.getElementById('qr-box').style.display = show ? 'block' : 'none';
+        }
+
+        function renderCheckoutItems() {
+            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+            const container = document.getElementById('checkout-items-container');
+            const elSub = document.getElementById('checkout-subtotal');
+            const elTotal = document.getElementById('checkout-total');
+            const fmt = (n) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(n);
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center;color:#999;padding:20px;">Giỏ hàng trống</p>';
+                if(elSub) elSub.innerText = '0 ₫';
+                if(elTotal) elTotal.innerText = '0 ₫';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                let money = item.price * item.quantity;
+                total += money;
+                let imgUrl = item.image || 'https://via.placeholder.com/65';
+
+                // --- QUAN TRỌNG: DÙNG BACKGROUND-IMAGE THAY VÌ THẺ IMG ---
+                // Cách này khắc phục triệt để lỗi ảnh bị phóng to
+                html += `
+                <div class="checkout-item">
+                    <div class="item-img-bg" style="background-image: url('${imgUrl}');">
+                        <span class="qty-pill">${item.quantity}</span>
+                    </div>
+
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.details ? item.details.join(', ') : ''}</p>
+                    </div>
+
+                    <div class="item-price">
+                        ${fmt(money)}
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            if(elSub) elSub.innerText = fmt(total);
+            if(elTotal) elTotal.innerText = fmt(total);
+        }
+
+        function finishOrder() {
+            let name = document.getElementById('cus-name').value;
+            let phone = document.getElementById('cus-phone').value;
+            let addr = document.getElementById('cus-address').value;
+            if(!name || !phone || !addr) { alert("Vui lòng điền đủ thông tin!"); return; }
+            alert("Đặt hàng thành công!");
+            localStorage.removeItem('myCart');
+            window.location.href = 'index.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCheckoutItems();
+            toggleQR(false);
+        });
+    </script>
+</body>
+</html>
+
+  <div id="footer-placeholder"></div>
+<script>
+        // Lấy thẻ Modal Quy trình
+        var modal = document.getElementById("modalOverlay");
+
+        // Hàm mở Modal
+        function moModal() {
+            modal.style.display = "flex";
+        }
+
+        // Hàm đóng Modal
+        function dongModal() {
+            modal.style.display = "none";
+        }
+
+        // Đóng khi bấm ra vùng đen bên ngoài
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Hàm giả lập gửi thông tin
+        function guiThongTin(e) {
+            e.preventDefault(); // Chặn tải lại trang
+            alert("Đã nhận thông tin đặt lịch!");
+            dongModal();
+        }
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+    // 1. Tính tổng số lượng hàng đang có
+    let myCart = JSON.parse(localStorage.getItem('myCart')) || [];
+    let totalQty = 0;
+    myCart.forEach(item => {
+        totalQty += parseInt(item.quantity);
+    });
+
+    // 2. Tìm tất cả các thẻ có class "cart-count-badge" và điền số vào
+    const badges = document.querySelectorAll('.cart-count-badge');
+    
+    badges.forEach(badge => {
+        badge.innerText = totalQty; // Điền số lượng (ví dụ: 1)
+        
+        // Hiện thị badge nếu có hàng
+        if (totalQty > 0) {
+            badge.style.opacity = '1';
+            badge.style.visibility = 'visible';
+        } else {
+            badge.style.opacity = '0';
+        }
+    });
+
+    console.log("Đã cập nhật số lượng icon thành: " + totalQty);
+</script>
+<script src="../../assets/js/load-components.js"></script>
+<script src="../../assets/js/iconcuoitrang.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../components/header.html");
+        loadComponent("#footer-placeholder", "../../components/footer.html");
+    });
+</script>
+<script src="../../../assets/js/globle.js"></script>
+</body>
+</html>

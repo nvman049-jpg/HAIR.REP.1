@@ -1,0 +1,569 @@
+/* =========================================
+   1. GENERAL RESET & SETTINGS
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; color: #333; background: #fff; overflow-x: hidden; }
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 30px; }
+
+/* =========================================
+   2. HEADER ELEMENTS
+   ========================================= */
+.top-bar { background: #f5f5f5; text-align: center; padding: 8px; font-size: 12px; font-weight: 600; }
+.header-main { padding: 15px 0; background: #fff; }
+.header-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+
+/* Logo & Center */
+.header-col.center { text-align: center; }
+.logo-img { height: 60px; display: block; margin: 0 auto; }
+
+/* Left & Right Items */
+.header-col.left .lang-switch { display: flex; gap: 5px; align-items: center; font-size: 14px; font-weight: 600; cursor: pointer; }
+.header-col.right { display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+
+/* Icons */
+.icon-box {
+    background: #fff; border: 1px solid #ddd; border-radius: 4px;
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px; color: #333;
+}
+.icon-box:hover { border-color: #000; }
+.icon-simple { font-size: 20px; color: #222; }
+.icon-simple:hover { color: #000; }
+
+.user-icon { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #333; font-size: 14px; font-weight: 600; cursor: pointer; transition: color 0.3s; }
+.user-icon:hover { color: #d63031; }
+
+.header-cart-icon { position: relative; display: inline-block; margin-right: 15px; font-size: 20px; color: #333; cursor: pointer; }
+.count-badge {
+    position: absolute; top: -8px; right: -10px;
+    background-color: #ff0040; color: white;
+    font-size: 11px; font-weight: bold; height: 18px; width: 18px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; border: 2px solid #fff; z-index: 10;
+}
+
+.btn-primary {
+    background: #1a1a1a; color: #fff; border: none; padding: 10px 20px;
+    border-radius: 4px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+}
+.btn-primary:hover { opacity: 0.9; }
+
+/* =========================================
+   3. STICKY NAV
+   ========================================= */
+.sticky-nav {
+    background: #fff; position: sticky; top: 0; z-index: 900;
+    border-top: 1px solid #eee; border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.menu-list { display: flex; justify-content: center; gap: 40px; }
+.menu-list > li > a {
+    display: flex; align-items: center; gap: 5px; padding: 18px 0;
+    font-size: 13px; font-weight: 700; text-transform: uppercase; color: #333;
+    position: relative; transition: all 0.3s ease;
+}
+.menu-list > li > a:hover { color: #121111; }
+.menu-list > li:hover > a i { transform: rotate(180deg); transition: transform 0.3s ease; }
+.menu-list > li > a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: 15px; left: 0; background-color: #f2eded; transition: width 0.3s;
+}
+
+/* Dropdown */
+.has-dropdown { position: relative; }
+.dropdown {
+    position: absolute; top: 100%; left: 0; width: 280px; background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15); opacity: 0; visibility: hidden;
+    transform: translateY(20px); transition: all 0.3s ease; padding: 10px 0;
+    border-radius: 4px; border-top: 3px solid #ff4d4f;
+}
+.has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown li a { display: block; padding: 12px 20px; font-size: 14px; font-weight: 500; color: #444; }
+.dropdown li a:hover { background: #fff5f5; color: #1e1c1c; padding-left: 25px; }
+.badge { background: #161616; color: #fff; font-size: 10px; padding: 2px 5px; border-radius: 3px; margin-left: 5px; }
+
+/* =========================================
+   4. MODALS & POPUPS
+   ========================================= */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;
+}
+.modal-box { background: #fff; position: relative; border-radius: 4px; overflow: hidden; animation: fadeIn 0.3s; }
+.modal-close { position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; color: #999; cursor: pointer; }
+
+/* Search Modal */
+.search-box-modal { width: 600px; padding: 30px; border-radius: 8px; }
+.search-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: #222; }
+.search-input-full {
+    width: 100%; padding: 12px 15px; border: 1px solid #2980b9;
+    border-radius: 5px; font-size: 14px; outline: none; background: #fdfdfd;
+}
+.search-actions { display: flex; justify-content: flex-end; align-items: center; margin-top: 20px; gap: 15px; }
+.btn-cancel { background: none; border: none; font-size: 14px; cursor: pointer; color: #666; }
+.btn-search-confirm {
+    background: #111; color: #fff; border: none; padding: 10px 25px;
+    border-radius: 4px; font-weight: 600; cursor: pointer;
+}
+
+/* Consult Modal */
+.consult-box { width: 850px; display: flex; }
+.modal-left { width: 50%; }
+.modal-left img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.modal-right { width: 50%; padding: 40px; text-align: center; }
+.consult-form input { width: 100%; padding: 12px; margin-bottom: 15px; background: #f5f6f8; border: none; border-radius: 4px; outline: none; }
+.btn-submit { width: 100%; padding: 12px; background: #111; color: #fff; border: none; font-weight: bold; cursor: pointer; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================
+   5. BANNER & SECTIONS
+   ========================================= */
+.main-banner { position: relative; width: 100%; height: 92vh; overflow: hidden; }
+.bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.video-overlay {
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(90deg, rgba(0, 24, 45, 0.8) 0%, rgba(0, 24, 45, 0.55) 35%, rgba(0, 24, 45, 0.25) 65%, rgba(0, 24, 45, 0) 100%);
+}
+.banner-inner { height: 100%; display: flex; align-items: flex-start; padding-top: 250px; }
+.banner-text { max-width: 860px; padding-left: 6%; color: #ffffff; }
+.banner-text img { height: 42px; margin-bottom: 20px; }
+.banner-heading { font-family: "Montserrat", sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 18px; color: #ffffff; text-transform: uppercase; }
+.banner-subtext { font-family: "Montserrat", sans-serif; font-size: 15px; font-weight: 200; max-width: 620px; color: #ffffff; opacity: 0.95; }
+
+.side-contact-bar { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 3000; display: flex; flex-direction: column; gap: 14px; }
+.side-btn { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0,0,0,0.35); transition: all 0.3s ease; text-decoration: none; }
+.side-btn:hover { transform: translateY(-3px) scale(1.05); }
+
+/* Quick Booking */
+.quick-booking { background-color: #1a1a1a; padding: 20px 0; width: 100%; }
+.booking-wrapper { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.booking-title { color: #ffffff; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.booking-form { display: flex; justify-content: center; gap: 10px; width: 100%; max-width: 900px; }
+.form-group { flex: 1; }
+.booking-form input { width: 100%; padding: 16px 20px; border: none; border-radius: 4px; background-color: #f5f5f5; outline: none; }
+.btn-booking-submit { flex: 0.5; padding: 16px 30px; background-color: #ffffff; color: #1a1a1a; border: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
+
+/* =========================================
+   6. CATEGORY & PRODUCTS
+   ========================================= */
+.main-container { max-width: 1200px; margin: 80px auto 50px; padding: 0 15px; }
+.section-header h2 { font-size: 32px; margin-bottom: 5px; color: #111; font-weight: 700; }
+.category-tabs { display: flex; gap: 15px; margin-bottom: 30px; justify-content: center; flex-wrap: wrap; }
+.tab-btn { flex: 1; min-width: 200px; padding: 12px; background: #e9ecef; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: 500; }
+.tab-btn.active { background: #ffffff; color: #333; border: 1px solid #333; font-weight: 700; }
+.slider-viewport { overflow: hidden; width: 100%; padding: 10px 0; }
+.tab-content.active { display: block; animation: fadeIn 0.5s; }
+.product-track { display: flex; flex-wrap: nowrap; width: 100%; transition: transform 0.5s ease-in-out; }
+.product-card { flex: 0 0 25%; max-width: 25%; flex-shrink: 0; padding: 0 10px; }
+.card-inner { background: #fff; border: 1px solid #f0f0f0; border-radius: 8px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.img-wrapper { position: relative; width: 100%; padding-top: 100%; overflow: hidden; background: #fafafa; }
+.img-wrapper img { position: absolute; top: 0; left: 0; height: 100%; width: 100%; object-fit: cover; transition: transform 0.5s; }
+.product-card h3 { font-size: 15px; margin: 15px 10px 5px; height: 42px; overflow: hidden; text-align: center; }
+.product-card .price { font-size: 16px; font-weight: 700; text-align: center; margin-bottom: 15px; }
+.btn-row { display: flex; gap: 8px; padding: 0 10px 20px; }
+.btn-row button { flex: 1; padding: 8px 0; font-size: 12px; font-weight: 600; cursor: pointer; border-radius: 4px; }
+.btn-dark { background: #1a1a1a; color: #fff; border: 1px solid #1a1a1a; }
+.btn-light { background: #fff; color: #1a1a1a; border: 1px solid #ddd; }
+.slider-controls { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.control-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ccc; background: #fff; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+
+/* =========================================
+   7. BRAND SECTIONS (Full Width)
+   ========================================= */
+.features-section { background-color: #0c0c0c; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; padding: 80px 0; text-align: center; }
+.features-grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
+.feature-box { background: #fff; padding: 30px; border-radius: 12px; display: flex; text-align: left; }
+.box-right { transform: translateY(40px); }
+.box-left { transform: translateY(-40px); }
+
+.product-details-section { background-color: #0c0c0c; padding: 80px 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; color: #fff; }
+.product-layout { display: flex; gap: 50px; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+.product-image-col { flex: 1; }
+.product-text-col { flex: 1.2; padding-left: 40px; text-align: left; }
+.benefit-point { display: flex; align-items: flex-start; margin-bottom: 30px; }
+.benefit-point i { background: #fff; color: #0c0c0c; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; margin-right: 15px; flex-shrink: 0; }
+
+/* VTG Cards */
+.vtg-card-small { display: flex; gap: 15px; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.vtg-img-small { flex: 0 0 130px; }
+.vtg-img-small img { height: 85px; width: 100%; object-fit: cover; border-radius: 4px; }
+.vtg-text-small { flex: 1; }
+
+/* --- STYLES CHO FOOTER MỚI --- */
+.hr-footer {
+    background-color: #0a0a0a; /* Màu nền đen rất tối */
+    color: #b0b0b0; /* Màu chữ xám nhạt cho nội dung */
+    padding-top: 60px;
+}
+
+.footer-container {
+    max-width: 1140px; /* Chiều rộng chuẩn */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Phần Logo Top --- */
+.footer-top-logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 800; /* Chữ rất đậm */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.logo-tagline {
+    color: #888888; /* Màu xám tối hơn cho slogan */
+    font-size: 14px;
+}
+
+/* --- Grid Layout 4 Cột --- */
+.footer-main-grid {
+    display: grid;
+    /* Chia 4 cột, cột đầu và cuối rộng hơn một chút để cân đối nội dung */
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.5fr; 
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+/* Style Tiêu đề cột (H3) */
+.footer-col h3 {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Style nội dung văn bản */
+.company-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Style danh sách liên kết (UL LI A) */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Hover chuyển màu trắng */
+}
+
+/* --- Cột 4: Nút và Social --- */
+.footer-actions-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Căn lề phải các nút */
+}
+
+.btn-hr {
+    display: inline-block;
+    width: 100%;
+    max-width: 220px; /* Giới hạn chiều rộng nút */
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px; /* Bo góc nhẹ */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Nút trắng */
+.btn-white {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+.btn-white:hover {
+    background-color: #e6e6e6;
+}
+
+/* Nút viền (Hotline) */
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Icon Mạng xã hội tròn */
+.footer-social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2a2a2a; /* Nền tròn xám đậm */
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.social-circle:hover {
+    background-color: #555; /* Hover sáng hơn chút */
+}
+
+/* --- Thanh bản quyền dưới cùng --- */
+.footer-bottom-bar {
+    border-top: 1px solid #1a1a1a; /* Đường kẻ mờ ngăn cách */
+    padding: 25px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #888888;
+}
+
+/* --- Responsive Mobile (Dưới 768px) --- */
+@media (max-width: 768px) {
+    .footer-main-grid {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột trên mobile */
+        gap: 30px;
+    }
+    
+    .footer-col {
+        text-align: center; /* Căn giữa nội dung trên mobile */
+    }
+    
+    .company-desc {
+        text-align: center;
+    }
+
+    .footer-actions-col {
+        align-items: center; /* Căn giữa các nút trên mobile */
+    }
+}
+
+/* --- CSS CHO MODAL TÌM KIẾM --- */
+/* 1. Canh chỉnh khung chứa chính */
+.search-box-modal {
+    max-width: 500px; /* Giới hạn chiều rộng để không bị bè ra quá */
+    width: 90%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* QUAN TRỌNG: Xếp các phần tử theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các dòng */
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* 2. Tiêu đề "Nhập nội dung tìm kiếm" */
+.search-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    text-align: left;
+}
+
+/* 3. Ô nhập liệu (Input) */
+.search-input-full {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.search-input-full:focus {
+    border-color: #000; /* Khi bấm vào thì viền đen */
+}
+
+/* 4. Khu vực chứa nút bấm (Hủy / Tìm kiếm) */
+.search-actions {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nút sang phải */
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Nút Hủy */
+.btn-cancel {
+    background: transparent;
+    border: none;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 15px;
+}
+.btn-cancel:hover {
+    color: #000;
+}
+
+/* Nút Tìm kiếm */
+.btn-search-confirm {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-search-confirm:hover {
+    background-color: #333;
+}
+
+/* 5. Nút đóng (X) */
+.close-search {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+}
+.close-search:hover {
+    color: #000;
+} 
+/*Code cho thanh tìm kiếm */
+/* Style cho nút đăng nhập kèm chữ */
+.user-icon {
+    display: flex;          /* Xếp icon và chữ nằm ngang */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    gap: 8px;               /* Tạo khoảng cách giữa icon và chữ */
+    text-decoration: none;  /* Bỏ gạch chân */
+    color: #333;            /* Màu chữ mặc định (đen xám) */
+    font-size: 14px;        /* Cỡ chữ */
+    font-weight: 600;       /* Chữ đậm vừa phải */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Hiệu ứng khi di chuột vào */
+.user-icon:hover {
+    color: #d63031;         /* Đổi màu khi hover (ví dụ màu đỏ) */
+}
+
+/* Ẩn chữ trên điện thoại (để đỡ chật) - Tùy chọn */
+@media (max-width: 768px) {
+    .login-text {
+        display: none;
+    }
+}
+/* =========================================
+   9. FIX LỖI TRANG THANH TOÁN (QUAN TRỌNG)
+   ========================================= */
+
+/* Layout */
+.checkout-layout { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 20px; padding-bottom: 50px; }
+.col-left { flex: 1.4; padding-right: 20px; min-width: 300px; }
+.col-right { flex: 1; min-width: 300px; background: #fafafa; padding: 30px; border-radius: 8px; border: 1px solid #e0e0e0; height: fit-content; }
+.checkout-title { font-size: 18px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+
+/* Inputs */
+.input-field { width: 100%; padding: 13px 15px; margin-bottom: 15px; border: 1px solid #d9d9d9; border-radius: 5px; outline: none; }
+.form-row { display: flex; gap: 15px; }
+
+/* Payment & QR */
+.payment-group { border: 1px solid #e0e0e0; border-radius: 6px; padding: 5px 15px; margin-bottom: 20px; }
+.payment-option { display: flex; align-items: center; gap: 10px; padding: 15px 0; cursor: pointer; border-bottom: 1px solid #eee; }
+.payment-option:last-child { border: none; }
+.bank-info-box { display: none; background: #f8f9fa; border-top: 1px solid #eee; padding: 20px; text-align: center; }
+.qr-wrap { width: 150px; margin: 10px auto; background: #fff; padding: 5px; border: 1px solid #ddd; }
+.qr-wrap img { width: 100%; display: block; }
+
+/* Dòng sản phẩm trong trang thanh toán */
+.checkout-item {
+    display: flex; align-items: center; gap: 15px; 
+    margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e5e5e5;
+}
+
+/* -----------------------------------------------------------
+   FIX LỖI ẢNH TO: ĐOẠN CODE QUAN TRỌNG NHẤT
+   Dùng ID để ghi đè mọi CSS khác đang làm vỡ ảnh
+   ----------------------------------------------------------- */
+#checkout-items-container img, 
+.checkout-item img,
+.item-img-bg img {
+    width: 65px !important;
+    height: 65px !important;
+    min-width: 65px !important;
+    max-width: 65px !important;
+    flex: 0 0 65px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+    margin: 0 !important;
+    border: 1px solid #ddd !important;
+}
+
+/* Class hỗ trợ cho Background Image (Nếu dùng div thay img) */
+.item-img-bg {
+    width: 65px !important;
+    height: 65px !important;
+    min-width: 65px !important;
+    flex-shrink: 0 !important;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.qty-pill {
+    position: absolute; top: -5px; right: -5px;
+    background: #666; color: #fff; font-size: 10px; font-weight: bold;
+    width: 20px; height: 20px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 5;
+}
+
+/* Tổng tiền */
+.discount-box { display: flex; gap: 10px; margin: 20px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.discount-box input { margin-bottom: 0; }
+.discount-box button { padding: 0 20px; background: #999; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; white-space: nowrap; }
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; color: #555; }
+.summary-row.total { margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 20px; font-weight: 700; color: #000; align-items: center; }
+.btn-confirm-checkout { width: 100%; background: #1a1a1a; color: #fff; padding: 16px; margin-top: 20px; border: none; border-radius: 5px; font-size: 16px; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+
+/* Responsive */
+@media (max-width: 992px) { .product-layout { flex-direction: column; } .product-text-col { padding-left: 0; } .product-card { flex: 0 0 33.33%; max-width: 33.33%; } }
+@media (max-width: 768px) {
+    .product-card { flex: 0 0 50%; max-width: 50%; }
+    .footer-main-grid { grid-template-columns: 1fr; }
+    .checkout-layout { flex-direction: column-reverse; }
+    .booking-form { flex-direction: column; }
+    .features-grid-container { grid-template-columns: 1fr; }
+    .box-right, .box-left { transform: none; }
+}

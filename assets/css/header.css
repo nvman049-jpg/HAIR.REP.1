@@ -1,0 +1,357 @@
+/* =====================================================
+   CSS SEARCH MODAL - PHIÊN BẢN SIÊU GỌN (ULTRA COMPACT 360)
+   ===================================================== */
+
+/* 1. Lớp nền mờ tối */
+.modal-overlay, #modal-consult {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2147483647 !important;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.open, #modal-consult.open {
+    display: flex !important;
+    opacity: 1;
+}
+
+/* 2. Hộp nội dung (Đã thu ngắn lại tối đa) */
+.modal-content, #modal-consult .modal-content {
+    background: #fff;
+    width: 90%; /* Trên mobile vẫn giữ 90% màn hình */
+    max-width: 360px; /* QUAN TRỌNG: Giảm xuống 360px cho cực kỳ ngắn gọn */
+    padding: 20px 20px; /* Giảm padding 2 bên */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-out;
+    display: block !important;
+}
+
+.modal-overlay.open .modal-content, #modal-consult.open .modal-content {
+    transform: translateY(0);
+}
+
+/* 3. Phần Header chứa Tab */
+.search-tabs-header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.tab-item {
+    font-size: 13px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    padding-bottom: 6px;
+    position: relative;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.tab-item.active {
+    color: #000;
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.ai-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.ai-tab i { color: #f1c40f; }
+
+/* 4. Form Nhập liệu */
+.search-input-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Ô nhập liệu */
+.search-input-wrapper input {
+    flex: 1;
+    padding: 8px 10px; /* Giảm padding bên trong ô nhập */
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+    color: #333;
+    transition: all 0.3s;
+    background: #f9f9f9;
+}
+
+.search-input-wrapper input:focus {
+    border-color: #000;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.search-input-wrapper input::placeholder {
+    color: #bbb;
+    font-size: 13px;
+}
+
+/* Nút Tìm */
+.btn-search-submit {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px; /* Nút nhỏ gọn */
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.3s;
+}
+
+.btn-search-submit:hover {
+    background-color: #333;
+}
+
+/* 5. Nút Đóng (X) */
+.close-search, .close-consult {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+    z-index: 100;
+}
+
+.close-search:hover, .close-consult:hover {
+    color: #000;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+    .modal-content, #modal-consult .modal-content {
+        padding: 15px;
+        width: 85%;
+        max-width: 85%;
+    }
+}
+
+
+/* Đảm bảo khung chứa input là điểm tựa */
+.search-input-wrapper {
+    position: relative !important;
+}
+
+/* Khung gợi ý đổ xuống */
+.search-suggestions-box {
+    display: none; /* Mặc định ẩn */
+    position: absolute;
+    top: 100%; /* Nằm ngay dưới ô input */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 9999; /* Đè lên mọi thứ */
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Class để hiện khung gợi ý */
+.search-suggestions-box.show {
+    display: block !important;
+}
+
+/* Style cho từng dòng */
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+.suggestion-item:hover { background: #f0f0f0; }
+.suggestion-item img { width: 40px; margin-right: 10px; }
+.suggestion-item .s-name { font-weight: bold; font-size: 14px; }
+.suggestion-item .s-price { color: red; margin-left: auto; font-size: 12px; }
+/* --- SỬA LỖI GỢI Ý BỊ ẨN --- */
+
+/* 1. Cho phép nội dung trôi ra ngoài khung Modal */
+#modal-search .modal-content {
+    overflow: visible !important; /* Quan trọng: Để hộp gợi ý không bị cắt */
+    height: auto !important;      /* Tự động giãn chiều cao nếu cần */
+    min-height: 200px;            /* Đảm bảo khung đủ lớn */
+    padding-bottom: 20px;
+}
+
+#modal-search .search-body {
+    overflow: visible !important; /* Đảm bảo body không cắt gợi ý */
+}
+
+/* 2. Định dạng lại khung gợi ý cho nổi bật */
+.search-suggestions-box {
+    display: none; /* Mặc định ẩn */
+    position: absolute;
+    top: 45px; /* Đẩy xuống dưới ô input một chút (điều chỉnh số này nếu cần) */
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* Nền trắng tuyệt đối */
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.15); /* Đổ bóng để tạo cảm giác nổi */
+    z-index: 99999 !important; /* Luôn nằm trên cùng */
+    max-height: 300px; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Cho phép cuộn bên trong khung gợi ý */
+    border-radius: 0 0 8px 8px;
+}
+
+/* Class để hiện khung (JS sẽ thêm class này vào) */
+.search-suggestions-box.show {
+    display: block !important;
+}
+
+/* 3. Đảm bảo ô input là điểm neo */
+.search-input-wrapper {
+    position: relative !important;
+    z-index: 1000; /* Cao hơn các phần tử khác trong modal */
+}
+/* ========================================================== */
+/* GIAO DIỆN TÌM KIẾM THEO PHONG CÁCH "ẢNH 2" (VUA TÓC GIẢ) */
+/* ========================================================== */
+
+/* 1. Khung Modal chính (To hơn, bo tròn, thoáng hơn) */
+#modal-search .modal-content {
+    width: 600px; /* Rộng hơn cho giống mẫu */
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 12px; /* Bo góc mềm mại */
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    overflow: visible !important; /* QUAN TRỌNG: Để hiện gợi ý */
+    text-align: left; /* Căn trái tiêu đề */
+}
+
+/* 2. Tiêu đề "TÌM SẢN PHẨM" */
+.search-tabs-header {
+    border-bottom: none; /* Bỏ gạch chân cũ */
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: left;
+}
+
+.search-tabs-header .tab-item.active {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px; /* Chữ to hơn */
+    font-weight: 700;
+    color: #222;
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+/* 3. Khu vực Form nhập liệu (Chuyển từ ngang sang dọc) */
+.search-input-wrapper {
+    display: block !important; /* Xếp dọc các phần tử */
+    position: relative !important;
+}
+
+/* Ô Input (Viền xanh, bo góc to) */
+.search-input-wrapper input {
+    width: 100%;
+    padding: 15px 15px; /* Cao hơn */
+    font-size: 16px;
+    border: 2px solid #2F80ED; /* Viền xanh dương giống mẫu */
+    border-radius: 8px; /* Bo góc input */
+    outline: none;
+    background: #fff;
+    color: #333;
+    margin-bottom: 20px; /* Khoảng cách với nút bấm bên dưới */
+    box-sizing: border-box; /* Để padding không làm vỡ khung */
+}
+
+.search-input-wrapper input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+/* 4. Nút Tìm (Đẩy sang phải, màu đen) */
+.btn-search-submit {
+    display: block;
+    float: right; /* Đẩy nút sang phải */
+    background-color: #111; /* Màu đen tuyền */
+    color: #fff;
+    border: none;
+    padding: 10px 30px; /* Nút to hơn */
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: auto; /* Hỗ trợ căn phải */
+}
+
+.btn-search-submit:hover {
+    background-color: #444; /* Màu xám khi di chuột */
+}
+
+/* Clear float để khung bao trọn nút bấm */
+.search-input-wrapper::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 5. Khung Gợi ý (Dropdown) */
+.search-suggestions-box {
+    display: none;
+    position: absolute;
+    top: 55px; /* Đặt ngay dưới ô input (Input cao khoảng 50px) */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 99999;
+    border-radius: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.search-suggestions-box.show {
+    display: block !important;
+}
+
+/* Từng dòng gợi ý */
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f9f9f9;
+}
+
+.suggestion-item img {
+    border-radius: 4px; /* Ảnh bo góc nhẹ */
+}

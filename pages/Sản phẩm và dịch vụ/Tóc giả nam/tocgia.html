@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR REP 1-1</title>
+    <link rel="icon" type="image/x-icon" href="../../../assets/images/trangchu/Logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Gốc -->
+    <link rel="stylesheet" href="../../../assets/css/tocgianam.css">
+    <link rel="stylesheet" href="../../../assets/css/header.css">
+    <link rel="stylesheet" href="../../../assets/css/footer-new.css"> 
+    <style>
+        /* --- CSS ƯU TIÊN (Sử dụng !important để ghi đè mọi thứ khác) --- */
+        
+        /* 1. BỘ LỌC */
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        
+        /* Class ẩn bộ lọc */
+        .app-hidden-filter {
+            display: none !important;
+        }
+        
+        /* Class ẩn SẢN PHẨM (Mới thêm để fix lỗi bộ lọc) */
+        .app-hidden-product {
+            display: none !important;
+        }
+
+        .filter-section h4 {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .filter-section h4:hover {
+            color: #d9534f;
+        }
+
+        /* 2. BÀI VIẾT (XEM THÊM) */
+        .content-section {
+            position: relative;
+            margin-top: 50px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .wig-article {
+            display: block !important;
+            max-height: 300px !important; /* Chiều cao khi đóng */
+            overflow: hidden !important;
+            transition: max-height 0.5s ease-in-out;
+            position: relative;
+        }
+
+        /* Khi mở rộng */
+        .wig-article.app-expanded {
+            max-height: 8000px !important; /* Chiều cao khi mở (đủ lớn) */
+        }
+
+        /* Lớp phủ mờ */
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+            pointer-events: none;
+            z-index: 5;
+            transition: opacity 0.3s;
+        }
+
+        /* Ẩn lớp phủ khi mở */
+        .wig-article.app-expanded + .gradient-overlay {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            display: none !important;
+        }
+
+        .read-more-container {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        #read-more-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #read-more-btn:hover {
+            background-color: #d9534f;
+        }
+
+        /* CSS Table cho đẹp */
+        .data-table, .price-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        .data-table th, .data-table td, .price-table th, .price-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .data-table th, .price-table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+    
+    <section class="custom-banner">
+    <div class="container-banner">
+        <div class="banner-image">
+            <img src="../../../assets/images/Tocgianam/ảnh banner 1.png" alt="Vua Tóc Giả" onerror="this.src='https://via.placeholder.com/1200x400?text=Banner+Toc+Gia'">
+        </div>
+        <div class="banner-text">
+            <h1>KHẲNG ĐỊNH ĐẲNG CẤP<br>PHÁI MẠNH CÙNG VUA TÓC GIẢ</h1>
+            <p>Chúng tôi nghiêm túc, chỉn chu cho từng sản phẩm vì nụ cười hạnh phúc của khách hàng.</p>
+        </div>
+    </div>
+    </section>
+
+<div class="content-wrapper">
+    <aside class="sidebar">
+        <h3>BỘ LỌC</h3>
+
+        <!-- Đổi tên hàm onclick thành app_toggleFilter để tránh trùng lặp -->
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-style', this)">Kiểu tóc <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-style" class="filter-options">
+                <label><input type="checkbox" name="style" value="basic"> Basic</label>
+                <label><input type="checkbox" name="style" value="layer"> Layer</label>
+                <label><input type="checkbox" name="style" value="mohican"> Mohican</label>
+                <label><input type="checkbox" name="style" value="short-quiff"> Short Quiff</label>
+                <label><input type="checkbox" name="style" value="two-block"> Two Block</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-price', this)">Khoảng giá <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-price" class="filter-options">
+                <label><input type="radio" name="price" value="all" checked> Tất cả</label>
+                <label><input type="radio" name="price" value="0-1000000"> Dưới 1.000.000đ</label>
+                <label><input type="radio" name="price" value="1000000-3000000"> Từ 1.000.000đ - 3.000.000đ</label>
+                <label><input type="radio" name="price" value="3000000-5000000"> Từ 3.000.000đ - 5.000.000đ</label>
+                <label><input type="radio" name="price" value="5000000-99999999"> Trên 5.000.000đ</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-color', this)">Màu sắc <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-color" class="filter-options">
+                <label class="filter-item"><input type="checkbox" name="color" value="black"><span class="color-circle" style="background-color: #000;"></span> Đen</label>
+                <label class="filter-item"><input type="checkbox" name="color" value="brown"><span class="color-circle" style="background-color: #8B5A42;"></span> Nâu</label>
+                <label class="filter-item"><input type="checkbox" name="color" value="dark-brown"><span class="color-circle" style="background-color: #3B2419;"></span> Nâu đen</label>
+                <label class="filter-item"><input type="checkbox" name="color" value="light-brown"><span class="color-circle" style="background-color: #964B00;"></span> Nâu sáng</label>
+                <label class="filter-item"><input type="checkbox" name="color" value="smoke"><span class="color-circle" style="background-color: #A9AFB7;"></span> Khói</label>
+                <label class="filter-item"><input type="checkbox" name="color" value="gray"><span class="color-circle" style="background-color: #4F5B66;"></span> Hoa râm</label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="filter-section">
+            <h4 onclick="app_toggleFilter('filter-rating', this)">Đánh giá <i class="fa fa-chevron-down"></i></h4>
+            <div id="filter-rating" class="filter-options">
+                <label class="filter-item"><input type="checkbox" name="rating" value="5"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="4"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="3"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="2"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+                <label class="filter-item"><input type="checkbox" name="rating" value="1"><div class="stars"><i class="fa fa-star gold"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i><i class="fa fa-star gray"></i></div></label>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-products">
+        <div class="product-header">
+            <h2>TÓC GIẢ NAM</h2>
+            <div class="sort-meta">
+                <span id="product-count">6 sản phẩm</span>
+                <select><option>Sắp xếp theo</option></select>
+            </div>
+        </div>
+        
+        <div class="product-grid" id="productContainer">
+            <!-- Sản phẩm 1 -->
+            <div class="product-card" data-style="short-quiff" data-price="1800000" data-color="black" data-rating="0">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam Two Block cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Short+Quiff'"></div>
+                <div class="info-box">
+                    <span class="rating">5.00 <i class="fa fa-star"></i> | ĐÃ BÁN 10</span>
+                    <h3>Tóc giả nam Two Block làm từ tóc thật</h3>
+                    <p class="price">1.800.000 đ</p>
+                  <button class="btn-action" onclick="openModal()">Đặt Lịch Tư Vấn</button>
+                    <a href="../Tóc giả nam/Chi tiết tóc nam/chi_tiet_toc_nam.html" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <!-- Sản phẩm 2 -->
+            <div class="product-card" data-style="basic" data-price="1000000" data-color="black" data-rating="5">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam kẹp mái cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Kep+Mai'"><span class="discount">20%</span></div>
+                <div class="info-box">
+                    <span class="rating">5.00 <i class="fa fa-star"></i> | ĐÃ BÁN 10</span>
+                    <h3>Tóc giả nam kẹp mái cho tóc hói</h3>
+                    <p class="price">1.000.000 đ</p>
+                    <button class="btn-action" onclick="openModal()">Đặt Lịch Tư Vấn</button>
+                    <a href="#" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <!-- Sản phẩm 3 -->
+            <div class="product-card" data-style="layer" data-price="2800000" data-color="brown" data-rating="4">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam Layer cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Layer'"><span class="discount">20%</span></div>
+                <div class="info-box">
+                    <span class="rating">4.50 <i class="fa fa-star"></i> | ĐÃ BÁN 5</span>
+                    <h3>Tóc giả nam Layer cho tóc hói</h3>
+                    <p class="price">2.800.000 đ</p>
+                    <button class="btn-action"onclick="openModal()" >Đặt Lịch Tư Vấn</button>
+                    <a href="#" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <!-- Sản phẩm 4 -->
+            <div class="product-card" data-style="basic" data-price="3800000" data-color="dark-brown" data-rating="5">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam mái hói chữ M cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Mai+Hoi+M'"><span class="discount">20%</span></div>
+                <div class="info-box">
+                    <span class="rating">5.00 <i class="fa fa-star"></i> | ĐÃ BÁN 12</span>
+                    <h3>Tóc giả nam mái hói chữ M</h3>
+                    <p class="price">3.800.000 đ</p>
+                    <button class="btn-action" onclick="openModal()" >Đặt Lịch Tư Vấn</button>
+                    <a href="#" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <!-- Sản phẩm 5 -->
+            <div class="product-card" data-style="layer" data-price="1800000" data-color="smoke" data-rating="0">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam Layer cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Layer+2'"><span class="discount">30%</span></div>
+                <div class="info-box">
+                    <span class="rating">0.00 <i class="fa fa-star"></i> | ĐÃ BÁN 0</span>
+                    <h3>Tóc giả nam Layer cho tóc hói (Sale)</h3>
+                    <p class="price">1.800.000 đ</p>
+                    <button class="btn-action" onclick="openModal()" >Đặt Lịch Tư Vấn</button>
+                    <a href="#" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+            <!-- Sản phẩm 6 -->
+            <div class="product-card" data-style="two-block" data-price="1800000" data-color="black" data-rating="0">
+                <div class="img-box"><img src="../../../assets/images/Tocgianam/Tóc giả nam Xoăn cho tóc hói làm từ tóc thật.webp" alt="Tóc giả" onerror="this.src='https://via.placeholder.com/300x300?text=Two+Block'"><span class="discount">50%</span></div>
+                <div class="info-box">
+                    <span class="rating">0.00 <i class="fa fa-star"></i> | ĐÃ BÁN 0</span>
+                    <h3>Tóc giả nam Two Block (Xoăn)</h3>
+                    <p class="price">1.800.000 đ</p>
+                    <button class="btn-action" onclick="openModal()" >Đặt Lịch Tư Vấn</button>
+                    <a href="#" class="view-detail">Xem Chi Tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN BÀI VIẾT -->
+        <article class="content-section">
+            <div class="wig-article" id="wigArticle"> 
+                <section><h2>Tóc giả nam là gì</h2><p>Tóc giả nam, sản phẩm được thiết kế với mục đích thay thế hoặc bổ sung cho mái tóc tự nhiên của phái mạnh giúp đem lại sự tự tin...</p></section>
+                <section>
+                    <h2>Lợi ích của tóc giả nam</h2>
+                    <p>Sử dụng tóc giả nam mang lại nhiều lợi ích không chỉ về mặt ngoại hình mà còn về tinh thần và phong cách cá nhân.</p>
+                    <h3>Che tóc vấn đề hói, tóc rụng, mỏng</h3>
+                    <p>Đầu tiên, tóc giả nam là giải pháp hoàn hảo để che đi những vùng tóc rụng hoặc mỏng, tạo ra một mái tóc đầy đặn và trẻ trung. Điều này giúp nam giới cảm thấy tự tin hơn về diện mạo của mình.</p>
+                    <h3>Thay đổi kiểu tóc linh hoạt</h3>
+                    <p>Thứ hai, việc sử dụng tóc giả nam cho phép thay đổi kiểu tóc một cách nhanh chóng và linh hoạt, mà không cần phải cắt hoặc nhuộm tóc thật.</p>
+                    <h3>Tăng độ phồng, dày của tóc</h3>
+                    <p>Tóc giả nam cũng có thể được sử dụng để bổ sung khối lượng và độ dày cho mái tóc, tạo ra một mái tóc bồng bềnh và tự nhiên hơn.</p>
+                </section>
+                <section>
+                    <h2>Các loại tóc giả nam phổ biến</h2>
+                    <h3>Tóc giả nam nguyên đầu</h3>
+                    <p>Tóc giả nam nguyên đầu, một lựa chọn hoàn hảo cho những người muốn có mái tóc đầy đặn và hoàn chỉnh trên toàn bộ đầu.</p>
+                    <h3>Tóc giả nam nửa đầu</h3>
+                    <p>Tóc giả nam nửa đầu, một sự kết hợp giữa tiện lợi và phong cách. Thường là phần đỉnh đầu hoặc phần trước trán.</p>
+                    <h3>Tóc giả nam mái hói chữ M</h3>
+                    <p>Tóc giả nam mái hói chữ M là loại tóc giả được thiết kế đặc biệt che đi phần tóc hói hình chữ M trên trán nam giới.</p>
+                </section>
+                <section>
+                    <h2>Chất liệu tóc giả nam</h2>
+                    <ul class="material-list">
+                        <li><strong>Tóc thật:</strong> Mang lại sự tự nhiên và chân thực, khó phân biệt với tóc tự nhiên.</li>
+                        <li><strong>Tóc tổng hợp:</strong> Giá thành thấp hơn và dễ bảo quản.</li>
+                        <li><strong>Tơ tằm:</strong> Cảm giác mềm mại và bóng mượt, trọng lượng nhẹ và dễ tạo kiểu.</li>
+                        <li><strong>Kanekalon:</strong> Giá thành rẻ, dễ dàng tạo kiểu tuy nhiên không tự nhiên và khó vệ sinh.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Chọn lựa kiểu tóc phù hợp dành cho người hói</h2>
+                    <h3>1. Chọn kiểu tóc</h3>
+                    <p>Hãy chọn ra 1 kiểu tóc bạn thích trong phần sản phẩm và đội ngũ chuyên gia của VTG sẽ cắt tạo kiểu.</p>
+                    <h3>2. Xác định tình trạng hói của bản thân</h3>
+                    <ul class="styled-list">
+                        <li>Nếu bạn đang gặp tình trạng thưa rụng hói đầu thì cũng đừng lo lắng.</li>
+                        <li>Có 3 tình trạng hói thường gặp: Hói chữ M, Hói nửa đầu và Hói toàn bộ đầu.</li>
+                    </ul>
+                    <h3>3. Lựa chọn size</h3>
+                    <p>Chọn size phù hợp với tình trạng thưa rụng tóc của bản thân. Đội ngũ chuyên gia của VTG đã chia thành 3 dạng hói đầu thường gặp nhất ở nam giới đó là:</p>
+                    <div class="measurement-steps">
+                        <h4>Các bước đo Size mái hói chữ M:</h4>
+                        <ul class="steps">
+                            <li><strong>Bước 1: Xác định đường chân tóc:</strong> Đo khoảng cách 3 điểm cân đối.</li>
+                            <li><strong>Bước 2: Xác định chiều dài mái M (cm):</strong> Kéo đường thẳng từ đường chân tóc.</li>
+                            <li><strong>Bước 3: Xác định chiều sâu mái M (cm):</strong> Gồm Sâu 1, Sâu 2, Sâu 3.</li>
+                        </ul>
+                        <table class="data-table">
+                            <caption>BẢNG SIZE MÁI HÓI CHỮ M</caption>
+                            <thead><tr><th>Size</th><th>Kích thước (Sâu * Dài)</th><th>Ghi chú</th></tr></thead>
+                            <tbody>
+                                <tr><td>SIZE S</td><td>2 * 18cm</td><td rowspan="3">2 (phần sâu nhất) * 18 (chiều dài chân tóc)</td></tr>
+                                <tr><td>SIZE M</td><td>4 * 18cm</td></tr>
+                                <tr><td>SIZE L</td><td>7 * 16cm</td></tr>
+                            </tbody>
+                        </table>
+                        <h4>Hói nửa đầu hoặc cả đầu:</h4>
+                        <table class="data-table">
+                            <tbody>
+                                <tr><td>Size S</td><td>Vùng đầu từ 52cm – 54cm</td></tr>
+                                <tr><td>Size M</td><td>Vùng đầu từ 55cm – 57cm</td></tr>
+                                <tr><td>Size L</td><td>Vùng đầu từ 58cm – 62cm</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>4. Chọn màu tóc</h3>
+                    <p>Lựa chọn màu tóc mà bạn thích và phù hợp với lứa tuổi. Mỗi màu khác nhau sẽ có mức giá khác nhau.</p>
+                    <h3>5. Đặt hàng</h3>
+                    <p>Sau khi lựa chọn đủ các lựa chọn thì bạn sẽ tiến hành đặt hàng.</p>
+                </section>
+                <section>
+                    <h2>Bảng giá tóc giả nam tại VTG Hair</h2>
+                    <table class="price-table">
+                        <thead><tr><th>Loại sản phẩm</th><th>Đặc điểm & Tiêu chí giá</th><th>Giá dao động (VNĐ)</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Mái dán hói cao cấp</strong></td><td>100% tóc thật/tổng hợp</td><td>1.500.000 – 4.000.000</td></tr>
+                            <tr><td><strong>Mái trùm Full đầu</strong></td><td>Thay đổi kiểu tóc hoàn toàn</td><td>~ 3.500.000</td></tr>
+                            <tr><td><strong>Tóc thẩm mỹ nửa đầu</strong></td><td>100% tóc thật</td><td>Vài trăm – 3.000.000+</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            
+            <div class="gradient-overlay"></div>
+            
+            <!-- Đổi tên hàm onclick thành app_toggleReadMore -->
+            <div class="read-more-container">
+                <button id="read-more-btn" type="button" onclick="app_toggleReadMore()">Xem thêm nội dung</button>
+            </div>
+        </article>
+    </main>
+</div>
+
+<section class="booking-section">
+    <div class="booking-container">
+        <div class="booking-img"><img src="../../../assets/images/Tocgianam/ảnh tư vấn.webp" alt="Salon" onerror="this.src='https://via.placeholder.com/400x300?text=Tu+Van'"></div>
+        <div class="booking-form">
+            <h2>Đặt lịch tư vấn</h2>
+            <form onsubmit="app_guiThongTin(event)">
+                <input type="text" placeholder="Họ và tên" required>
+                <input type="tel" placeholder="Số điện thoại" required>
+                <button type="submit" class="btn-submit">Gửi tư vấn ngay</button>
+            </form>
+            <p class="hotline"><i class="fa fa-phone"></i> Hotline: 087 616 5555</p>
+        </div>
+    </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../../../assets/js/iconcuoitrang.js"></script>
+<script src="assets/js/globle.js"></script>
+
+<!-- Scripts ngoài -->
+<script src="../../../assets/js/load-components.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(typeof loadComponent === "function") {
+            loadComponent("#header-placeholder", "../../../components/header.html");
+            loadComponent("#footer-placeholder", "../../../components/footer.html");
+        }
+    });
+</script>
+<script src="../../../assets/js/globle.js"></script>
+<script src="../../../assets/js/tocgianam.js"></script>
+
+</body>
+</html>

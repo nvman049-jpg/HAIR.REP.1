@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Băng Dính Dán Tóc Giả Nam VTG KD06 - HAIR REP 1-1</title>
+      <link rel="icon" type="image/x-icon" href="../../../assets/images/trangchu/Logo.jpg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/phukientociga.css">
+    <style>
+      /* ===== PRODUCT DETAIL PAGE STYLES ===== */
+
+      /* Breadcrumb - WooCommerce Style */
+      .breadcrumb {
+        background: transparent;
+        padding: 15px 0;
+        font-size: 13px;
+        color: #999;
+      }
+      .breadcrumb a {
+        color: #999;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .breadcrumb a:hover {
+        color: #333;
+      }
+      .breadcrumb span {
+        margin: 0 5px;
+        color: #999;
+      }
+      .breadcrumb strong {
+        color: #666;
+        font-weight: 400;
+      }
+
+      /* Product Hero Section - 2 Column Layout (50/50) */
+      .product-hero {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* gallery | info */
+        gap: 50px;
+        align-items: flex-start;
+      }
+
+      /* LEFT Column - Image Gallery with Vertical Thumbnails */
+      .product-gallery {
+        display: flex;
+        gap: 15px;
+      }
+      
+      .thumbnail-column-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 80px;
+      }
+      
+      .thumbnail-scroll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: #ddd #f5f5f5;
+      }
+      
+      .thumbnail-scroll-container::-webkit-scrollbar {
+        width: 4px;
+      }
+      .thumbnail-scroll-container::-webkit-scrollbar-track {
+        background: #f5f5f5;
+      }
+      .thumbnail-scroll-container::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 2px;
+      }
+      
+      /* Arrow Navigation Buttons */
+      .thumbnail-arrow {
+        width: 80px;
+        height: 30px;
+        background: #f8f8f8;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: all 0.3s;
+        font-size: 12px;
+      }
+      .thumbnail-arrow:hover {
+        background: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+      }
+      .thumbnail-arrow:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .thumbnail-arrow:disabled:hover {
+        background: #f8f8f8;
+        color: #666;
+        border-color: #e0e0e0;
+      }
+      
+      /* Main Image Display */
+      .main-image-container {
+        position: relative;
+        flex: 1;
+      }
+      .main-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%; /* Fill parent height */
+        min-height: 500px; /* Ensure sufficient size */
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+      }
+      .main-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 0; /* Removed padding to make image larger */
+        transition: transform 0.5s ease;
+        cursor: pointer; /* Indication that it's clickable */
+      }
+      .main-image-wrapper:hover img {
+        transform: scale(1.02); /* Slight zoom on hover */
+      }
+      
+      /* Lightbox Modal Styles */
+      .lightbox-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s;
+      }
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+      .close-lightbox {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+        z-index: 10000;
+      }
+      .close-lightbox:hover,
+      .close-lightbox:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      /* Zoom icon on hover */
+      .main-image-wrapper::after {
+        content: '\f00e';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        font-size: 16px;
+        color: #333;
+      }
+      .main-image-wrapper:hover::after {
+        opacity: 1;
+      }
+
+      /* Thumbnail Items - Vertical Layout */
+      .thumbnail-column-vertical .thumbnail {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+      }
+      .thumbnail {
+        aspect-ratio: 1 / 1;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid #e0e0e0;
+        transition: all 0.2s;
+        background: #fff;
+      }
+      .thumbnail:hover {
+        border-color: #999;
+      }
+      .thumbnail.active {
+        border-color: #1a1a1a;
+      }
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        padding: 5px;
+      }
+
+      /* Right Column - Product Info */
+      .product-info {
+        padding-top: 0;
+      }
+      
+      /* Meta Info Row - Above Title */
+      .product-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+      .product-meta-row .stars {
+        display: flex;
+        gap: 2px;
+        color: #f1c40f;
+        font-size: 12px;
+      }
+      .product-meta-row .rating-number {
+        color: #666;
+        margin-left: 3px;
+      }
+      .product-meta-row .separator {
+        color: #ddd;
+      }
+      .product-meta-row .sold-info,
+      .product-meta-row .review-count {
+        color: #666;
+        font-weight: 500;
+      }
+      
+      /* Product Title */
+      .product-info h1 {
+        font-size: 26px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      
+      /* Product Code */
+      .product-code {
+        font-size: 13px;
+        color: #999;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      /* Price */
+      .product-price {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 25px;
+      }
+
+      /* Quantity Selector - WooCommerce Style */
+      .quantity-selector {
+        margin-bottom: 25px;
+      }
+      .quantity-selector label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .qty-controls {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        width: fit-content;
+      }
+      .qty-controls button {
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        color: #333;
+        transition: background 0.2s;
+      }
+      .qty-controls button:hover {
+        background: #f5f5f5;
+      }
+      .qty-controls input {
+        width: 60px;
+        height: 42px;
+        text-align: center;
+        border: none;
+        border-left: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        outline: none;
+      }
+      .qty-controls input::-webkit-inner-spin-button,
+      .qty-controls input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Action Buttons - WooCommerce Style (Reordered) */
+      .action-buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 25px;
+      }
+      /* Left Button: Đặt mua ngay - Outline Style */
+      .btn-buy-first {
+        flex: 1;
+        padding: 16px 30px;
+        background: #fff;
+        color: #1a1a1a;
+        border: 2px solid #1a1a1a;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+      }
+      .btn-buy-first:hover {
+        background: #f5f5f5;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      /* Right Button: Thêm vào giỏ hàng - Dark Style */
+      .btn-add-to-cart {
+        flex: 1;
+        padding: 16px 30px;
+        background: #1a1a1a;
+        color: #fff;
+        border: 2px solid #1a1a1a;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Montserrat", sans-serif;
+      }
+      .btn-add-to-cart:hover {
+        background: #333;
+        border-color: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* USP / Commitment Section (Wide Layout) */
+      .usp-section-wide-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 30px;
+      }
+      .usp-box {
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        display: flex;
+        padding: 35px 0;
+        background: white;
+      }
+      .usp-item-wide {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-right: 1px solid #e0e0e0;
+        padding: 0 15px;
+        gap: 15px;
+      }
+      .usp-item-wide:last-child {
+        border-right: none;
+      }
+      .usp-item-wide i {
+        font-size: 28px;
+        color: #333;
+        /* No border around icon as per new design */
+        display: block;
+        width: auto;
+        height: auto;
+        border: none;
+      }
+      .usp-item-wide span {
+        font-size: 13px;
+        color: #555;
+        font-weight: 500;
+        max-width: 200px;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        .usp-box {
+          flex-wrap: wrap;
+        }
+        .usp-item-wide {
+          flex: 0 0 50%;
+          border-right: none;
+          border-bottom: 1px solid #e0e0e0;
+          padding: 20px 10px;
+        }
+        /* Remove bottom border for last 2 items */
+        .usp-item-wide:nth-last-child(-n+2) {
+          border-bottom: none;
+        }
+        /* Add right border to odd items (1st and 3rd in 2x2 grid) */
+        .usp-item-wide:nth-child(odd) {
+          border-right: 1px solid #e0e0e0;
+        }
+      }
+
+      /* Consultation Section (Refactored) */
+      .consultation-section {
+        background: #fff;
+        padding: 60px 0;
+        margin-top: 40px;
+      }
+      .consultation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+      .consultation-image {
+        flex: 1;
+      }
+      .consultation-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        display: block;
+        object-fit: cover;
+      }
+      .consultation-form-wrapper {
+        flex: 1;
+        max-width: 480px;
+      }
+      .consultation-form-wrapper h3 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+      }
+      .consultation-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .consultation-form input {
+        width: 100%;
+        padding: 16px 20px;
+        border: none;
+        background: #f5f5f5;
+        border-radius: 4px;
+        font-size: 15px;
+        color: #333;
+        outline: none;
+      }
+      .consultation-form input:focus {
+        background: #eee;
+      }
+      .consultation-form button {
+        background: #1a1a1a;
+        color: #fff;
+        padding: 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-top: 10px;
+      }
+      .consultation-form button:hover {
+        background: #333;
+      }
+      .consultation-hotline {
+        margin-top: 25px;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .consultation-hotline i {
+        font-size: 18px;
+        color: #333; /* Ensuring icon is also dark */
+      }
+      @media (max-width: 900px) {
+        .consultation-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+        .consultation-form-wrapper {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+
+      /* Floating Contact Icons - Fixed Right Side */
+      .floating-contact-icons {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 1000;
+      }
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 22px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .contact-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      }
+      .contact-icon.zalo {
+        background: #0068ff;
+      }
+      .contact-icon.whatsapp {
+        background: #25d366;
+      }
+      .contact-icon.messenger {
+        background: #0084ff;
+      }
+      .contact-icon.back-to-top {
+        background: #1a1a1a;
+      }
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: #1a1a1a;
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 4px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        opacity: 0;
+        transform: translateX(400px);
+        transition: all 0.4s ease;
+        font-weight: 600;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .toast i {
+        margin-right: 10px;
+        color: #4caf50;
+      }
+
+      /* Product Details Tabs */
+      .product-details-tabs {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 30px;
+      }
+      .tab-headers {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        border-bottom: none;
+      }
+      .tab-header {
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #999;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        position: relative;
+        transition: color 0.3s;
+      }
+      .tab-header:hover {
+        color: #1a1a1a;
+      }
+      .tab-header.active {
+        color: #1a1a1a;
+        border-bottom-color: #1a1a1a;
+      }
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.4s;
+      }
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s;
+      }
+      .tab-description {
+        line-height: 1.8;
+      }
+      .product-specs-list {
+        list-style: none; /* No default bullets */
+        padding: 0;
+        margin-bottom: 25px;
+      }
+      .product-specs-list li {
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 15px;
+      }
+      .product-specs-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #333;
+        font-weight: bold;
+      }
+      .desc-heading {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 30px 0 15px;
+        color: #1a1a1a;
+      }
+      .description-image {
+        margin-top: 30px;
+        text-align: center;
+      }
+      .description-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tab Content Styling */
+      .tab-description h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+      }
+      .tab-description p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+      }
+      .tab-description ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .tab-description ul li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+        font-size: 15px;
+        color: #555;
+      }
+      .tab-description ul li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      /* Specifications Table */
+      .specifications-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .specifications-table tr {
+        border-bottom: 1px solid #eee;
+      }
+      .specifications-table td {
+        padding: 15px 20px;
+        font-size: 15px;
+      }
+      .specifications-table td:first-child {
+        font-weight: 600;
+        color: #333;
+        width: 30%;
+        background: #f8f8f8;
+      }
+      .specifications-table td:last-child {
+        color: #666;
+      }
+
+      /* Usage Steps */
+      .usage-steps {
+        list-style: none;
+        padding: 0;
+        counter-reset: step-counter;
+      }
+      .usage-steps li {
+        counter-increment: step-counter;
+        margin-bottom: 25px;
+        padding-left: 60px;
+        position: relative;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #555;
+      }
+      .usage-steps li:before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        background: #1a1a1a;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .usage-steps li strong {
+        display: block;
+        font-size: 16px;
+        color: #1a1a1a;
+        margin-bottom: 5px;
+      }
+
+      /* Related Products Section */
+      .related-products-section {
+        background: #f8f8f8;
+        padding: 80px 0;
+      }
+      .related-products-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .related-products-section h2 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        color: #1a1a1a;
+      }
+      /* Grid Layout for Related Products */
+      .related-products-section .product-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+      }
+      .related-products-section .product-card {
+        width: 100%;
+        max-width: none;
+        flex: none;
+      }
+      
+      @media (max-width: 992px) {
+        .related-products-section .product-track {
+           grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .product-hero {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        
+        /* Move gallery horizontally */
+        .product-gallery {
+          flex-direction: column-reverse;
+        }
+        
+        .thumbnail-column-vertical {
+          flex-direction: row;
+          width: 100%;
+          overflow-x: auto;
+        }
+        .thumbnail-scroll-container {
+          flex-direction: row;
+          max-height: none;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding-bottom: 5px;
+        }
+        .thumbnail-column-vertical .thumbnail {
+          width: 70px;
+          height: 70px;
+        }
+        .thumbnail-arrow {
+          width: 40px;
+          height: 70px;
+          writing-mode: vertical-rl;
+        }
+        
+        .main-image-container {
+          max-width: 100%;
+        }
+        
+        .floating-contact-icons {
+          right: 10px;
+        }
+        .contact-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .product-info h1 {
+          font-size: 20px;
+        }
+        .product-price {
+          font-size: 26px;
+        }
+        .action-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .action-buttons button {
+          width: 100%;
+        }
+        .tab-headers {
+          flex-direction: row;
+          gap: 0;
+          overflow-x: auto;
+        }
+        .tab-header {
+          padding: 12px 20px;
+          white-space: nowrap;
+        }
+        .tab-header.active {
+          background: #f5f5f5;
+        }
+        
+        .thumbnail-column-vertical .thumbnail {
+          width: 60px;
+          height: 60px;
+        }
+        .thumbnail-arrow {
+          width: 30px;
+          height: 60px;
+        }
+        
+        .qty-controls {
+          width: 100%;
+        }
+        .qty-controls input {
+          flex: 1;
+        }
+      }
+      
+      /* Related Products Section - vuatocgia.com Style */
+      .related-products-section {
+        background: #f8f8f8;
+        padding: 60px 0;
+        margin-top: 60px;
+      }
+      .related-products-section h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+      
+      .related-products .product-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .related-products .product-card:hover {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transform: translateY(-3px);
+      }
+      
+      .related-products .img-wrapper {
+        background: #f5f5f5;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 0;
+        display: block;
+        text-decoration: none;
+      }
+      .related-products .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 20px;
+      }
+      
+      .product-title-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .product-title-link:hover h3 {
+        color: #ff6b00;
+      }
+      
+      .related-products .card-inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .related-product-info {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .product-rating-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 3px;
+      }
+      .product-rating-stars {
+        color: #ffa500;
+        font-size: 13px;
+      }
+      .rating-number {
+        font-size: 13px;
+        font-weight: 600;
+        color: #333;
+      }
+      
+      .sold-count-small {
+        font-size: 11px;
+        color: #666;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      
+      .related-products .card-inner h3 {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #333;
+        margin-bottom: 10px;
+        min-height: 42px;
+      }
+      
+      .related-products .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+      }
+      
+      /* HORIZONTAL Buttons - matching vuatocgia.com */
+      .related-btn-stack {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: auto;
+      }
+      
+      .btn-add-cart,
+      .btn-buy-now-link {
+        flex: 1;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 4px;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+      }
+      
+      /* Left button - "Bỏ vào giỏ hàng" - OUTLINE style */
+      .btn-buy-now-link {
+        background: white;
+        color: #1a1a1a;
+        border: 2px solid #1a1a1a;
+      }
+      .btn-buy-now-link:hover {
+        background: #f5f5f5;
+      }
+      
+      /* Right button - "Đặt Mua Ngay" - DARK style */
+      .btn-add-cart {
+        background: #1a1a1a;
+        color: white;
+        border: 2px solid #1a1a1a;
+      }
+      .btn-add-cart:hover {
+        background: #333;
+      }
+      
+      @media (max-width: 768px) {
+        .related-products .product-card {
+          flex: 0 0 220px;
+        }
+        .related-btn-stack {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+   <div id="header-placeholder"></div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Trang chủ</a>
+        <span>›</span>
+        <a href="danh_muc_phu_kien.html">Phụ kiện tóc giả</a>
+        <span>›</span>
+        <strong>Băng Dính Dán Tóc Giả Nam VTG KD06</strong>
+      </div>
+    </section>
+
+    <!-- Product Hero Section -->
+    <section class="product-hero">
+      <!-- LEFT: Image Gallery (Thumbnails + Main Image) -->
+      <div class="product-gallery">
+        <div class="thumbnail-column-vertical">
+          <button class="thumbnail-arrow up" id="thumbnailUp">
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
+          <div class="thumbnail-scroll-container" id="thumbnailContainer">
+            <div
+              class="thumbnail active"
+              data-image="trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-4.webp"
+            >
+              <img
+                src="../../../assets/images/trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-4.webp"
+                alt="Ảnh 1"
+              />
+            </div>
+            <div
+              class="thumbnail"
+              data-image="trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-1.webp"
+            >
+              <img
+                src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-1.webp"
+                alt="Ảnh 2"
+              />
+            </div>
+            <div
+              class="thumbnail"
+              data-image="trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-3.webp"
+            >
+              <img
+                src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-3.webp"
+                alt="Ảnh 3"
+              />
+            </div>
+            <div
+              class="thumbnail"
+              data-image="trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-6.webp"
+            >
+              <img
+                src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-6.webp"
+                alt="Ảnh 4"
+              />
+            </div>
+            <div
+              class="thumbnail"
+              data-image="trangchu/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-7.webp"
+            >
+              <img
+                src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-7.webp"
+                alt="Ảnh 5"
+              />
+            </div>
+          </div>
+          <button class="thumbnail-arrow down" id="thumbnailDown">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="main-image-container">
+          <div class="main-image-wrapper">
+            <img
+              id="mainImage"
+              src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-4.webp"
+              alt="Băng dính dán tóc giả Lace Front Walker Tape"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Product Info -->
+      <div class="product-info">
+        <!-- Meta Row: Rating | Sold | Reviews -->
+        <div class="product-meta-row">
+          <div class="stars">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <span class="rating-number">0.0</span>
+          <span class="separator">|</span>
+          <span class="sold-info">ĐÃ BÁN 50</span>
+          <span class="separator">|</span>
+          <span class="review-count">0 Đánh giá</span>
+        </div>
+
+        <h1 id="pro-name">Băng dính dán tóc giả Lace Front Walker Tape</h1>
+
+        <div class="product-code">Mã sản phẩm: VTG KD06</div>
+
+        <div class="product-price">280.000 ₫</div>
+
+        <!-- Quantity Selector -->
+        <div class="quantity-selector">
+          <label>Số lượng</label>
+          <div class="qty-controls">
+            <button type="button" id="qtyMinus">–</button>
+            <input type="number" id="qtyInput" value="1" min="1" />
+            <button type="button" id="qtyPlus">+</button>
+          </div>
+        </div>
+
+        <!-- Action Buttons (Reordered) -->
+        <div class="action-buttons">
+          <button class="btn-buy-first" onclick="buyNow()">
+            Đặt mua ngay
+          </button>
+          <button class="btn-add-to-cart" onclick="addToCart()">
+            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ hàng
+          </button>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- USP / Commitment Section (Wide) -->
+    <section class="usp-section-wide-container">
+      <div class="usp-box">
+        <div class="usp-item-wide">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Ship COD toàn Quốc; Quốc tế</span>
+        </div>
+        <div class="usp-item-wide">
+          <i class="fa-regular fa-credit-card"></i>
+          <span>Chính sách thanh toán linh hoạt</span>
+        </div>
+        <div class="usp-item-wide">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <span>Bảo hành đổi trả trong 60 ngày</span>
+        </div>
+        <div class="usp-item-wide">
+          <i class="fa-solid fa-headset"></i>
+          <span>Chăm sóc khách hàng 24/7</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details Tabs -->
+    <section class="product-details-tabs">
+      <div class="tab-headers">
+        <button class="tab-header active" data-tab="description">THÔNG TIN SẢN PHẨM</button>
+        <button class="tab-header" data-tab="usage">HƯỚNG DẪN SỬ DỤNG</button>
+        <button class="tab-header" data-tab="reviews">PHẢN HỒI KHÁCH HÀNG</button>
+      </div>
+
+      <!-- Tab 1: Description -->
+      <div class="tab-content active" id="description">
+        <div class="tab-description">
+          <ul class="product-specs-list">
+            <li><strong>Tên sản phẩm:</strong> Băng dính dán tóc giả Lace Front Walker Tape</li>
+            <li><strong>Mã sản phẩm:</strong> VTG KD06</li>
+            <li><strong>Xuất xứ:</strong> Mỹ</li>
+            <li><strong>Thương hiệu:</strong> Walker Tape</li>
+          </ul>
+
+          <h3 class="desc-heading">Công dụng của Băng Dính Dán Tóc Giả Lace Front Walker Tape VTG Hair</h3>
+          <p>
+            Băng dính dán tóc giả Lace Front Walker Tape là một trong những sản phẩm bán chạy nhất của hãng Walker tape. Cuộn Lace Front nổi tiếng vì độ dính bền chắc, không có mùi và được sản xuất trong môi trường kháng khuẩn cao.
+          </p>
+
+          <div class="description-image">
+            <img src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-3.webp" alt="Băng dính Lace Front Walker Tape" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Specifications -->
+      <div class="tab-content" id="specifications">
+        <table class="specifications-table">
+          <tr>
+            <td>Tên sản phẩm</td>
+            <td>Băng Dính Dán Tóc Giả Nam VTG KD06</td>
+          </tr>
+          <tr>
+            <td>Mã sản phẩm</td>
+            <td>VTG-KD06-2024</td>
+          </tr>
+          <tr>
+            <td>Chất liệu</td>
+            <td>Keo acrylic y tế, lớp nền vải không dệt</td>
+          </tr>
+          <tr>
+            <td>Độ bám dính</td>
+            <td>Cực cao - 3 đến 5 tuần</td>
+          </tr>
+          <tr>
+            <td>Thời gian sử dụng</td>
+            <td>3-5 tuần (tùy điều kiện sử dụng)</td>
+          </tr>
+          <tr>
+            <td>Xuất xứ</td>
+            <td>Hàn Quốc</td>
+          </tr>
+          <tr>
+            <td>Kích thước</td>
+            <td>3cm x 3m (1 cuộn)</td>
+          </tr>
+          <tr>
+            <td>Trọng lượng</td>
+            <td>50g</td>
+          </tr>
+          <tr>
+            <td>Bảo quản</td>
+            <td>Nơi khô ráo, tránh ánh nắng trực tiếp, nhiệt độ < 30°C</td>
+          </tr>
+          <tr>
+            <td>Hạn sử dụng</td>
+            <td>24 tháng kể từ ngày sản xuất</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Tab 3: Usage Instructions -->
+      <div class="tab-content" id="usage">
+        <ol class="usage-steps">
+          <li>
+            <strong>Chuẩn bị da đầu</strong>
+            Làm sạch da đầu bằng dung dịch tẩy dầu chuyên dụng. Lau khô hoàn
+            toàn và đảm bảo da đầu không còn dầu, bụi bẩn. Để da đầu khô tự
+            nhiên khoảng 5-10 phút.
+          </li>
+          <li>
+            <strong>Cắt băng dính theo kích thước</strong>
+            Đo và cắt băng dính theo đường viền tóc giả của bạn. Nên cắt thành
+            nhiều đoạn nhỏ để dễ dàng điều chỉnh và tạo đường viền tự nhiên hơn.
+          </li>
+          <li>
+            <strong>Dán băng lên da đầu</strong>
+            Bóc lớp giấy bảo vệ màu trắng, dán băng keo lên da đầu theo đường
+            viền đã chuẩn bị. Ấn nhẹ để băng dính chặt vào da. Đợi 10-15 giây
+            cho keo bám dính tốt.
+          </li>
+          <li>
+            <strong>Gắn tóc giả và hoàn thiện</strong>
+            Bóc lớp giấy bảo vệ màu xanh trên mặt băng dính, cẩn thận đặt tóc
+            giả lên vị trí đã dán keo. Ấn đều và chắc chắn từ phía trước ra sau.
+            Giữ nguyên trong 1-2 phút để keo cố định hoàn toàn.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="related-products-section related-products">
+      <div class="container">
+        <h2>Sản Phẩm Liên Quan</h2>
+
+        <div class="slider-viewport">
+          <div class="product-track">
+            <!-- Products dynamically loaded by product-loader.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation Form -->
+    <!-- Consultation Form (Refactored) -->
+    <section class="consultation-section">
+      <div class="consultation-container">
+        <!-- Left Column: Image -->
+        <div class="consultation-image">
+          <img src="../../../assets/images/phukientocgia/Form-dat-lich-tu-van-dich-vu-dest-1-of-1.webp" alt="Không gian Hair Rep 1:1" />
+        </div>
+        <!-- Right Column: Form -->
+        <div class="consultation-form-wrapper">
+          <h3>Đặt lịch tư vấn</h3>
+          <form class="consultation-form">
+            <input type="text" placeholder="Họ và tên" required />
+            <input type="tel" placeholder="Số điện thoại" required />
+            <button type="submit">Gửi tư vấn ngay</button>
+          </form>
+          <div class="consultation-hotline">
+            <i class="fa-solid fa-phone"></i> Hotline: 087 616 5555
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Đã thêm vào giỏ hàng!</span>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-consult" class="modal-overlay">
+      <div class="modal-box consult-box">
+        <button class="modal-close close-consult">&times;</button>
+        <div class="modal-left">
+          <img
+            src="../../../assets/images/phukientocgia/Form-dat-lich-tu-van-dich-vu-dest-1-of-1.webp"
+            alt="Tư vấn"
+          />
+        </div>
+        <div class="modal-right">
+          <h2>
+            Tư vấn miễn phí giải pháp tóc giả nam, kiểu tóc nam với HAIR REP 1-1
+            !
+          </h2>
+          <p class="desc">Để lại thông tin chúng tôi sẽ liên hệ lại với bạn!</p>
+          <form class="consult-form">
+            <input type="text" placeholder="Họ và tên" />
+            <input type="text" placeholder="Số điện thoại" />
+            <button type="submit" class="btn-submit">Đặt lịch</button>
+          </form>
+          <div class="hotline-text">
+            <i class="fa-solid fa-phone"></i> Hotline: 087 616 5555
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-search" class="modal-overlay">
+      <div class="modal-box search-box-modal">
+        <button class="modal-close close-search">&times;</button>
+        <h3 class="search-title">Nhập nội dung tìm kiếm</h3>
+        <div class="search-body">
+          <input
+            type="text"
+            class="search-input-full"
+            placeholder="Ví dụ: Băng dính tóc giả"
+          />
+          <div class="search-actions">
+            <button type="button" class="btn-search-confirm">Tìm kiếm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Lên đầu trang">↑</button>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <!-- Zalo -->
+        <a href="https://zalo.me/0876165555" class="floating-btn btn-zalo">
+            <span class="zalo-text">Zalo</span>
+            <div class="zalo-smile"></div>
+        </a>
+        
+        <!-- Phone -->
+        <a href="tel:0876165555" class="floating-btn btn-phone">
+            <div class="phone-pulse"></div>
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        
+        <!-- Messenger -->
+        <a href="https://m.me/hairrep11" class="floating-btn btn-messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+        
+        <!-- Email -->
+        <a href="mailto:contact@hairrep.vn" class="floating-btn btn-email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+        
+        <!-- Back to Top -->
+        <button id="backToTopBtn" class="floating-btn btn-backtop" title="Lên đầu trang">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+      <span class="close-lightbox">&times;</span>
+      <img class="lightbox-content" id="lightboxImage">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // ===== LIGHTBOX FUNCTION =====
+      const lightboxModal = document.getElementById("lightboxModal");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const closeLightbox = document.querySelector(".close-lightbox");
+      // mainImage already defined above
+
+      if (mainImage && lightboxModal && lightboxImage) {
+  // Open Lightbox on Main Image Click
+  mainImage.parentElement.addEventListener("click", function() {
+    lightboxModal.style.display = "flex";
+    lightboxImage.src = mainImage.src;
+  });
+  
+  // Close Lightbox on X Click
+  if (closeLightbox) {
+    closeLightbox.addEventListener("click", function() {
+      lightboxModal.style.display = "none";
+    });
+  }
+  
+  // Close Lightbox on Outside Click
+  lightboxModal.addEventListener("click", function(e) {
+    if (e.target === lightboxModal) {
+      lightboxModal.style.display = "none";
+    }
+  });
+}
+
+      // ===== IMAGE GALLERY SWITCHING =====
+      const thumbnails = document.querySelectorAll(".thumbnail");
+      // const mainImage = document.getElementById("mainImage"); // Defined globally if needed, or re-use existing
+
+      thumbnails.forEach((thumb) => {
+        thumb.addEventListener("click", function () {
+          // Remove active class from all thumbnails
+          thumbnails.forEach((t) => t.classList.remove("active"));
+
+          // Add active class to clicked thumbnail
+          this.classList.add("active");
+
+          // Change main image
+          const newImageSrc = this.getAttribute("data-image");
+          mainImage.src = newImageSrc;
+        });
+      });
+
+      // ===== TAB SWITCHING =====
+      const tabHeaders = document.querySelectorAll(".tab-header");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabHeaders.forEach((header) => {
+        header.addEventListener("click", function () {
+          // Remove active class from all headers and contents
+          tabHeaders.forEach((h) => h.classList.remove("active"));
+          tabContents.forEach((c) => c.classList.remove("active"));
+
+          // Add active class to clicked header
+          this.classList.add("active");
+
+          // Show corresponding content
+          const tabId = this.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+        });
+      });
+
+      // ===== ADD TO CART FUNCTION =====
+      // ===== ADD TO CART FUNCTION =====
+// ===== ADD TO CART FUNCTION (Improved) =====
+// ===== ADD TO CART FUNCTION (Cập nhật để khớp với hệ thống myCart) =====
+// ===== ADD TO CART FUNCTION =====
+function addToCart() {
+  try {
+    // Get quantity
+    const quantityInput = document.getElementById('qtyInput');
+    let quantity = 1;
+    
+    if (quantityInput) {
+      quantity = parseInt(quantityInput.value);
+      if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+      }
+    }
+    
+    console.log("Số lượng:", quantity);
+    
+    // ✅ LẤY ĐƯỜNG DẪN ẢNH TỪ THẺ IMG
+    const mainImage = document.getElementById('mainImage');
+    let imageSrc = mainImage ? mainImage.src : '';
+    
+    console.log("Đường dẫn ảnh gốc:", imageSrc);
+    
+    // ✅ CHUYỂN THÀNH ĐƯỜNG DẪN TƯƠNG ĐỐI TỪ ROOT
+    // Giả sử bạn đang ở: /Sản phẩm và dịch vụ/Phụ kiện tóc giả/chi_tiet_phu_kien.html
+    // Và ảnh là: trangchu/Ảnh phụ kiện tóc giả/...
+    // Cần chuyển thành: ../../trangchu/Ảnh phụ kiện tóc giả/...
+    
+    let imagePathForCart = '';
+    
+    if (imageSrc.includes('trangchu/')) {
+      // Lấy phần đường dẫn từ 'trangchu' trở đi
+      const pathFromTrangchu = imageSrc.substring(imageSrc.indexOf('trangchu/'));
+      // Thêm ../../ để lùi về root từ Giỏ hàng/index.html
+      imagePathForCart = '../' + pathFromTrangchu;
+    } else {
+      // Nếu không tìm thấy 'trangchu', dùng đường dẫn gốc
+      imagePathForCart = imageSrc;
+    }
+    
+    console.log("Đường dẫn ảnh cho giỏ hàng:", imagePathForCart);
+    
+    // Product data - Khớp với format của myCart
+    const product = {
+      id: "VTG-KD06",
+      name: "Băng dính dán tóc giả Lace Front Walker Tape",
+      price: 280000,
+      image: imagePathForCart, // ✅ Dùng đường dẫn đã xử lý
+      quantity: quantity,
+      details: [] // Thêm để khớp format
+    };
+    
+    console.log("Sản phẩm sẽ lưu:", product);
+    
+    // Đọc giỏ hàng từ myCart
+    let cart = [];
+    try {
+      const cartData = localStorage.getItem("myCart");
+      if (cartData) {
+        cart = JSON.parse(cartData);
+        if (!Array.isArray(cart)) {
+          cart = [];
+        }
+      }
+    } catch (parseError) {
+      console.error("Lỗi parse cart:", parseError);
+      cart = [];
+    }
+    
+    console.log("Giỏ hàng hiện tại:", cart);
+    
+    // Check if product exists
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);
+    
+    if (existingProductIndex > -1) {
+      cart[existingProductIndex].quantity += quantity;
+      console.log("Cập nhật số lượng sản phẩm");
+    } else {
+      cart.push(product);
+      console.log("Thêm sản phẩm mới");
+    }
+    
+    // Lưu vào myCart
+    localStorage.setItem("myCart", JSON.stringify(cart));
+    console.log("Đã lưu vào myCart:", cart);
+    
+    // Show toast
+    showToast();
+    
+    return true;
+    
+  } catch (error) {
+    console.error("LỖI TRONG addToCart:", error);
+    console.error("Chi tiết lỗi:", error.message);
+    console.error("Stack:", error.stack);
+    alert("Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!\nVui lòng thử lại.");
+    return false;
+  }
+}
+// ===== BUY NOW FUNCTION =====
+function buyNow() {
+  try {
+    console.log("Bắt đầu mua ngay...");
+    
+    // Add to cart first
+    const added = addToCart();
+    
+    if (!added) {
+      console.error("Không thể thêm vào giỏ hàng");
+      return;
+    }
+    
+    // ✅ Verify cart has items từ myCart
+    const cart = JSON.parse(localStorage.getItem("myCart") || "[]");
+    console.log("Giỏ hàng trước khi chuyển trang:", cart);
+    
+    if (cart.length === 0) {
+      alert("Giỏ hàng trống! Vui lòng thử lại.");
+      return;
+    }
+    
+    // Redirect to cart page
+    setTimeout(() => {
+      console.log("Chuyển đến trang giỏ hàng...");
+      window.location.href = "../../Giỏ hàng/index.html";
+    }, 800);
+    
+  } catch (error) {
+    console.error("LỖI TRONG buyNow:", error);
+    console.error("Chi tiết lỗi:", error.message);
+    alert("Có lỗi xảy ra! Vui lòng thử lại.");
+  }
+}
+
+// ===== TOAST NOTIFICATION =====
+function showToast() {
+  const toast = document.getElementById("toast");
+  if (toast) {
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+  }
+}
+      // ===== TOAST NOTIFICATION =====
+      function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+
+      // ===== MODAL HANDLERS (from existing code) =====
+      const btnConsultTrigger = document.getElementById("btn-consult-trigger");
+      const btnSearchTrigger = document.getElementById("btn-search-trigger");
+      const modalConsult = document.getElementById("modal-consult");
+      const modalSearch = document.getElementById("modal-search");
+      const closeConsult = document.querySelector(".close-consult");
+      const closeSearch = document.querySelector(".close-search");
+
+      if (btnConsultTrigger) {
+        btnConsultTrigger.addEventListener("click", () => {
+          modalConsult.style.display = "flex";
+        });
+      }
+
+      if (btnSearchTrigger) {
+        btnSearchTrigger.addEventListener("click", () => {
+          modalSearch.style.display = "flex";
+        });
+      }
+
+      if (closeConsult) {
+        closeConsult.addEventListener("click", () => {
+          modalConsult.style.display = "none";
+        });
+      }
+
+      if (closeSearch) {
+        closeSearch.addEventListener("click", () => {
+          modalSearch.style.display = "none";
+        });
+      }
+
+      // Close modals when clicking outside
+      window.addEventListener("click", (e) => {
+        if (e.target === modalConsult) {
+          modalConsult.style.display = "none";
+        }
+        if (e.target === modalSearch) {
+          modalSearch.style.display = "none";
+        }
+      });
+
+      // ===== QUANTITY SELECTOR CONTROLS =====
+      const qtyMinus = document.getElementById('qtyMinus');
+      const qtyPlus = document.getElementById('qtyPlus');
+      const qtyInput = document.getElementById('qtyInput');
+
+      if (qtyMinus && qtyPlus && qtyInput) {
+        qtyMinus.addEventListener('click', () => {
+          const currentVal = parseInt(qtyInput.value) || 1;
+          if (currentVal > 1) {
+            qtyInput.value = currentVal - 1;
+          }
+        });
+
+        qtyPlus.addEventListener('click', () => {
+          const currentVal = parseInt(qtyInput.value) || 1;
+          qtyInput.value = currentVal + 1;
+        });
+
+        // Prevent negative or zero values
+        qtyInput.addEventListener('change', () => {
+          const val = parseInt(qtyInput.value) || 1;
+          if (val < 1) {
+            qtyInput.value = 1;
+          }
+        });
+      }
+
+      // ===== BACK TO TOP BUTTONS =====
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      const floatingBackToTop = document.getElementById("floatingBackToTop");
+
+      if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = "block";
+          } else {
+            backToTopBtn.style.display = "none";
+          }
+        });
+
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      if (floatingBackToTop) {
+        floatingBackToTop.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      // ===== BOOKING FORM HANDLER =====
+      const bookingForm = document.querySelector(".booking-form");
+      if (bookingForm) {
+        bookingForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert(
+            "Cảm ơn bạn! Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất."
+          );
+          bookingForm.reset();
+        });
+      }
+
+      // ===== CONSULT FORM HANDLER =====
+      const consultForm = document.querySelector(".consult-form");
+      if (consultForm) {
+        consultForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Đã nhận thông tin! Chúng tôi sẽ liên hệ lại với bạn sớm.");
+          consultForm.reset();
+          modalConsult.style.display = "none";
+        });
+      }
+    </script>
+
+    <!-- Dynamic Product Loading Scripts -->
+    <script src="products-data.js"></script>
+    <script src="product-loader.js"></script>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../../assets/js/load-components.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../../components/header.html");
+        loadComponent("#footer-placeholder", "../../../components/footer.html");
+    });
+</script>
+<script src="../../../assets/js/globle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+
+    /* 1. Nút mở chat */
+    #chatbot-toggle-btn {
+        position: fixed;
+        bottom: 30px;  /* Hạ xuống sát đáy (Thay vì 100px như trước) */
+        right: 30px;   /* Nằm bên phải */
+        left: auto;
+        
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        font-weight: 700;
+        padding: 12px 25px; /* Tăng kích thước chút cho dễ bấm */
+        border-radius: 50px;
+        cursor: pointer;
+        z-index: 99990;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        font-family: 'Segoe UI', sans-serif;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Khoảng cách giữa icon và chữ */
+    }
+
+    #chatbot-toggle-btn:hover {
+        background-color: black;
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* 2. Khung Chat Chính */
+    #chatbot-container {
+        position: fixed;
+        /* Hạ khung chat xuống theo nút (Nút cao ~50px + cách đáy 30px + khoảng hở 15px = 95px) */
+        bottom: 95px; 
+        right: 30px; 
+        left: auto;
+        
+        width: 320px;
+        height: 450px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+        z-index: 99999;
+        display: none;
+        flex-direction: column;
+        border: 1px solid #eee;
+        overflow: hidden;
+        animation: slideLeft 0.3s ease;
+    }
+
+    @keyframes slideLeft { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+    /* (Các phần bên dưới giữ nguyên không đổi) */
+    .chat-header { background: rgb(101, 121, 234); color: white; padding: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+    .close-chat { font-size: 24px; cursor: pointer; }
+    .chat-body { flex: 1; padding: 15px; overflow-y: auto; background-color: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
+    .msg-bot { align-self: flex-start; background: #e0e0e0; color: black; padding: 10px 15px; border-radius: 15px 15px 15px 0; font-size: 13px; max-width: 80%; line-height: 1.4; }
+    .msg-user { align-self: flex-end; background: black; color: white; padding: 10px 15px; border-radius: 15px 15px 0 15px; font-size: 13px; max-width: 80%; }
+    .bot-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+    .btn-option { background: white; border: 1px solid black; color: black; padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; transition: 0.2s; }
+    .btn-option:hover { background: black; color: white; }
+    .chat-footer { padding: 10px; border-top: 1px solid #eee; text-align: center; background: white; }

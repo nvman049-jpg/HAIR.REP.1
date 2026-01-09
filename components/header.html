@@ -1,0 +1,277 @@
+<!-- ================= CSS ĐƯỢC NHÚNG TRỰC TIẾP ĐỂ ÉP GIAO DIỆN NHẬN LỆNH ================= -->
+<style>
+    /* 1. CẤU HÌNH THANH MENU DÍNH (ĐÃ BẬT LẠI TÍNH NĂNG STICKY) */
+    
+    /* QUAN TRỌNG: Lệnh này giúp Menu thoát ra khỏi thẻ bao ngoài để dính được vào màn hình */
+    #header-placeholder {
+        display: contents !important;
+    }
+
+    .sticky-nav {
+        position: -webkit-sticky !important; /* Cho Safari/Mac */
+        position: sticky !important;         /* Cho Chrome/Windows */
+        top: 0 !important;                   /* Dính chặt vào mép trên cùng */
+        z-index: 999;                        /* Z-index 999 < Modal (2 tỷ) => Sẽ nằm dưới Modal */
+        background-color: #fff;              /* Nền trắng để che nội dung khi lướt qua */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+        width: 100%;
+    }
+
+    /* 2. Sửa lỗi thẻ Body */
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    /* 3. CSS CHO MODAL TÌM KIẾM (PHIÊN BẢN SIÊU GỌN - ĐÃ FIX CỨNG CHIỀU RỘNG) */
+    #modal-search {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6); /* Nền tối */
+        z-index: 2147483647 !important; /* Luôn nổi trên cùng (Đè lên menu 999) */
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Khi kích hoạt thì hiện lên */
+    #modal-search.open {
+        display: flex !important;
+        opacity: 1;
+    }
+
+    /* HỘP NỘI DUNG - FIX CỨNG 420PX */
+    #modal-search .modal-content {
+        background: #fff;
+        width: 90%; /* Mobile giữ 90% */
+        max-width: 420px !important; /* <--- ĐÂY LÀ CHỖ QUAN TRỌNG: Ép chiều rộng nhỏ lại */
+        padding: 25px 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        position: relative;
+        transform: translateY(-20px);
+        transition: transform 0.3s ease-out;
+        display: block !important;
+        margin: 0 auto; /* Căn giữa */
+    }
+
+    #modal-search.open .modal-content {
+        transform: translateY(0);
+    }
+
+    /* Header Tab */
+    .search-tabs-header {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
+
+    .tab-item {
+        font-size: 14px;
+        font-weight: 700;
+        color: #999;
+        cursor: pointer;
+        padding-bottom: 6px;
+        position: relative;
+        text-transform: uppercase;
+        font-family: sans-serif;
+    }
+
+    .tab-item.active {
+        color: #000;
+    }
+
+    .tab-item.active::after {
+        content: '';
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+    }
+
+    /* Form nhập liệu */
+    .search-input-wrapper {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .search-input-wrapper input {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        outline: none;
+        color: #333;
+        background: #f9f9f9;
+    }
+
+    .search-input-wrapper input:focus {
+        border-color: #000;
+        background: #fff;
+    }
+
+    /* Nút Tìm Đen */
+    .btn-search-submit {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .btn-search-submit:hover {
+        background-color: #333;
+    }
+
+    /* Nút Đóng X */
+    .close-search {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        color: #bbb;
+        cursor: pointer;
+        line-height: 1;
+        z-index: 100;
+        background: none;
+        border: none;
+    }
+    .close-search:hover { color: #000; }
+    
+    /* CSS CHO MODAL ĐẶT LỊCH (Z-Index Cao) */
+    #modal-consult {
+        z-index: 2147483647 !important; /* Đảm bảo đè lên menu */
+    }
+</style>
+
+<!-- ================= NỘI DUNG HEADER ================= -->
+<div class="top-bar">
+    <span>THƯƠNG HIỆU TÓC GIẢ HÀNG ĐẦU TẠI VIỆT NAM</span>
+</div>
+
+<header class="header-main">
+    <div class="container header-grid">
+        <div class="header-col left">
+            <div class="lang-switch">
+                <i class="fa-solid fa-star" style="color: #f1c40f;"></i> 
+                <span>VN</span> 
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+        </div>
+
+        <div class="header-col center">
+            <a href="#" class="logo">
+                <img src="/assets/images/trangchu/Logo.jpg" alt="HAIR REP 1-1 Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="header-col right">
+            <button id="btn-search-trigger" class="icon-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <a href="/pages/Giỏ hàng/index.html" class="header-cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="count-badge">0</span>
+            </a>
+            <button id="btn-consult-trigger" class="btn-primary">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Đặt lịch tư vấn</span>
+            </button>
+            <a href="/../pages/Chức năng hệ thống/dangnhap.html" class="icon-simple user-icon">
+                <i class="fa-regular fa-user"></i>
+                <span class="login-text">Đăng nhập</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<nav class="sticky-nav" id="navbar">
+    <div class="container">
+        <ul class="menu-list">
+            <li><a href="/index.html">TRANG CHỦ</a></li>
+            <li><a href="/../pages/Cau_chuyen_thuong_hieu_lienhe/cau-chuyen-thuong-hieu.html">CÂU CHUYỆN THƯƠNG HIỆU</a></li>
+            <li class="has-dropdown">
+                <a href="#">SẢN PHẨM & DỊCH VỤ <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="/../pages/Sản phẩm và dịch vụ/Tóc giả nam/tocgia.html">Tóc giả nam</a></li>
+                    <li><a href="/../pages/Sản phẩm và dịch vụ/Phụ kiện tóc giả/danh_muc_phu_kien.html">Phụ kiện tóc giả</a></li>
+                    <li><a href="/../pages/Sản phẩm và dịch vụ/Tóc giả nữ/Tóc giả nữ.html">Tóc giả nữ <span class="badge">New</span></a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="/../pages/tin_tuc_uu_dai/tin_tuc/index.html">TIN TỨC & ƯU ĐÃI <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="/../pages/tin_tuc_uu_dai/tin_tuc/index.html">Tin tức</a></li>
+                    <li><a href="/../pages/tin_tuc_uu_dai/uu_dai/index.html">Ưu đãi</a></li>
+                    <li><a href="/../pages/tin_tuc_uu_dai/huong_dan/index.html">Hướng dẫn</a></li>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">HỆ THỐNG SALON <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="/../pages/Hệ thống Salon/HethongSalonchinhhang.html">Hệ thống Salon chính hãng</a></li>
+                    <li><a href="/../pages/Hệ thống Salon/HethongSalondoitacuyquyen.html">Hệ thống Salon đối tác ủy quyền</a></li>
+                </ul>
+            </li>
+            <li><a href="/../pages/Cau_chuyen_thuong_hieu_lienhe/lienhe.html">LIÊN HỆ</a></li>
+        </ul>
+    </div>
+</nav>
+
+ <!-- MODAL TÌM KIẾM -->
+    <div id="modal-search" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-search" onclick="closeSearch()">&times;</button>
+
+            <div class="search-tabs-header">
+                <div class="tab-item active">TÌM SẢN PHẨM</div>
+            </div>
+
+            <div class="search-body">
+                <form action="#" class="search-input-wrapper" onsubmit="handleSearchSubmit(event)">
+                    <input type="text" id="search-input-field" placeholder="Gõ: tóc, kẹp, ngoạm..." autocomplete="off">
+                    <button type="submit" class="btn-search-submit">Tìm</button>
+                    
+                    <!-- Hộp chứa gợi ý (Được thêm vào đây) -->
+                    <div id="suggestions-container" class="search-suggestions-box">
+                        <!-- Nội dung sẽ được JS chèn vào -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- MODAL ĐẶT LỊCH -->
+<div id="modal-consult" class="modal-overlay">
+    <div class="modal-box consult-box">
+        <button class="modal-close close-consult">&times;</button>
+        <div class="modal-left">
+            <img src="/assets/images/trangchu/Form-dat-lich-tu-van-dich-vu-dest-1-of-1.webp" alt="Tư vấn">
+        </div>
+        <div class="modal-right">
+            <h2>Tư vấn miễn phí giải pháp tóc với HAIR REP 1-1 !</h2>
+            <p class="desc">Để lại thông tin chúng tôi sẽ liên hệ lại với bạn!</p>
+    <form class="consult-form" onsubmit="handleModalSubmit(event)">
+    <input type="text" name="modal-name" placeholder="Họ và tên" required>
+    <input type="tel" name="modal-phone" placeholder="Số điện thoại" required>
+    <button type="submit" class="btn-submit">Đặt lịch</button>
+</form>
+            <div class="hotline-text">
+                <i class="fa-solid fa-phone"></i> Hotline: 087 616 5555
+            </div>
+        </div>
+    </div>
+</div>

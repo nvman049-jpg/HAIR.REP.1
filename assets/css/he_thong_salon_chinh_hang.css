@@ -1,0 +1,987 @@
+/* =========================
+   SALON SYSTEM
+========================= */
+.salon-system-page {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #999;
+}
+
+/* Title */
+.salon-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.salon-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* =========================
+   BOX TỔNG
+========================= */
+.salon-box {
+    max-width: 1126px;
+    height: 542px;
+    margin: 40px auto;
+    padding: 0px;
+    background: #f9f9f9;
+    border-radius: 0px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid #000; /* Thêm dòng này */
+}
+
+/* =========================
+   TABS
+========================= */
+.salon-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.salon-tabs .tab {
+    padding: 8px 26px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.salon-tabs .tab:hover {
+    border-color: #888;
+}
+
+.salon-tabs .tab.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* =========================
+   CONTENT 2 CỘT
+========================= */
+.salon-content {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 30px;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+}
+
+/* =========================
+   LEFT COLUMN
+========================= */
+.salon-left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+/* =========================
+   LIST SALON
+========================= */
+.salon-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-top: 15px;
+}
+
+/* Group */
+.salon-group {
+    display: none;
+}
+
+.salon-group.active {
+    display: block;
+}
+
+/* =========================
+   SALON CARD
+========================= */
+.salon-card {
+    display: flex;
+    gap: 15px;
+    background: #fff;
+    border-radius: 0px;
+    padding: 15px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    height:215px;
+}
+
+.salon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #ddd;
+}
+
+.salon-card.active {
+    border: 2px solid #000;
+    background: #f8f8f8;
+}
+
+.salon-card img {
+    width: 120px;
+    height: 192px;
+    object-fit: cover;
+    border-radius: 0px;
+    flex-shrink: 0;
+}
+
+.salon-info {
+    flex: 1;
+}
+
+.salon-info h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.salon-info p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.salon-info i {
+    margin-right: 6px;
+    color: #777;
+    width: 16px;
+    text-align: center;
+}
+
+/* =========================
+   MAP
+========================= */
+.salon-map {
+    height: 540px;
+    display: flex;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.salon-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+.salon-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    margin-top: 80px;
+    padding: 40px 0;
+    background: #ffffff;
+}
+
+.cta-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.cta-text h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.cta-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+    .salon-box {
+        max-width: 95%;
+        height: auto;
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .salon-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .salon-map {
+        height: 400px;
+    }
+    
+    .salon-cta {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .salon-box {
+        padding: 20px;
+    }
+    
+    .salon-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .salon-card {
+        flex-direction: column;
+    }
+    
+    .salon-card img {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .salon-map {
+        height: 300px;
+    }
+}
+/* Responsive */
+@media (max-width: 992px) {
+    .cta-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .cta-cover-image {
+        transform: none;
+        max-height: 400px;
+    }
+    
+    .cover-img {
+        min-height: 400px;
+    }
+    
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .cta-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .salon-find-cta {
+        padding: 50px 0;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-cta {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .cta-title {
+        font-size: 24px;
+    }
+    
+    .cta-man-image {
+        max-width: 250px;
+    }
+}
+/* =========================
+   CTA SECTION
+========================= */
+
+
+.consult-section {
+    background: #ffffff;
+}
+
+.consult-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* IMAGE */
+.consult-image {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    padding-left: 60px; 
+}
+
+.consult-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CONTENT */
+.consult-content {
+    max-width: 420px;
+}
+
+.consult-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #111;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .consult-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .consult-content {
+        margin: 0 auto;
+    }
+}
+
+.consult-image {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    padding-left: 60px; 
+}
+
+
+
+/* ===========================
+   QUY TRÌNH ĐẶT HÀNG ONLINE
+=========================== */
+.online-process-section {
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+
+/* HEADER */
+.process-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.process-main-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.process-subtitle {
+    font-size: 14px;
+    color: #555;
+    padding-top:10px;
+}
+
+/* LIST */
+.process-steps {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* STEP */
+.process-step {
+    display: flex;
+    gap: 24px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+/* SỐ */
+.step-left {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+        align-items: center;      /* giữa dọc */
+}
+
+.step-number {
+    font-size: 50px;
+    font-weight: 500;
+    color: #d9d9d9;
+}
+
+/* ICON + LINE */
+.step-right {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    padding-left: 20px;
+    align-items: center;      /* giữa dọc */
+    justify-content: center
+}
+
+.step-icon {
+    width: 38px;
+    height: 38px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgba(0,0,0.1,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-icon i {
+    color: #000;
+    font-size: 15px;
+
+}
+
+
+.step-icon::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: calc(100% + 140px);
+    background: #9a9a9a;
+}
+
+
+.process-step:last-child .step-icon::after {
+    display: none;
+}
+
+/* BODY */
+.step-body {
+    display: flex;
+    gap: 20px;
+    background: #f8f8f8;
+    width: 800px;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+/* IMAGE NHỎ */
+.step-image {
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 200px;
+    height: 136px;
+    border-radius: 0px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.step-content {
+    max-width: 420px;
+}
+
+.step-title {
+    padding-top: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    justify-content: center; 
+}
+
+.step-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+        justify-content: center; 
+    
+}
+
+/* SECTION */
+.policy-contact-section {
+    padding: 80px 0;
+    background: #fff;
+    height: 400px;
+    margin-top: 20px;
+}
+
+/* HEADER */
+.policy-header {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.policy-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* GRID */
+.policies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 40px;
+}
+
+/* CARD */
+.policy-card {
+    text-align: center;
+    transition: 0.3s;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 375px;
+    border-bottom: 0px solid #000; 
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.policy-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ICON */
+.policy-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.policy-icon i {
+    font-size: 30px;
+    color: #000;
+}
+
+/* TEXT */
+.policy-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.policy-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .policies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+/* Form liên hệ */
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f8f8f8;
+    padding: 0px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.contact-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Form styles */
+.contact-form {
+    width: 100%;
+    padding-left: 0px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background: #eee;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #000;
+}
+
+.form-select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 220px;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+.btn-text {
+    display: block;
+}
+
+.hotline-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    display: inline-block;
+    padding: 8px 0;
+}
+/* ===========================
+   CHÍNH SÁCH & LIÊN HỆ
+=========================== */
+
+/* Tiêu đề chính */
+
+
+
+/* Wrapper cho form + ảnh */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hotline-info {
+    text-align: right;
+}
+
+/* Ảnh bên phải */
+.contact-image {
+    height: 556px;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-img {
+    width: 600px;
+    height: 556px;
+    object-fit: cover;
+    display: block;
+    min-height: 500px;
+}
+
+.contact-section {
+    padding: 80px 0;
+    background: #f9f9f9;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .policies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-image {
+        height: 300px;
+        order: -1;
+    }
+    
+    .contact-img {
+        min-height: auto;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .hotline-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .policy-contact-section {
+        padding: 60px 0;
+        margin-top: 60px;
+    }
+    
+    .policy-main-title {
+        font-size: 24px;
+    }
+    
+    .policies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-form-container {
+        padding: 25px 20px;
+    }
+    
+    .contact-title {
+        font-size: 18px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+    
+    .submit-btn {
+        padding: 14px 30px;
+        font-size: 15px;
+    }
+    
+    .hotline-text {
+        font-size: 16px;
+    }
+}
+/* ===== BREADCRUMB ===== */
+.breadcrumb-wrapper {
+    background: #fff;
+    padding: 10px;
+
+}
+
+
+.breadcrumb a {
+    color: #9a9a9a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #000000; /* vàng nhạt thương hiệu */
+}
+
+.breadcrumb .divider {
+    font-size: 0.65rem;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb .current {
+    color: #666;
+    font-weight: 500;
+}
+/* Điều chỉnh cho icon ảnh thay thế */
+.step-icon img.custom-icon {
+    width: 20px; /* Điều chỉnh kích thước theo ý muốn */
+    height: 20px;
+    object-fit: contain;
+}
+
+.step-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+
+.policy-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* FLOATING ICONS */
+.floating-icons { 
+    position: fixed; 
+    right: 50px; 
+    bottom: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    z-index: 9999;
+}
+
+.icon { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    border: none; 
+    color: #fff; 
+    font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon.zalo {
+    background: transparent;
+    position: relative;
+    padding: 0;
+}
+
+.icon.zalo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%;  
+}
+
+.icon.phone { 
+    background-color: #2ecc71; 
+    position: relative;
+} 
+
+.icon.zalo::before, .icon.zalo::after,
+.icon.phone::before, .icon.phone::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    z-index: -1; 
+    opacity: 0; 
+}
+
+.icon.zalo::before,
+.icon.zalo::after {
+    background-color: #0068ff; 
+}
+
+.icon.phone::before,
+.icon.phone::after {
+    background-color: #2ecc71;
+}
+
+.icon.zalo::before,
+.icon.phone::before {
+    animation: ripple-wave 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon.zalo::after,
+.icon.phone::after {
+    animation: ripple-wave 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: 0.8s; 
+}
+
+.icon.messenger {
+    background: linear-gradient(45deg, #ff7854, #fd267d, #3b5998);
+}
+
+.icon.mail,
+.icon.up {
+    background-color: #000;
+    border: 2px solid #ffffff;
+}

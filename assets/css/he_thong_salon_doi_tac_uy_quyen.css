@@ -1,0 +1,708 @@
+/* ===== CẤU TRÚC CHUNG ===== */
+.partner-main {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+.partner-main .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.page-top-bar {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+.page-header {
+    text-align: center;
+    padding: 30px 0 10px;
+}
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+}
+/* ===== PHẦN SALON VÀ BẢN ĐỒ (BỐ CỤC CHÍNH) ===== */
+.salon-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap: 40px;
+}
+
+/* ===== LEFT ===== */
+.salon-left {
+    max-height: 560px;
+    overflow-y: auto;
+}
+
+.salon-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* CARD SALON - 2 HÀNG */
+.salon-card {
+    flex-direction: column; /* Xếp dọc 2 hàng */
+    padding: 16px;
+    background: #fff;
+    border-radius: 0px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: .3s;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-areas:
+        "img info"
+        "actions actions";
+    gap: 12px;
+}
+
+.salon-card:hover {
+    border-color: #9a9a9a;
+}
+
+.salon-card.active {
+    border-color: #000000;
+    background: #ffffff;
+}
+
+/* HÀNG 1: ẢNH, TÊN, ĐỊA CHỈ (NẰM NGANG) */
+.salon-card-top {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start; /* Căn lên trên cùng */
+}
+
+.salon-card img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+    grid-area: img;
+}
+
+/* THÔNG TIN SALON - NẰM CÙNG HÀNG VỚI ẢNH */
+.salon-info {
+    flex: 1;
+    grid-area: info;
+}
+
+.salon-info h4 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: #111;
+}
+
+.salon-info p {
+    font-size: .9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* HÀNG 2: CÁC NÚT HÀNH ĐỘNG (NẰM NGANG) */
+.salon-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    grid-area: actions;
+}
+
+.salon-actions button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-size: .85rem;
+    white-space: nowrap;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.salon-actions button:hover {
+    background: #fff;
+}
+
+.salon-actions button:first-child {
+    flex: 1;
+}
+
+.salon-actions button:nth-child(2) {
+    flex: 1;
+}
+
+.salon-actions .primary {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+    flex: 2;
+}
+
+.salon-actions .primary:hover {
+    background: #000;
+}
+
+/* ===== RIGHT ===== */
+.salon-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filter-box {
+    display: flex;
+    gap: 15px;
+}
+
+.filter-box select {
+    padding: 10px 14px;
+    border-radius: 6px;
+    width: 220px;
+    background-color: #f3f3f3;
+}
+
+.map-wrapper {
+    height: 520px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .salon-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-wrapper { 
+        height: 350px; 
+    }
+    
+    .salon-left {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Trên mobile, vẫn giữ 2 hàng */
+    .salon-card-top {
+        flex-direction: row; /* Vẫn giữ ngang trên mobile */
+    }
+    
+    .salon-card img {
+        width: 100px;
+        height: 80px;
+    }
+    
+    .salon-actions {
+        flex-wrap: wrap;
+    }
+    
+    .salon-actions button {
+        min-width: calc(33.333% - 6px);
+    }
+}
+
+@media (max-width: 576px) {
+    .filter-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-box select {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Trên mobile nhỏ, chuyển ảnh lên trên thông tin */
+    .salon-card-top {
+        flex-direction: column;
+    }
+    
+    .salon-card img {
+        width: 100%;
+        height: 120px;
+    }
+    
+    /* Các nút xếp dọc trên mobile nhỏ */
+    .salon-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .salon-actions button {
+        width: 100%;
+        flex: none !important;
+        min-width: auto;
+    }
+}
+
+/* ===== PHẦN GIỚI THIỆU ===== */
+.partner-intro {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.intro-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.register-box {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.register-left h3, .register-right h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.register-left p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.register-left strong {
+    color: #9a9a9a;
+}
+
+.register-right p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.register-right strong {
+    color: #222;
+    font-weight: 600;
+    min-width: 80px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .register-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+}
+
+/* ===== VĂN BẢN THUẦN - GIỐNG ẢNH ===== */
+.partner-text-only {
+    padding-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    max-width: 1152px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Tiêu đề chính */
+.partner-text-only h1 {
+    font-size: 24px;
+    font-weight: 1000;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Đoạn văn */
+.partner-text-only .text-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Tiêu đề phụ */
+.partner-text-only h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 35px 0 15px 0;
+}
+
+.partner-text-only .sub-description {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.partner-text-only .sub-description strong {
+    font-weight: 700;
+}
+
+
+/* Danh sách liên hệ */
+.partner-text-only .contact-list h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.partner-text-only .contact-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.partner-text-only .contact-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.partner-text-only .contact-list i {
+    color: #28a745; /* Màu xanh cho dấu tích */
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .partner-text-only h1 {
+        font-size: 24px;
+    }
+    
+    .partner-text-only h2 {
+        font-size: 20px;
+    }
+    
+    .partner-text-only .text-content p,
+    .partner-text-only .contact-list li {
+        font-size: 15px;
+    }
+}
+
+/* ===== REGISTRATION SECTION ===== */
+.registration-section {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+
+.registration-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+/* ===== LEFT COLUMN - IMAGE ===== */
+.registration-image {
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 540px;
+}
+
+.registration-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== RIGHT COLUMN - FORM ===== */
+.registration-form {
+    background: #f9f9f9;
+    border-radius: 0;
+    max-width: 580px;
+}
+
+.registration-form h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #111;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* ===== FORM STYLING ===== */
+#partnerRegistrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+#partnerRegistrationForm input,
+#partnerRegistrationForm textarea {
+    width: 100%;
+    border: none;
+    background-color: #f3f3f3;
+    color: #111;
+    font-size: 14px;
+    padding: 14px 16px;
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+#partnerRegistrationForm input:focus,
+#partnerRegistrationForm textarea:focus {
+    background-color: #e8e8e8;
+}
+
+/* Placeholder */
+#partnerRegistrationForm input::placeholder,
+#partnerRegistrationForm textarea::placeholder {
+    color: #8c8c8c;
+    font-weight: 400;
+}
+
+/* Textarea */
+#partnerRegistrationForm textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.submit-btn {
+    margin-top: 10px;
+    height: 48px;
+    background: linear-gradient(90deg, #111, #1a1a1a);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== HOTLINE INFO ===== */
+.hotline-info {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #111;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.hotline-info i {
+    font-size: 14px;
+    color: #111;
+}
+
+.hotline-info span {
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+    .registration-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .registration-image {
+        height: 400px;
+        order: -1;
+    }
+    
+    .registration-form {
+        max-width: 100%;
+        padding: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .registration-section {
+        padding: 40px 0;
+    }
+    
+    .registration-form {
+        padding: 30px;
+    }
+    
+    .registration-form h2 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .registration-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .registration-form {
+        padding: 25px;
+    }
+    
+    .registration-form h2 {
+        font-size: 18px;
+    }
+    
+    .registration-image {
+        height: 300px;
+    }
+    
+    .hotline-info {
+        font-size: 13px;
+    }
+}
+
+.breadcrumb-wrapper {
+    background: #fff;
+    padding: 10px;
+
+}
+
+/* FLOATING ICONS */
+.floating-icons { 
+    position: fixed; 
+    right: 50px; 
+    bottom: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    z-index: 9999;
+}
+
+.icon { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    border: none; 
+    color: #fff; 
+    font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon.zalo {
+    background: transparent;
+    position: relative;
+    padding: 0;
+}
+
+.icon.zalo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%;  
+}
+
+.icon.phone { 
+    background-color: #2ecc71; 
+    position: relative;
+} 
+
+.icon.zalo::before, .icon.zalo::after,
+.icon.phone::before, .icon.phone::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    z-index: -1; 
+    opacity: 0; 
+}
+
+.icon.zalo::before,
+.icon.zalo::after {
+    background-color: #0068ff; 
+}
+
+.icon.phone::before,
+.icon.phone::after {
+    background-color: #2ecc71;
+}
+
+.icon.zalo::before,
+.icon.phone::before {
+    animation: ripple-wave 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon.zalo::after,
+.icon.phone::after {
+    animation: ripple-wave 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: 0.8s; 
+}
+
+.icon.messenger {
+    background: linear-gradient(45deg, #ff7854, #fd267d, #3b5998);
+}
+
+.icon.mail,
+.icon.up {
+    background-color: #000;
+    border: 2px solid #ffffff;
+}
+

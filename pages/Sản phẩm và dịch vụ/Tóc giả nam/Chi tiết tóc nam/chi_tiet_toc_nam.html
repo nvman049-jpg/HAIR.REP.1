@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết tóc nam</title>
+    <link rel="icon" type="image/x-icon" href="../../../../assets/images/trangchu/Logo.jpg">
+
+    <!-- CSS chung của nhóm -->
+     <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <!-- CSS RIÊNG của bạn -->
+    <link rel="stylesheet" href="../chi_tiet_toc_nam/chi_tiet_toc_nam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div id="header-placeholder"></div>
+
+    <div style="height: auto; background-color: #ffffff; padding: 50px; text-align: center;">
+         <section class="quick-booking">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <h3 class="booking-title">ĐẶT LỊCH TƯ VẤN HAIR REP 1:1 SẼ LIÊN LẠC NGAY VỚI BẠN!</h3>
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <input type="text" id="fullname" name="fullname" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+                        </div>
+                        <button type="submit" class="btn-booking-submit">Gửi Tư Vấn Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+        <main class="page-chi-tiet-toc-nam">
+            <div class="page-content">
+                <div class="breadcrumb">
+                    <a href="#">Trang chủ</a> 
+                    <span class="divider"><i class="fa-solid fa-chevron-right"></i></span> 
+                    <a href="#">Sản phẩm</a> 
+                    <span class="divider"><i class="fa-solid fa-chevron-right"></i></span> 
+                    <span class="breadcrumcurrent">Chi tiết sản phẩm</span>
+                </div>
+                
+                <div class="product-container">
+                    <div class="product-gallery">
+                        <div class="thumbnail-column">
+                            <button class="thumb-nav thumb-prev"><i class="fas fa-chevron-up"></i></button>
+                            <div class="thumbnail-list"> 
+                                <div class="thumb-item active">
+                                    <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-30-of-43.webp" alt="Ảnh phụ 1" onclick="switchImage(this.src)">
+                                </div>
+                                <div class="thumb-item">
+                                    <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-29-of-43.webp" alt="Ảnh phụ 2" onclick="switchImage(this.src)">
+                                </div>
+                                <div class="thumb-item">
+                                    <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-28-of-43.webp" alt="Ảnh phụ 3" onclick="switchImage(this.src)">
+                                </div>
+                                <div class="thumb-item">
+                                    <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-27-of-43.webp" alt="Ảnh phụ 4" onclick="switchImage(this.src)">
+                                </div>
+                            </div>
+                            <button class="thumb-nav thumb-next"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                        <div class="main-image">
+                            <img id="mainDisplay" src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-30-of-43.webp" alt="Ảnh chính">
+                        </div>      
+                    </div>
+                
+                    <div class="product-details">
+                        <p class="product-rating">
+                            <span class="stars">
+                                <span class="rating-score">5.0</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </span>
+                            <span class="separator">|</span>
+                            <span class="sold">ĐÃ BÁN 10</span>
+                            <span class="separator">|</span>
+                            <span class="reviews">7 ĐÁNH GIÁ</span>
+                        </p>
+
+                        <h1 id="pro-name">Tóc giả nam Two Block làm từ tóc thật</h1>
+                        
+                        <p class="product-code">MÃ SẢN PHẨM: TB</p>
+                        
+                        <p class="product-price"><strong id="pro-price-text">1.800.000 đ</strong></p>
+
+                        <div class="product-options">
+                            <div class="reset-option-row">
+                                <button class="btn-reset-options" id="resetOptions">
+                                    <i class="fas fa-rotate-left"></i> Chọn lại
+                                </button>
+                            </div>
+
+                            <div class="option-row">
+                                <label>Size tóc:</label>
+                                <div class="option-content">
+                                    <span class="size-option">15 cm</span>
+                                    <span class="size-option">25 cm</span>
+                                </div>
+                            </div>
+
+                            <div class="option-row">
+                                <label>Màu sắc:</label>
+                                <div class="option-content">
+                                    <span class="color-swatch" style="background-color: #000;"></span>
+                                    <span class="color-swatch" style="background-color: #3c2f2f;"></span>
+                                    <span class="color-swatch" style="background-color: #6b4c3b;"></span>
+                                    <span class="color-swatch" style="background-color: gray;"></span>
+                                </div>
+                            </div>
+
+                            <div class="option-row">
+                                <label>Số lượng:</label>
+                                <div class="option-content">
+                                    <div class="quantity-box">
+                                        <button class="quantity-button" onclick="decreaseQty()">−</button>
+                                        <input type="text" id="quantity" value="1" min="1">
+                                        <button class="quantity-button" onclick="increaseQty()">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="action-buttons">
+                            <button class="buy-now" onclick="muaNgay()">Đặt mua ngay</button>
+
+                            <button class="consult-button" onclick="themVaoGioHang()">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </main>
+
+        <script>
+            // 1. Hàm tăng giảm số lượng (Hỗ trợ HTML trên)
+            function increaseQty() {
+                var qtyInput = document.getElementById('quantity');
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            }
+
+            function decreaseQty() {
+                var qtyInput = document.getElementById('quantity');
+                if (parseInt(qtyInput.value) > 1) {
+                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                }
+            }
+
+            // 2. Hàm đổi ảnh khi click thumbnail
+            function switchImage(src) {
+                document.getElementById('mainDisplay').src = src;
+            }
+
+            // --- LOGIC GIỎ HÀNG QUAN TRỌNG ---
+
+            // Hàm lấy thông tin sản phẩm đang hiển thị
+            function layThongTinSanPham() {
+                var img = document.getElementById('mainDisplay').src;
+                var name = document.getElementById('pro-name').innerText;
+                var priceText = document.getElementById('pro-price-text').innerText;
+                var qty = parseInt(document.getElementById('quantity').value);
+
+                // Chuyển giá từ chữ "1.800.000 đ" thành số 1800000
+                var price = parseInt(priceText.replace(/\./g, '').replace(/,/g, '').replace(' đ', '').replace('đ', ''));
+
+                return {
+                    image: img,
+                    name: name,
+                    price: price,
+                    quantity: qty,
+                    details: ["Mặc định"] // Bạn có thể phát triển thêm logic lấy Size/Màu đã chọn sau
+                };
+            }
+
+            // Hàm xử lý khi bấm "Thêm vào giỏ hàng"
+            function themVaoGioHang() {
+                var newItem = layThongTinSanPham();
+                var cart = JSON.parse(localStorage.getItem('myCart')) || [];
+
+                // Kiểm tra trùng sản phẩm
+                var found = false;
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].name === newItem.name) {
+                        cart[i].quantity += newItem.quantity;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    cart.push(newItem);
+                }
+
+                localStorage.setItem('myCart', JSON.stringify(cart));
+                
+                // Thông báo và chuyển trang (CHÚ Ý: Sửa lại đường dẫn đúng với folder của bạn)
+                alert("Đã thêm sản phẩm vào giỏ!");
+                window.location.href = '../../../Giỏ hàng/index.html';
+            }
+
+            // Hàm xử lý khi bấm "Đặt mua ngay" (Mua luôn không cần qua giỏ)
+            function muaNgay() {
+                var newItem = layThongTinSanPham();
+                var cart = JSON.parse(localStorage.getItem('myCart')) || [];
+                
+                // Logic tương tự thêm giỏ hàng
+                var found = false;
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].name === newItem.name) {
+                        cart[i].quantity += newItem.quantity;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) cart.push(newItem);
+                localStorage.setItem('myCart', JSON.stringify(cart));
+
+                // Chuyển thẳng tới trang Thanh toán
+                window.location.href = '../../../Thanh toán/index.html';
+            }
+        </script>
+                <div class="service-banner">
+                    <div class="service-item">
+                        <i class="fas fa-truck-moving"></i>
+                        <span>Ship COD toàn Quốc, Quốc tế</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Chính sách thanh toán linh hoạt</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-retweet"></i>
+                        <span>Bảo hành đổi trả trong 60 ngày</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-headset"></i>
+                        <span>Chăm sóc khách hàng 24/7</span>
+                    </div>
+                </div>
+    </div>
+
+    <!-- TAB MÔ TẢ -->
+    <section class="product-tabs">
+
+    <!-- TAB MENU -->
+    <div class="tabs-menu">
+        <button class="tab-item active" data-tab="tab-info">
+            THÔNG TIN SẢN PHẨM
+        </button>
+        <button class="tab-item" data-tab="tab-guide">
+            HƯỚNG DẪN SỬ DỤNG
+        </button>
+        <button class="tab-item" data-tab="tab-review">
+            PHẢN HỒI KHÁCH HÀNG
+        </button>
+    </div>
+
+    <!-- TAB CONTENT -->
+    <div class="tabs-content">
+
+    <!-- THÔNG TIN -->
+    <div class="tab-pane active" id="tab-info">
+        <h2 class="tab-content-title">Tóc giả nam Two Block làm từ tóc thật</h2>
+        <ul class="product-meta">
+            <li><b>Mã sản phẩm:</b> TB</li>
+            <li><b>Xuất xứ:</b> Việt Nam</li>
+            <li><b>Thương hiệu:</b> Hair Rep 1:1</li>
+            <li><b>Đặc điểm nổi bật:</b> Mái giả dạng kẹp, dễ tháo lắp, phù hợp nhiều kiểu tóc</li>
+            <li><b>Loại tóc:</b> 100% tóc thật</li> 
+            <li><b>Chất liệu đế tóc:</b> Dạng Silicon loại 1</li>
+            <li><b>Chiều dài:</b> 15cm - 25cm</li>
+            <li><b>Màu sắc tùy chọn:</b> Đen, Nâu đen, Nâu, Xám</li>
+            <li><b>Ưu điểm nổi bật:</b> Gắn vào tóc nhanh chóng, dễ tháo lắp</li>
+            <li><b>Đối tượng:</b> Phù hợp với người bị hói</li>
+        </ul>
+
+        <h3>Tóc giả nam Two Block là gì?</h3>
+        <p>
+            Kiểu tóc giả nam Two Block nổi bật với những đặc điểm độc đáo, tạo nên một phong cách cá nhân và hiện đại cho người sử dụng. Kiểu tóc Two Block được chia thành hai phần: phần trên được để dài hơn và phần dưới được cắt ngắn hơn. Sự chênh lệch trong chiều dài giữa hai phần tóc này tạo ra một phần tạo điểm nhấn và sự cân đối cho kiểu tóc. Một đặc điểm đặc biệt khác của kiểu tóc Two Block là phần tóc hai bên, được cắt sát hoặc vuốt ngược tạo điểm nhấn cho kiểu tóc, làm nổi bật thêm sự cá tính và phóng khoáng.
+    </div>
+
+    <!-- HƯỚNG DẪN -->
+    <div class="tab-pane" id="tab-guide">
+
+        <h3>HƯỚNG DẪN SỬ DỤNG TÓC GIẢ NAM TWO BLOCK</h3>
+
+        <h4>1. Hướng dẫn cách đội tóc giả nam Two Block bằng tóc thật</h4>
+
+        <p><b>Bước 1:</b> Chuẩn bị tóc thật</p>
+        <p>
+            Trước khi đội tóc giả nam Two Block, hãy cạo sạch hoặc cắt ngắn phần tóc thật ở hai bên
+            và sau gáy để tạo nền tảng phẳng. Nếu tóc dài, bạn có thể buộc gọn phần tóc trên đỉnh đầu
+            để tạo bề mặt bằng phẳng giúp tóc giả bám chắc hơn.
+        </p>
+
+        <p><b>Bước 2:</b> Căn chỉnh tóc giả nam Two Block</p>
+        <p>
+            Đặt tóc giả nam Two Block lên đầu, căn chỉnh sao cho phần trán và hai bên thái dương
+            khớp với đường chân tóc tự nhiên. Đảm bảo tóc giả ôm sát da đầu, không bị lệch hoặc xoắn
+            để đạt hiệu ứng tự nhiên nhất.
+        </p>
+
+        <p><b>Bước 3:</b> Cố định tóc giả nam Two Block</p>
+        <p>
+            Sử dụng băng dính chuyên dụng hoặc keo dán tóc giả để cố định phần viền tóc giả.
+            Bắt đầu từ trán, đến hai bên thái dương và sau gáy. Điều chỉnh độ căng phù hợp
+            để tạo cảm giác thoải mái.
+        </p>
+
+        <p><b>Bước 4:</b> Kiểm tra và tạo kiểu</p>
+        <p>
+            Sau khi cố định, kiểm tra lại tổng thể. Bạn có thể dùng lược và sáp tạo kiểu
+            để chỉnh phần tóc trên, tạo độ phồng tự nhiên cho kiểu Two Block.
+        </p>
+
+        <h4>2. Hướng dẫn cách tháo tóc giả nam Two Block</h4>
+
+        <p><b>Bước 1:</b> Làm mềm chất kết dính</p>
+        <p>
+            Sử dụng dung dịch tẩy keo chuyên dụng thấm nhẹ quanh viền tóc giả,
+            chờ khoảng 2–3 phút để keo tan hoàn toàn.
+        </p>
+
+        <p><b>Bước 2:</b> Tháo tóc giả đúng cách</p>
+        <p>
+            Tháo từ phía sau gáy, di chuyển dần sang hai bên và cuối cùng là phần trán.
+            Thực hiện chậm rãi để tránh làm hỏng đế lưới.
+        </p>
+
+        <p><b>Bước 3:</b> Vệ sinh và bảo quản</p>
+        <p>
+            Làm sạch phần đế lưới bằng cồn y tế, chải tóc nhẹ nhàng bằng lược răng thưa
+            và đặt tóc giả lên đầu mannequin để giữ form.
+        </p>
+
+        <h4>3. Cách bảo quản tóc giả nam Two Block</h4>
+        <ul>
+            <li>Đặt tóc giả trên đầu mannequin khi không sử dụng.</li>
+            <li>Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</li>
+            <li>Sử dụng hộp bảo quản chuyên dụng khi di chuyển.</li>
+        </ul>
+
+        <h4>4. Cách vệ sinh tóc giả nam Two Block</h4>
+        <ul>
+            <li>Ngâm tóc trong nước ấm pha dầu gội dịu nhẹ 10–15 phút.</li>
+            <li>Thoa dầu xả chuyên dụng trong 5 phút rồi xả sạch.</li>
+            <li>Thấm khô bằng khăn mềm, để khô tự nhiên.</li>
+            <li>Không dùng máy sấy nhiệt độ cao.</li>
+        </ul>
+
+        <h4>5. Một số lưu ý quan trọng</h4>
+        <ul>
+            <li><b>Chọn keo phù hợp:</b> Dùng keo chuyên dụng cho da đầu nhạy cảm.</li>
+            <li><b>Thời gian đeo:</b> Không quá 8–10 tiếng/ngày.</li>
+            <li><b>Vệ sinh da đầu:</b> Làm sạch da đầu sau khi tháo tóc giả.</li>
+            <li><b>Kiểm tra độ ôm:</b> Nếu lỏng, cần dán lại ngay.</li>
+            <li><b>Tránh vận động mạnh:</b> Hạn chế đổ mồ hôi nhiều.</li>
+            <li><b>Chăm sóc định kỳ:</b> Vệ sinh ít nhất 1 lần/tuần.</li>
+            <li><b>Không tự cắt sửa:</b> Nên đến salon chuyên tóc giả.</li>
+            <li><b>Bảo dưỡng:</b> 3–6 tháng kiểm tra tại cơ sở uy tín.</li>
+            <li><b>Test keo:</b> Thử keo trên da trước khi dùng.</li>
+        </ul>
+    </div>
+
+    <!-- PHẢN HỒI -->
+    <div class="tab-pane" id="tab-review">
+        <section class="feedback-section">
+            <div class="feedback-left">
+                <h2 class="feedback-title">FEEDBACK KHÁCH HÀNG</h2>
+                <p class="feedback-subtitle">Đánh giá trực tiếp từ khách hàng khi trải nghiệm dịch vụ tại Hair Rep 1:1.</p>
+            </div>
+            <div class="feedback-list">
+                <div class="feedback-item">
+                    <div class="feedback-content"> 
+                        <h3 class="name">Đinh Hải Nam</h3>
+                        <p class="meta"> 
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span> 4 tuần trước
+                        </p>
+                        <p class="text">Mình mua về đội thử mà bất ngờ luôn, tóc mềm và nhẹ hơn tưởng tượng rất nhiều. Phần chân tóc nhìn khá thật, đứng gần cũng khó nhận ra là tóc giả. Mình đi làm cả ngày vẫn thấy thoải mái, không bị ngứa hay bí da đầu. Shop tư vấn rất kỹ nên chọn đúng màu hợp da, rất hài lòng.</p>
+                    </div>           
+                </div>
+
+                <div class="feedback-item">
+                    <div class="feedback-content"> 
+                        <h3 class="name">Trần Trung Quân</h3>
+                        <p class="meta"> 
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span> 1 tháng trước
+                        </p>
+                        <p class="text">Trước giờ hơi ngại dùng tóc giả nhưng bộ này làm mình thay đổi suy nghĩ. Phần kẹp và đế bên trong chắc chắn, đội lên ôm đầu nhưng không đau. Mình chạy xe, đi ngoài trời gió nhẹ vẫn không bị xô lệch. Chất lượng ổn so với giá tiền, sẽ ủng hộ thêm mẫu khác.</p>
+                    </div>           
+                </div>
+
+                <div class="feedback-item">
+                    <div class="feedback-content"> 
+                        <h3 class="name">Gia Hoài</h3>
+                        <p class="meta"> 
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span> 2 tháng trước
+                        </p>
+                        <p class="text">Mẫu này tiện thật sự, sáng chỉ cần vài phút là đội xong rồi đi làm. Tóc đã được tạo form sẵn nên nhìn gọn gàng, không cần chỉnh sửa nhiều. Mình thích nhất là cảm giác rất tự nhiên, chụp hình cũng không bị lộ. Phù hợp cho ai muốn thay đổi kiểu tóc nhanh mà không phải cắt tóc thật.</p>
+                    </div>           
+                </div>
+            </div>
+        </section>
+    </div>
+
+<section class="related">
+    <h2>Có thể bạn sẽ thích</h2>
+
+    <div class="products-grid">
+        <!-- Card 1 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/anh-Tus-1-of-38.webp" alt="Tóc giả nam Basic">
+                <div class="sold-badge">ĐÃ BÁN 4</div>
+            </div>
+            <h3>Tóc giả nam Basic làm từ tóc thật</h3>
+            <p class="product-item-price">4.200.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Đặt Lịch</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/Tyler-2-of-43-1.webp" alt="Tóc giả nam Xoăn">
+                <div class="sold-badge">ĐÃ BÁN 1</div>
+            </div>
+            <h3>Tóc giả nam xoăn làm từ tóc thật</h3>
+            <p class="product-item-price">6.500.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Đặt Lịch</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/anh-Tus-32-of-38.webp" alt="Tóc giả nam layer 7/3">
+                <div class="sold-badge">ĐÃ BÁN 2</div>
+            </div>
+            <h3>Tóc giả nam Layer 7/3 làm từ tóc thật</h3>
+            <p class="product-item-price">3.800.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Đặt Lịch</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-item">
+            <div class="product-image">
+                <img src="../../../../assets/images/chitiettocnam/Ảnh tóc giả nam/anh-Tus-19-of-38.webp" alt="Tóc giả nam kẹp mái">
+                <div class="sold-badge">ĐÃ BÁN 6</div>
+            </div>
+            <h3>Tóc giả nam kẹp mái làm bằng tóc thật</h3>
+            <p class="product-item-price">3.500.000</p>
+            <div class="product-buttons">
+                <button class="btn-book">Đặt Lịch</button>
+                <button class="btn-buy">Mua Ngay</button>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+    <section class="process-section">
+        <div class="process-header">
+            <h1>QUY TRÌNH TRẢI NGHIỆM</h1>
+            <p>4 bước đơn giản để có được giải pháp tóc giả hoàn hảo</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-circle">01</div>
+                <h3 class="step-title">Tư Vấn Miễn Phí</h3>
+                <p class="step-desc">Chuyên gia tư vấn giải pháp tóc giả phù hợp nhất</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">02</div>
+                <h3 class="step-title">Thử Mẫu Trực Tiếp</h3>
+                <p class="step-desc">Trải nghiệm sản phẩm tại salon trước khi quyết định</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">03</div>
+                <h3 class="step-title">Sản Xuất & Giao Hàng</h3>
+                <p class="step-desc">Gia công chuyên nghiệp và giao hàng tận nơi</p>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">04</div>
+                <h3 class="step-title">Bảo Hành & Hỗ Trợ</h3>
+                <p class="step-desc">Chăm sóc khách hàng 24/7, bảo hành dài hạn</p>
+            </div>
+        </div>
+        <button id="openBtn" class="main-btn" onclick="openModal()">
+            Đặt lịch tư vấn ngay <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </section>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="../../../../assets/js/iconcuoitrang.js"></script>
+    <script src="../script.js"></script>
+    
+    <script src="../../../../assets/js/chi_tiet_toc_nam.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Lấy dữ liệu từ localStorage
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        // 2. Tính tổng số lượng
+        let totalQty = 0;
+        cart.forEach(item => {
+            totalQty += parseInt(item.quantity);
+        });
+
+        // 3. Cập nhật số lên icon
+        const badges = document.querySelectorAll('.count-badge');
+        badges.forEach(badge => {
+            badge.innerText = totalQty;
+            
+            if (totalQty > 0) {
+                badge.style.display = 'flex'; // Hiện lên
+            } else {
+                badge.style.display = 'none'; // Ẩn đi
+            }
+        });
+    });
+</script>
+<script src="../../../../assets/js/load-components.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../../../components/header.html");
+        loadComponent("#footer-placeholder", "../../../../components/footer.html");
+    });
+</script>
+<script src="../../../../assets/js/globle.js"></script>
+</body>
+</html>

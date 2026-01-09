@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phụ Kiện Tóc Giả - HAIR REP 1-1</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/images/trangchu/Logo.jpg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+    <style>
+      /* Thêm style tùy chỉnh để phân biệt màu nền và khoảng trắng */
+      .product-details-section {
+        background-color: #0c0c0c; /* Giữ nền đen để nổi bật */
+        padding-bottom: 120px; /* Tăng padding dưới để tạo khoảng trắng lớn hơn trước footer */
+        margin-bottom: 40px; /* Thêm margin dưới để tách biệt */
+      }
+      .hr-footer {
+        background-color: #1a1a1a; /* Đổi nền footer thành xám đậm hơn để phân biệt với phần trên (nếu cần, hoặc giữ trắng) */
+        padding-top: 60px; /* Thêm padding trên footer để tăng khoảng cách */
+      }
+      /* Style cho rating stars - Đặt sau ảnh để hiển thị rõ */
+      .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 12px;
+        color: #f1c40f;
+        margin: 8px 0;
+      }
+      .rating span {
+        margin-left: 5px;
+        color: #666;
+        font-size: 11px;
+        font-weight: 500;
+      }
+      /* Chỉnh nút btn-row để đẹp và đều */
+      .btn-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .btn-row a {
+        flex: 1;
+        text-align: center;
+        padding: 12px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600; /* Sửa từ 200 thành 600 để chữ đậm */
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      /* Override main-banner height for static image */
+      .main-banner {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 0;
+      }
+      .banner-image-container img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      a {
+        text-decoration: none;
+      }
+      .btn-dark {
+        background-color: #1a1a1a;
+        color: #fff;
+      }
+      .btn-dark:hover {
+        background-color: #333;
+      }
+      .btn-light {
+        background-color: #fff;
+        color: #1a1a1a;
+        border: 1px solid #ddd;
+      }
+      .btn-light:hover {
+        background-color: #f5f5f5;
+      }
+      /* Style cho filter sidebar - New Design */
+      .product-listing {
+        display: flex;
+        gap: 40px; /* Increased gap for better separation */
+        margin-top: 30px;
+
+      }
+      .filter-sidebar {
+        flex: 0 0 220px; /* Slightly narrower to match reference */
+        background: transparent;
+        padding: 0;
+        height: fit-content;
+        box-shadow: none;
+        border: none;
+      }
+      .filter-heading {
+        font-size: 18px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+      }
+      .filter-group {
+        margin-bottom: 30px;
+      }
+      .filter-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+      .filter-title h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+      }
+      .filter-title i {
+        font-size: 12px;
+        color: #666;
+      }
+      .filter-options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* Custom Radio Button */
+      .custom-radio {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 14px;
+        color: #555;
+        position: relative;
+        padding-left: 30px;
+      }
+      .custom-radio input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .radio-mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        transition: all 0.2s;
+      }
+      .custom-radio:hover input ~ .radio-mark {
+        border-color: #ccc;
+      }
+      .custom-radio input:checked ~ .radio-mark {
+        border-color: #1a1a1a;
+      }
+      .custom-radio input:checked ~ .radio-mark:after {
+        display: block;
+      }
+      .radio-mark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        top: 4px;
+        left: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #1a1a1a; /* Black dot */
+      }
+
+      /* Custom Checkbox */
+      .custom-checkbox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 14px;
+        color: #555;
+        position: relative;
+        padding-left: 30px;
+      }
+      .custom-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px; /* Square with slight radius */
+        transition: all 0.2s;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+        border-color: #ccc;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+        background-color: #1a1a1a;
+        border-color: #1a1a1a;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 7px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Stars in Filter */
+      .stars-display {
+        display: flex;
+        gap: 2px;
+        color: #f1c40f; /* Yellow stars */
+        font-size: 14px;
+      }
+      .stars-display i.fa-regular {
+        color: #ddd; /* Gray for empty stars */
+      }
+      .products-section {
+        flex: 1;
+      }
+      /* Style cho slider viewport */
+      .slider-viewport {
+        overflow: hidden;
+        position: relative;
+        margin-top: 20px;
+      }
+      .product-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+      }
+      .product-card {
+        width: 100%;
+        max-width: none; /* Reset inherited max-width */
+        background: #fff;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.3s, opacity 0.3s ease, visibility 0.3s ease;
+        display: flex; /* NEW: Flex container */
+        flex-direction: column; /* NEW: Stack content */
+        height: 100%; /* NEW: Stretch to grid row height */
+      }
+      .product-card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .product-card.hidden {
+        display: none;
+      }
+      .card-inner {
+        width: 100%;
+        display: flex; /* NEW: Inner flex container */
+        flex-direction: column; /* NEW: Stack inner content */
+        flex: 1; /* NEW: Grow to fill card */
+        height: 100%;
+      }
+
+      .product-card h3 {
+          font-size: 16px;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: #333;
+          line-height: 1.4;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /* Limit to 2 lines */
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          min-height: 44px; /* Force minimum height for 2 lines */
+      }
+      
+      /* New Product Card Button Styles - Ensure pushes to bottom */
+      .card-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: auto; /* NEW: Push to bottom */
+          align-items: center;
+          padding-top: 15px;
+      }
+      .img-wrapper {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        aspect-ratio: 1 / 1;
+      }
+      .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .main-container {
+        margin-left: 0;
+      }
+      .tag-sold {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: fit-content;
+        height: auto;
+        background: rgba(239, 5, 5, 0.7);
+        color: #fff;
+        padding: 4px 8px;
+        font-size: 11px;
+        font-weight: 600;
+        border-radius: 4px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .product-card h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+        line-height: 1.4;
+      }
+      .price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 992px) {
+        .product-listing {
+          flex-direction: column;
+        }
+        .filter-sidebar {
+          order: 2;
+        }
+        .product-card {
+          flex: 0 0 250px;
+          margin-right: 15px;
+        }
+        .img-wrapper {
+          aspect-ratio: 4 / 3;
+        }
+        
+        /* GRID LAYOUT OVERRIDES (Chuyển slider thành grid) */
+        .products-section .slider-viewport {
+          overflow: visible !important;
+        }
+        .products-section .product-track {
+          display: grid !important;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+          gap: 20px !important;
+          flex-wrap: nowrap !important; /* Disable flex wrap since we use grid */
+        }
+        .products-section .product-card {
+          flex: none !important; 
+          max-width: 100% !important; /* Reset width to fill grid cell */
+          width: 100% !important;
+          margin-bottom: 0 !important; /* Gap handles spacing */
+          padding: 0 !important; /* Avoid double padding if existing */
+        }
+        
+        /* Đảm bảo nội dung card full width */
+        .products-section .card-inner {
+            width: 100%;
+        }
+
+        /* Chỉnh lại trên mobile - Grid tự động lo, nhưng có thể tweak nếu cần */
+        @media (max-width: 480px) {
+           .products-section .product-track {
+             grid-template-columns: repeat(2, 1fr) !important; /* Force 2 cols on mobile */
+             gap: 10px !important;
+           }
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+   <div id="header-placeholder"></div>
+
+    <!-- Banner cho danh mục phụ kiện - Điều chỉnh tiêu đề phù hợp -->
+      <div class="banner-image-container" style="position: relative;">
+        <img 
+          src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/phukien.jpg" 
+          alt="Phụ kiện tóc giả" 
+          style="width: 100%; height: auto; display: block;"
+        />
+        <div class="banner-overlay-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 80%;">
+          <h1 style="font-size: 32px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;">PHỤ KIỆN TÓC GIẢ</h1>
+          <p style="font-size: 16px; font-weight: 400; color: #ccc; line-height: 1.5;">
+            Để việc sử dụng tóc giả <br>
+            trở nên dễ dàng hơn, thuận tiện hơn
+          </p>
+        </div>
+      </div>
+
+    <!-- Phần Quick Booking - Giữ nguyên từ index.html -->
+    <!-- Quick Booking Removed -->
+
+    <!-- Phần chính: Danh mục phụ kiện - Sidebar filter + Slider sản phẩm -->
+    <section class="main-container" style="max-width: 100%; padding: 0;">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 30px;">
+        <div class="section-header">
+          <h2>Phụ kiện tóc giả</h2>
+          <p>
+            Cùng bạn khẳng định sự tự tin với mái tóc đẹp mỗi ngày. Các phụ kiện
+            chất lượng cao hỗ trợ tối ưu cho tóc giả.
+          </p>
+        </div>
+
+        <div class="product-listing">
+          <!-- Filter Sidebar -->
+          <aside class="filter-sidebar">
+            <h3 class="filter-heading">BỘ LỌC</h3>
+
+            <!-- Price Filter -->
+            <div class="filter-group">
+              <div class="filter-title">
+                <h4>Khoảng giá</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="filter-options">
+                <label class="custom-radio">
+                  <input type="radio" name="priceFilter" value="all" checked onchange="filterProducts()">
+                  <span class="radio-mark"></span>
+                  <span class="label-text">Tất cả</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="priceFilter" value="under1m" onchange="filterProducts()">
+                  <span class="radio-mark"></span>
+                  <span class="label-text">Dưới 1.000.000đ</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="priceFilter" value="1m-3m" onchange="filterProducts()">
+                  <span class="radio-mark"></span>
+                  <span class="label-text">Từ 1.000.000đ - 3.000.000đ</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="priceFilter" value="3m-5m" onchange="filterProducts()">
+                  <span class="radio-mark"></span>
+                  <span class="label-text">Từ 3.000.000đ - 5.000.000đ</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="priceFilter" value="above5m" onchange="filterProducts()">
+                  <span class="radio-mark"></span>
+                  <span class="label-text">Trên 5.000.000đ</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="filter-group">
+              <div class="filter-title">
+                <h4>Đánh giá</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="filter-options">
+                <!-- 5 Stars -->
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="ratingFilter" value="5" onchange="filterProducts()">
+                  <span class="checkmark"></span>
+                  <div class="stars-display">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                </label>
+                <!-- 4 Stars -->
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="ratingFilter" value="4" onchange="filterProducts()">
+                  <span class="checkmark"></span>
+                  <div class="stars-display">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                  </div>
+                </label>
+                <!-- 3 Stars -->
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="ratingFilter" value="3" onchange="filterProducts()">
+                  <span class="checkmark"></span>
+                  <div class="stars-display">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                  </div>
+                </label>
+                <!-- 2 Stars -->
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="ratingFilter" value="2" onchange="filterProducts()">
+                  <span class="checkmark"></span>
+                  <div class="stars-display">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                  </div>
+                </label>
+                 <!-- 1 Star -->
+                 <label class="custom-checkbox">
+                  <input type="checkbox" name="ratingFilter" value="1" onchange="filterProducts()">
+                  <span class="checkmark"></span>
+                  <div class="stars-display">
+                    <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Products Section -->
+          <div class="products-section">
+            <!-- Slider viewport cho sản phẩm phụ kiện - Sử dụng class giống index.html -->
+            <div class="slider-viewport">
+              <div class="product-track">
+                <!-- Sản phẩm 1: Băng dính dán tóc giả cho tóc giả nam -->
+                <div class="product-card" data-rating="5" data-price="250000">
+                  <div class="card-inner">
+                    <div class="img-wrapper">
+                      <span class="tag-sold">ĐÃ BÁN 45</span>
+                      <img
+                        src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-toc-gia-nam-vtg-kd06-4.webp"
+                        alt="Băng dính dán tóc giả nam VTG KD06"
+                      />
+                    </div>
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <span>(5.0)</span>
+                    </div>
+                    <h3>Băng Dính Dán Tóc Giả Nam VTG KD06</h3>
+                    <div class="price">250.000 ₫</div>
+                    
+                    <!-- New Button Layout -->
+                    <div class="card-actions">
+                        <a href="../../Giỏ hàng/index.html" class="btn-add-cart-new">Bỏ vào giỏ hàng</a>
+                        <a href="chi_tiet_phu_kien.html?id=bang-dinh-dan-kd06" class="link-view-detail-new">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sản phẩm 2: Băng dính dán tóc giả VTG KD05 -->
+                <div class="product-card" data-rating="4.5" data-price="220000">
+                  <div class="card-inner">
+                    <div class="img-wrapper">
+                      <span class="tag-sold">ĐÃ BÁN 102</span>
+                      <img
+                        src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/bang-dinh-dan-toc-gia-vtg-kd05-5.webp"
+                        alt="Băng dính dán tóc giả VTG KD05"
+                      />
+                    </div>
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half"></i>
+                      <span>(4.5)</span>
+                    </div>
+                    <h3>Băng Dính Dán Tóc Giả VTG KD05</h3>
+                    <div class="price">220.000 ₫</div>
+                    
+                    <div class="card-actions">
+                        <a href="cart.html" class="btn-add-cart-new">Bỏ vào giỏ hàng</a>
+                        <a href="chi_tiet_phu_kien.html?id=bang-dinh-dan-kd05" class="link-view-detail-new">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sản phẩm 3: Keo dán tóc giả Great White Walker Tape VTG KD01 -->
+                <div class="product-card" data-rating="3" data-price="350000">
+                  <div class="card-inner">
+                    <div class="img-wrapper">
+                      <span class="tag-sold">ĐÃ BÁN 32</span>
+                      <img
+                        src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/keo-dan-toc-gia-great-white-walker-tape-vtg-kd01-9.webp"
+                        alt="Keo dán tóc giả Great White Walker Tape"
+                      />
+                    </div>
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <span>(3)</span>
+                    </div>
+                    <h3>Keo Dán Tóc Giả Great White Walker Tape VTG</h3>
+                    <div class="price">350.000 ₫</div>
+                    
+                    <div class="card-actions">
+                        <a href="cart.html" class="btn-add-cart-new">Bỏ vào giỏ hàng</a>
+                        <a href="chi_tiet_phu_kien.html?id=keo-dan-great-white" class="link-view-detail-new">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sản phẩm 4: Keo dán tóc giả vừa tóc giả KD03 -->
+                <div class="product-card" data-rating="4.5" data-price="300000">
+                  <div class="card-inner">
+                    <div class="img-wrapper">
+                      <span class="tag-sold">ĐÃ BÁN 345</span>
+                      <img
+                        src="../../../assets/images/phukientocgia/Ảnh phụ kiện tóc giả/keo-dan-toc-gia-vua-toc-gia-kd03-3.webp"
+                        alt="Keo dán tóc giả vừa tóc giả KD03"
+                      />
+                    </div>
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half"></i>
+                      <span>(4.5)</span>
+                    </div>
+                    <h3>Keo Dán Tóc Giả Vừa Tóc Giả KD03</h3>
+                    <div class="price">300.000 ₫</div>
+                    <div class="btn-row">
+                      <a href="chi_tiet_phu_kien.html?id=keo-dan-kd03" class="btn-dark"
+                        >Xem Chi Tiết</a
+                      >
+                      <a href="cart.html" class="btn-light">Giỏ Hàng</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination-container">
+                <button class="page-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Styles for Pagination */
+      .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 40px;
+        padding-bottom: 20px;
+      }
+      
+      .page-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #ddd;
+        color: #333;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .page-btn:hover {
+        border-color: #333;
+        color: #000;
+      }
+      
+      .page-btn.active {
+        background: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+      }
+      
+      .page-btn i {
+        font-size: 12px;
+      }
+    </style>
+
+    <!-- Phần Product Details - Điều chỉnh cho phụ kiện -->
+    <!-- Phần SEO Content - Thay thế cho phần ảnh cũ -->
+    <section class="seo-content-section" style="padding: 40px 0;">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 30px;">
+        <div class="seo-text-wrapper" style="position: relative;">
+          <!-- Content Container with max-height -->
+          <div class="seo-text-content collapsed" id="seoContent">
+            <p style="margin-bottom: 20px;">
+              Phụ kiện tóc giả nam là những phụ kiện cần thiết để phục vụ việc sử dụng tóc giả. Vậy phụ kiện gồm những gì cùng VTG Hair tìm hiểu bài viết dưới đây nhé.
+            </p>
+            
+            <h3 style="font-size: 20px; font-weight: 600; margin: 25px 0 15px;">Phụ kiện tóc giả nam gồm những gì?</h3>
+            <p style="margin-bottom: 15px;">Để có một mái tóc giả nam đẹp hoàn chỉnh và ngay ngắn trên đầu. Điều đầu tiên bạn cần, đó là một bộ tóc giả nam ưng ý và phù hợp nhất. Ngoài ra, thứ không thể thiếu khi làm nên một tác phẩm đẹp để các nam giới có thể tự tin giao tiếp với mọi người, đó chính là những phụ kiện tóc giả nam được kèm theo. Vậy cách sử dụng chúng ra sao? Mời bạn theo dõi tiếp ở phần dưới đây nhé.</p>
+            
+            <h3 style="font-size: 20px; font-weight: 600; margin: 25px 0 15px;">Phụ kiện tóc giả nam</h3>
+            <p style="margin-bottom: 15px;">Để mái tóc giả của các nam giới không bị xộc xệch hay xiên vẹo trong quá trình sử dụng thì những phụ kiện sau sẽ giúp hỗ trợ cố định cho mái tóc ổn định và tạo dáng đẹp hơn. Đó là những phụ kiện như:</p>
+            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
+              <li>Bộ tóc giả</li>
+              <li>Lưới trùm đầu</li>
+              <li>Băng dính dán tóc giả</li>
+            </ul>
+            <p style="margin-bottom: 15px;">Bạn thấy những phụ kiện đó quá đơn giản đúng không nào? Vậy các bước thực hiện chúng sẽ ra sao?</p>
+            
+            <h3 style="font-size: 20px; font-weight: 600; margin: 25px 0 15px;">Cách sử dụng</h3>
+            <p style="margin-bottom: 15px;">Keo dán tóc giả Ultra Hold Walker Tape cao cấp siêu dính.</p>
+            <p style="margin-bottom: 15px;">Sử dụng phụ kiện tóc giả không hề khó như nhiều bạn trẻ vẫn nghĩ. Chỉ cần thực hiện đúng theo các bước hướng dẫn dưới đây là các bạn đã có một mái tóc đẹp và hoàn chỉnh nhất.</p>
+            <p style="margin-bottom: 10px;">B1: Sử dụng lưới trùm đầu để tóc thật không bị chìa ra ngoài.</p>
+            <p style="margin-bottom: 10px;">B2: Sử dụng băng keo và keo dán dán ở phần trong của bộ tóc giả.</p>
+            <p style="margin-bottom: 10px;">B3: Tiến hành đội tóc giả.</p>
+            <p style="margin-bottom: 15px;">B4: Chỉnh sửa và tạo kiểu theo mong muốn của mình.</p>
+            <p style="margin-bottom: 15px;">Các bước sử dụng phụ kiện tóc giả dành cho nam khá đơn giản, nhanh gọn và không tốn nhiều thời gian để bạn thực hiện.</p>
+            
+            <p style="margin-bottom: 15px;"><strong>Tác dụng của lưới trùm đầu:</strong> Giúp gói gọn tóc thật bên trong lại, không bị bung hoặc xõa ra ngoài.</p>
+            <p style="margin-bottom: 15px;"><strong>Tác dụng của băng keo dán tóc:</strong> Giúp gắn lượn theo đường cong của mái tóc giả một cách dễ dàng và tạo cảm giác chắc chắn, thoải mái khi sử dụng trên da đầu.</p>
+            <p style="margin-bottom: 20px;"><strong>Tác dụng của tóc giả:</strong> Làm đẹp, làm mới và tạo sự tự tin cho người sử dụng.</p>
+            
+            <p>Đó là những tính năng đặc biệt và hữu ích mà phụ kiện tóc giả nam mang đến cho các chàng trai có nhu cầu sử dụng tóc giả. Khi kết hợp dùng với những loại phụ kiện này bạn có thể sử dụng tóc giả cách dễ dàng hơn. Và hơn nữa, nó còn giúp tó giả sử dụng được lâu, dễ dàng tạo được mọi kiểu tóc yêu thích.</p>
+          </div>
+          
+          <!-- Gradient Overlay -->
+          <div class="content-overlay" id="contentOverlay"></div>
+        </div>
+
+        <!-- Read More Button -->
+        <div style="text-align: center; margin-top: 15px;">
+            <button id="toggleContentBtn" style="background: none; border: none; color: #1a1a1a; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; margin: 0 auto;">
+                Đọc thêm <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+      </div>
+    </section>
+
+    <style>
+        .seo-text-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            position: relative;
+            text-align: justify;
+        }
+        
+        .seo-text-content.collapsed {
+            max-height: 150px; /* Limit height initially */
+        }
+        
+        .seo-text-content.expanded {
+            max-height: 2000px; /* Enough to show full content */
+        }
+
+        .content-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(transparent, #fff);
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .content-overlay.hidden {
+            opacity: 0;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleContentBtn');
+            const content = document.getElementById('seoContent');
+            const overlay = document.getElementById('contentOverlay');
+            let isExpanded = false;
+
+            if(toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    isExpanded = !isExpanded;
+                    if(isExpanded) {
+                        content.classList.remove('collapsed');
+                        content.classList.add('expanded');
+                        overlay.classList.add('hidden');
+                        toggleBtn.innerHTML = 'Thu gọn <i class="fa-solid fa-chevron-up"></i>';
+                    } else {
+                        content.classList.remove('expanded');
+                        content.classList.add('collapsed');
+                        overlay.classList.remove('hidden');
+                        toggleBtn.innerHTML = 'Đọc thêm <i class="fa-solid fa-chevron-down"></i>';
+                        // Optional: Scroll back to top of section
+                        // content.scrollIntoView({behavior: 'smooth', block: 'start'});
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- New Consultation Section -->
+    <section class="consultation-section" style="padding: 60px 0; background: #fff;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; display: flex; gap: 40px; align-items: center; padding: 0 20px;">
+            <!-- Left: Image -->
+            <div class="consult-image-col" style="flex: 1;">
+                <img src="../../../assets/images/trangchu/Form-dat-lich-tu-van-dich-vu-dest-1-of-1.webp" alt="Đặt lịch tư vấn" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            </div>
+            
+            <!-- Right: Form -->
+            <div class="consult-form-col" style="flex: 1;">
+                <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 25px; color: #1a1a1a;">Đặt lịch tư vấn</h2>
+                <form class="booking-form-vertical" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="Họ và tên" style="padding: 15px; background: #f8f8f8; border: none; border-radius: 4px; font-size: 15px; width: 100%;">
+                    <input type="tel" placeholder="Số điện thoại" style="padding: 15px; background: #f8f8f8; border: none; border-radius: 4px; font-size: 15px; width: 100%;">
+                    
+                    <button type="submit" style="background: #1a1a1a; color: #fff; border: none; padding: 15px; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; margin-top: 10px; transition: 0.3s;">
+                        Gửi tư vấn ngay
+                    </button>
+                    
+                    <div style="margin-top: 20px; font-weight: 600; color: #333; display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-phone" style="background: #1a1a1a; color: #fff; padding: 8px; border-radius: 50%; font-size: 12px;"></i>
+                        <span>Hotline: 087 616 5555</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <style>
+      /* Responsive styles for Consultation Section */
+      @media (max-width: 768px) {
+        .consultation-section .container {
+          flex-direction: column !important;
+          gap: 30px !important;
+        }
+        .consult-image-col, .consult-form-col {
+          width: 100% !important;
+          flex: none !important;
+        }
+        .booking-form-vertical input {
+          width: 100% !important; /* Ensure inputs fill width on mobile */
+          box-sizing: border-box; /* Fix padding issues */
+        }
+      }
+    </style>
+
+    <!-- Modals giữ nguyên -->
+    <div id="modal-consult" class="modal-overlay">
+      <div class="modal-box consult-box">
+        <button class="modal-close close-consult">&times;</button>
+        <div class="modal-left">
+          <img
+            src="../../../assets/images/trangchu/Form-dat-lich-tu-van-dich-vu-dest-1-of-1.webp"
+            alt="Tư vấn"
+          />
+        </div>
+        <div class="modal-right">
+          <h2>
+            Tư vấn miễn phí giải pháp tóc giả nam, kiểu tóc nam với HAIR REP 1-1
+            !
+          </h2>
+          <p class="desc">Để lại thông tin chúng tôi sẽ liên hệ lại với bạn!</p>
+          <form class="consult-form">
+            <input type="text" placeholder="Họ và tên" />
+            <input type="text" placeholder="Số điện thoại" />
+            <button type="submit" class="btn-submit">Đặt lịch</button>
+          </form>
+          <div class="hotline-text">
+            <i class="fa-solid fa-phone"></i> Hotline: 087 616 5555
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-search" class="modal-overlay">
+      <div class="modal-box search-box-modal">
+        <button class="modal-close close-search">&times;</button>
+        <h3 class="search-title">Nhập nội dung tìm kiếm</h3>
+        <div class="search-body">
+          <input
+            type="text"
+            class="search-input-full"
+            placeholder="Ví dụ: Băng dính tóc giả"
+          />
+          <div class="search-actions">
+            <button type="button" class="btn-search-confirm">Tìm kiếm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <!-- Zalo: Constructed to look like logo -->
+        <a href="https://zalo.me/your-zalo-id" class="floating-btn btn-zalo">
+            <span class="zalo-text">Zalo</span>
+            <div class="zalo-smile"></div>
+        </a>
+        
+        <a href="tel:0876165555" class="floating-btn btn-phone">
+            <div class="phone-pulse"></div>
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        
+        <a href="https://m.me/your-page-id" class="floating-btn btn-messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+        
+        <a href="mailto:contact@hairrep.vn" class="floating-btn btn-email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+        
+        <button id="backToTopBtn" class="floating-btn btn-backtop" title="Lên đầu trang">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+
+
+    <div id="footer-placeholder"></div>
+    <!-- Script inline nhỏ cho modal, giống index.html -->
+    <script>
+      // Lấy thẻ Modal Quy trình
+      var modal = document.getElementById("modalOverlay");
+
+      // Hàm mở Modal
+      function moModal() {
+        modal.style.display = "flex";
+      }
+
+      // Hàm đóng Modal
+      function dongModal() {
+        modal.style.display = "none";
+      }
+
+      // Đóng khi bấm ra vùng đen bên ngoài
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Hàm giả lập gửi thông tin
+      function guiThongTin(e) {
+        e.preventDefault(); // Chặn tải lại trang
+        alert("Đã nhận thông tin đặt lịch!");
+        dongModal();
+      }
+
+      // Function lọc sản phẩm - New Logic
+      function filterProducts() {
+        // 1. Get Price Filter Value
+        const priceRadios = document.getElementsByName("priceFilter");
+        let selectedPrice = "all";
+        for (const radio of priceRadios) {
+          if (radio.checked) {
+            selectedPrice = radio.value;
+            break;
+          }
+        }
+
+        // 2. Get Rating Filter Values
+        const ratingCheckboxes = document.getElementsByName("ratingFilter");
+        const selectedRatings = [];
+        for (const checkbox of ratingCheckboxes) {
+          if (checkbox.checked) {
+            selectedRatings.push(parseInt(checkbox.value));
+          }
+        }
+
+        const products = document.querySelectorAll(".product-card");
+
+        products.forEach((product) => {
+          const rating = parseFloat(product.dataset.rating);
+          const price = parseInt(product.dataset.price);
+
+          // Check Rating Match
+          let ratingMatch = true;
+          // If any rating checkbox is checked, we only show matching items
+          // Logic: "4 stars" checkbox means products with rating 4.0 -> 4.9 (Math.floor(rating) === 4)
+          // "5 stars" checkbox match 5.0 (Math.floor(5) === 5)
+          if (selectedRatings.length > 0) {
+             ratingMatch = selectedRatings.includes(Math.floor(rating));
+          }
+
+          // Check Price Match
+          let priceMatch = true;
+          if (selectedPrice !== "all") {
+             switch (selectedPrice) {
+               case "under1m":
+                 priceMatch = price < 1000000;
+                 break;
+               case "1m-3m":
+                 priceMatch = price >= 1000000 && price <= 3000000;
+                 break;
+               case "3m-5m":
+                 priceMatch = price >= 3000000 && price <= 5000000;
+                 break;
+               case "above5m":
+                 priceMatch = price > 5000000;
+                 break;
+             }
+          }
+
+          if (ratingMatch && priceMatch) {
+            product.classList.remove("hidden"); // Hiện card
+          } else {
+            product.classList.add("hidden"); // Ẩn với class
+          }
+        });
+
+        // Reset slider transform
+        const productTrack = document.querySelector(".product-track");
+        if (productTrack) {
+          productTrack.style.transform = "translateX(0)";
+        }
+      }
+      
+      // Removed clearFilters as new UI doesn't use it (users click 'All' or uncheck)
+    </script>
+    <script src="script.js"></script>
+    <!-- Script Pagination -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const products = document.querySelectorAll('.product-card');
+          const itemsPerPage = 3; // Hiển thị 3 sản phẩm mỗi trang (theo yêu cầu)
+          let currentPage = 1;
+          const totalPages = Math.ceil(products.length / itemsPerPage);
+
+          function showPage(page) {
+              // Validate page
+              if (page < 1) page = 1;
+              if (page > totalPages) page = totalPages;
+              currentPage = page;
+
+              // Hide all products
+              products.forEach((product, index) => {
+                  if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                      product.style.display = ''; // Reset display to default (grid item)
+                  } else {
+                      product.style.display = 'none';
+                  }
+              });
+
+              // Update Buttons
+              updateButtons();
+          }
+
+          function updateButtons() {
+              const buttons = document.querySelectorAll('.page-btn');
+              buttons.forEach(btn => {
+                  btn.classList.remove('active');
+                  // Logic đơn giản cho 2 trang 1 & 2
+                  if (!btn.classList.contains('prev') && !btn.classList.contains('next')) {
+                      if (parseInt(btn.innerText) === currentPage) {
+                          btn.classList.add('active');
+                      }
+                  }
+              });
+          }
+
+          // Event Listeners
+          const btn1 = document.querySelectorAll('.page-btn')[1]; // Nút số 1
+          const btn2 = document.querySelectorAll('.page-btn')[2]; // Nút số 2
+          const prevBtn = document.querySelector('.page-btn.prev');
+          const nextBtn = document.querySelector('.page-btn.next');
+
+          if(btn1) btn1.addEventListener('click', () => showPage(1));
+          if(btn2) btn2.addEventListener('click', () => showPage(2));
+          
+          if(prevBtn) prevBtn.addEventListener('click', () => {
+              if(currentPage > 1) showPage(currentPage - 1);
+          });
+          
+          if(nextBtn) nextBtn.addEventListener('click', () => {
+              if(currentPage < totalPages) showPage(currentPage + 1);
+          });
+
+          // Init
+          showPage(1);
+      });
+    </script>
+      <style>
+        /* New Product Card Button Styles */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between button and link */
+            margin-top: 5px; /* Reduced from 15px */
+            align-items: center;
+        }
+
+        .btn-add-cart-new {
+            display: block;
+            width: 100%;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #333;
+            padding: 10px 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px; /* Added rounded corners */
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-add-cart-new:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .link-view-detail-new {
+            color: #666;
+            font-size: 13px;
+            text-decoration: underline;
+            text-transform: none; /* Keep natural case */
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .link-view-detail-new:hover {
+            color: #000;
+        }
+    </style>
+  <script>
+    // Tìm tất cả các nút "Bỏ vào giỏ hàng" có class là .btn-add-cart-new
+    const addToCartButtons = document.querySelectorAll('.btn-add-cart-new');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // 1. Ngăn chặn việc chuyển trang ngay lập tức
+            e.preventDefault();
+
+            // 2. Tìm thẻ bao bọc sản phẩm (product-card) chứa nút vừa bấm
+            const card = this.closest('.product-card');
+
+            // 3. Lấy thông tin từ giao diện HTML
+            // Lấy ảnh
+            const imgElement = card.querySelector('img');
+            const imgSrc = imgElement ? imgElement.src : '';
+            
+            // Lấy tên
+            const nameElement = card.querySelector('h3');
+            const name = nameElement ? nameElement.innerText.trim() : 'Sản phẩm chưa có tên';
+
+            // Lấy giá (Xử lý chuỗi "250.000 ₫" thành số 250000)
+            const priceElement = card.querySelector('.price');
+            let price = 0;
+            if (priceElement) {
+                const priceText = priceElement.innerText.replace(/\./g, '').replace(' ₫', '').trim();
+                price = parseInt(priceText);
+            }
+
+            // 4. Tạo đối tượng sản phẩm để lưu
+            const newProduct = {
+                id: name, // Dùng tên làm ID tạm thời để phân biệt
+                name: name,
+                image: imgSrc,
+                details: ["Phụ kiện chính hãng", "Mới 100%"], // Thông tin phụ mặc định
+                price: price,
+                quantity: 1
+            };
+
+            // 5. Lấy giỏ hàng cũ từ LocalStorage (Nếu chưa có thì tạo mảng rỗng)
+            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+
+            // 6. Kiểm tra xem sản phẩm này đã có trong giỏ chưa
+            let existingItem = cart.find(item => item.id === newProduct.id);
+            
+            if (existingItem) {
+                // Nếu có rồi thì tăng số lượng
+                existingItem.quantity += 1;
+            } else {
+                // Nếu chưa có thì thêm mới
+                cart.push(newProduct);
+            }
+
+            // 7. Lưu ngược lại vào LocalStorage
+            localStorage.setItem('myCart', JSON.stringify(cart));
+
+            // 8. Thông báo nhỏ (Tùy chọn)
+            alert('Đã thêm "' + name + '" vào giỏ hàng!');
+
+            // 9. Chuyển hướng sang trang giỏ hàng
+            // Lấy đường dẫn từ thuộc tính href của thẻ a
+            window.location.href = this.getAttribute('href');
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Lấy dữ liệu từ localStorage
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        // 2. Tính tổng số lượng
+        let totalQty = 0;
+        cart.forEach(item => {
+            totalQty += parseInt(item.quantity);
+        });
+
+        // 3. Cập nhật số lên icon
+        const badges = document.querySelectorAll('.count-badge');
+        badges.forEach(badge => {
+            badge.innerText = totalQty;
+            
+            if (totalQty > 0) {
+                badge.style.display = 'flex'; // Hiện lên
+            } else {
+                badge.style.display = 'none'; // Ẩn đi
+            }
+        });
+    });
+</script>
+<script src="../../../assets/js/load-components.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../../components/header.html");
+        loadComponent("#footer-placeholder", "../../../components/footer.html");
+    });
+</script>
+<script src="../../../assets/js/globle.js"></script>
+</body>
+</html>

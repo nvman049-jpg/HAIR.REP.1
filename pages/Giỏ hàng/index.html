@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAIR REP 1-1</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/images/trangchu/Logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+   <div id="header-placeholder"></div>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - Hair Rep 1:1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === 1. PHẦN CSS (GIAO DIỆN) === */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; padding: 0; 
+            background-color: #fff; 
+            color: #333; 
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hidden { display: none !important; }
+        
+        /* Tiêu đề */
+        h1#page-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 30px 0 50px;
+        }
+
+        /* --- GIAO DIỆN GIỎ HÀNG TRỐNG --- */
+        #empty-view {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .empty-icon {
+            font-size: 80px;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+        .empty-text {
+            font-size: 20px;
+            color: #999;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .btn-continue {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-continue:hover { background-color: #333; }
+        
+        /* --- GIAO DIỆN CÓ SẢN PHẨM --- */
+        .cart-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        /* Cột Trái: Danh sách sản phẩm */
+        .cart-left { flex: 3; }
+        
+        /* Header của bảng */
+        .cart-header {
+            display: flex;
+            background-color: #f9f9f9;
+            padding: 15px 0;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        .col-prod { flex: 4; padding-left: 15px; }
+        .col-qty { flex: 1.5; text-align: center; }
+        .col-price { flex: 1.5; text-align: right; }
+        .col-total { flex: 1.5; text-align: right; padding-right: 15px; }
+
+        /* Dòng sản phẩm */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Nút xóa (Thùng rác) */
+        .trash-icon {
+            width: 30px;
+            color: #666;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .trash-icon:hover { color: #d0021b; }
+
+        /* Ảnh và tên */
+        .item-image {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        .item-details h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0 0 5px;
+            line-height: 1.4;
+        }
+        .item-details p {
+            font-size: 13px;
+            color: #777;
+            margin: 2px 0;
+        }
+
+        /* Bộ chỉnh số lượng (+ -) */
+        .qty-group {
+            display: flex;
+            border: 1px solid #ddd;
+            width: 100px;
+            margin: 0 auto;
+            height: 36px;
+        }
+        .qty-btn {
+            width: 30px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qty-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            font-size: 14px;
+            font-weight: 600;
+            outline: none;
+        }
+
+        /* Giá tiền */
+        .price-text {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        /* Nút Tiếp tục mua sắm ở dưới */
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 2px;
+        }
+
+        /* Cột Phải: Tổng tiền (Summary) */
+        .cart-right {
+            flex: 1.2;
+            background: #fff;
+        }
+
+        /* Mã giảm giá */
+        .coupon-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .coupon-box input {
+            flex: 1;
+            padding: 10px;
+            background: #f5f5f5;
+            border: 1px solid #eee;
+            outline: none;
+        }
+        .coupon-box button {
+            padding: 10px 20px;
+            background: #888;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Thông tin thanh toán */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #333;
+        }
+        .divider {
+            border-top: 1px solid #eee;
+            margin: 15px 0;
+        }
+        .total-row {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 16px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .btn-checkout:hover { background: #333; }
+
+        
+        .float-icon {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .zalo-icon { background: #0068ff; font-size: 12px; font-weight: bold; }
+        .phone-icon { background: #4cd964; }
+        .mess-icon { background: linear-gradient(45deg, #00c6ff, #0072ff); }
+        .email-icon { background: #333; }
+        .up-icon { background: #000; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .cart-layout { flex-direction: column; }
+            .cart-header { display: none; }
+            .cart-item { flex-wrap: wrap; justify-content: center; text-align: center; }
+            .trash-icon { position: absolute; right: 10px; }
+            .col-prod, .col-qty, .col-price, .col-total { flex: 100%; padding: 5px 0; text-align: center; }
+            .item-image { margin: 0 auto 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div style="font-size: 14px; color: #888; margin-bottom: 10px;">
+            Trang chủ > Giỏ hàng
+        </div>
+
+        <h1 id="page-title">Giỏ hàng (0)</h1>
+
+        <div id="empty-view">
+            <div class="empty-icon">
+                <i class="fa-regular fa-face-frown"></i>
+            </div>
+            <div class="empty-text">Giỏ hàng trống</div>
+            
+            <a href="../../../index.html" class="btn-continue">Tiếp tục mua sắm</a>
+        </div>
+
+        <div id="populated-view" class="cart-layout hidden">
+            <div class="cart-left">
+                <div class="cart-header">
+                    <div class="col-prod">Sản phẩm</div>
+                    <div class="col-qty">Số lượng</div>
+                    <div class="col-price">Đơn giá</div>
+                    <div class="col-total">Tạm tính</div>
+                </div>
+
+                <div id="cart-list-container"></div>
+
+                <a href="../Sản phẩm và dịch vụ/Phụ kiện tóc giả/danh_muc_phu_kien.html" class="back-link">
+                    <i class="fa-solid fa-chevron-left"></i> Tiếp tục mua sắm
+                </a>
+            </div>
+
+            <div class="cart-right">
+                <div class="coupon-box">
+                    <input type="text" placeholder="Mã giảm giá">
+                    <button>Sử dụng</button>
+                </div>
+
+                <div class="summary-row">
+                    <span>Tạm tính:</span>
+                    <span id="subtotal">0 ₫</span>
+                </div>
+                <div class="summary-row">
+                    <span>Phí vận chuyển:</span>
+                    <span>Miễn phí vận chuyển</span>
+                </div>
+                <div class="divider"></div>
+                <div class="summary-row total-row">
+                    <span>Tổng cộng:</span>
+                    <span id="total">0 ₫</span>
+                </div>
+                <a href="../Thanh toán/index.html" class="btn-checkout" style="text-decoration: none; display: inline-block; text-align: center;">
+                    Thanh toán
+                    </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Lấy dữ liệu từ bộ nhớ
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+
+        // Các phần tử HTML
+        const elEmpty = document.getElementById('empty-view');
+        const elPopulated = document.getElementById('populated-view');
+        const elTitle = document.getElementById('page-title');
+        const elList = document.getElementById('cart-list-container');
+        const elSubtotal = document.getElementById('subtotal');
+        const elTotal = document.getElementById('total');
+
+        // Hàm định dạng tiền
+        const fmt = (n) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(n);
+
+        // HÀM CHÍNH: Render giao diện
+        function renderCart() {
+            // Cập nhật tiêu đề
+            elTitle.innerText = `Giỏ hàng (${cart.length})`;
+
+            if (cart.length === 0) {
+                // Nếu giỏ trống
+                elEmpty.classList.remove('hidden');
+                elPopulated.classList.add('hidden');
+            } else {
+                // Nếu có hàng
+                elEmpty.classList.add('hidden');
+                elPopulated.classList.remove('hidden');
+
+                let html = '';
+                let totalAmount = 0;
+
+                cart.forEach((item, index) => {
+                    let lineTotal = item.price * item.quantity;
+                    totalAmount += lineTotal;
+                    
+                    let img = item.image || 'https://via.placeholder.com/90';
+
+                    html += `
+                    <div class="cart-item">
+                        <div style="flex: 4; display: flex; align-items: center; padding-left: 15px;">
+                            <div class="trash-icon" onclick="removeItem(${index})">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </div>
+                            <img src="${img}" class="item-image">
+                            <div class="item-details">
+                                <h3>${item.name}</h3>
+                                ${item.details ? item.details.map(d => `<p>${d}</p>`).join('') : ''}
+                            </div>
+                        </div>
+
+                        <div class="col-qty">
+                            <div class="qty-group">
+                                <button class="qty-btn" onclick="updateQty(${index}, -1)">−</button>
+                                <input type="text" class="qty-input" value="${item.quantity}" readonly>
+                                <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                            </div>
+                        </div>
+
+                        <div class="col-price price-text">${fmt(item.price)}</div>
+                        
+                        <div class="col-total price-text">${fmt(lineTotal)}</div>
+                    </div>
+                    `;
+                });
+
+                elList.innerHTML = html;
+                elSubtotal.innerText = fmt(totalAmount);
+                elTotal.innerText = fmt(totalAmount);
+            }
+        }
+
+        // Tăng giảm số lượng
+        function updateQty(idx, change) {
+            if (cart[idx].quantity + change > 0) {
+                cart[idx].quantity += change;
+                saveAndRender();
+            }
+        }
+
+        // Xóa sản phẩm
+        function removeItem(idx) {
+            if(confirm("Bạn muốn xóa sản phẩm này?")) {
+                cart.splice(idx, 1);
+                saveAndRender();
+            }
+        }
+
+        // Lưu và vẽ lại
+        function saveAndRender() {
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Chạy ngay khi mở
+        renderCart();
+    </script>
+</body>
+</html>
+
+   <div id="footer-placeholder"></div>
+
+<script>
+        // Lấy thẻ Modal Quy trình
+        var modal = document.getElementById("modalOverlay");
+
+        // Hàm mở Modal
+        function moModal() {
+            modal.style.display = "flex";
+        }
+
+        // Hàm đóng Modal
+        function dongModal() {
+            modal.style.display = "none";
+        }
+
+        // Đóng khi bấm ra vùng đen bên ngoài
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Hàm giả lập gửi thông tin
+        function guiThongTin(e) {
+            e.preventDefault(); // Chặn tải lại trang
+            alert("Đã nhận thông tin đặt lịch!");
+            dongModal();
+        }
+    </script>
+    <script src="script.js"></script>
+    <script>
+    // 1. Tính tổng số lượng hàng đang có
+    let myCart = JSON.parse(localStorage.getItem('myCart')) || [];
+    let totalQty = 0;
+    myCart.forEach(item => {
+        totalQty += parseInt(item.quantity);
+    });
+
+    // 2. Tìm tất cả các thẻ có class "cart-count-badge" và điền số vào
+    const badges = document.querySelectorAll('.cart-count-badge');
+    
+    badges.forEach(badge => {
+        badge.innerText = totalQty; // Điền số lượng (ví dụ: 1)
+        
+        // Hiện thị badge nếu có hàng
+        if (totalQty > 0) {
+            badge.style.opacity = '1';
+            badge.style.visibility = 'visible';
+        } else {
+            badge.style.opacity = '0';
+        }
+    });
+
+    console.log("Đã cập nhật số lượng icon thành: " + totalQty);
+
+</script>
+<script src="../../assets/js/iconcuoitrang.js"></script>
+<script src="../../assets/js/load-components.js"></script>
+<script src="../../assets/js/globle.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Trang con: Thêm ../ vào trước
+        loadComponent("#header-placeholder", "../../components/header.html");
+        loadComponent("#footer-placeholder", "../../components/footer.html");
+    });
+</script>
+
+</body>
+</html>
